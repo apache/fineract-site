@@ -99,6 +99,18 @@ nav {
   color: #f8f8ff;
   font-size: 28pt;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.close-menu {
+  margin-left: 10px;
+  padding: 0;
+  color: #343434;
+  font-size: 28pt;
+  text-decoration: none;
+  cursor: pointer;
+  transform: rotate(90deg);
+  -wbekit-transform: rotate(90deg);
 }
 
 .modal {
@@ -118,7 +130,6 @@ nav {
 .menu-slider {
   top: 0px;
   margin: 0;
-  padding: 5px;
   width: 200px;
   height: 100%;
   visibility: hidden;
@@ -129,7 +140,12 @@ nav {
   z-index: 300;
 }
 
-.menu-slider>li {
+.menu-slider>ul {
+  margin-top: -5px;
+  padding: 0;
+}
+
+.menu-slider>ul>li {
   padding: 15px;
 }
 
@@ -211,6 +227,11 @@ h2 {
 
 .inline-list {
   margin-left: 20px;
+  margin-right: 20px;
+}
+
+.inline-list>li {
+  text-align: justify;
 }
 
 hr {
