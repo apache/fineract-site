@@ -109,8 +109,6 @@ nav {
   font-size: 28pt;
   text-decoration: none;
   cursor: pointer;
-  transform: rotate(90deg);
-  -wbekit-transform: rotate(90deg);
 }
 
 .modal {
