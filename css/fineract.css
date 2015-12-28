@@ -85,6 +85,7 @@ nav {
 }
 
 .fully-fledged {
+  margin-right: 20px;
   display: block;
   visibility: visible;
 }
@@ -144,7 +145,7 @@ nav {
 }
 
 .menu-slider>ul>li {
-  padding: 15px;
+  padding: 10px;
 }
 
 .slide-in {
@@ -165,8 +166,8 @@ nav {
 }
 
 .nav-link {
-  margin: 4px;
-  padding: 8px 16px;
+  margin: 0;
+  padding: 6px 12px;
   color: #f8f8ff;
   text-decoration: none;
   border-width: 2px;
@@ -177,8 +178,8 @@ nav {
 }
 
 .nav-link-inverse {
-  margin: 4px;
-  padding: 8px 16px;
+  margin: 0;
+  padding: 6px 12px;
   color: #343434;
   text-decoration: none;
   border-width: 2px;
@@ -214,8 +215,14 @@ main {
 }
 
 h2 {
+  margin: 10px 20px;
   font-size: 18pt;
   text-transform: uppercase;
+}
+
+.inverse-h2 {
+  padding-top: 10px;
+  color: #f8f8ff;
 }
 
 .text-justified {
@@ -252,19 +259,39 @@ footer {
   margin: 0;
   padding: 0;
   width: 100%;
-  text-align: center;
+  color: #f8f8ff;
+  background-color: #343434;
 }
 
 .copyright {
   margin: 10px 20px;
   font-size: 12pt;
+  text-align: center;
 }
 
 .image-link {
+  margin: 10px 20px;
   text-decoration: none;
 }
 
-@media screen and (max-width: 700px) {
+.inverse-line {
+  background: #f8f8ff;
+  background-image: linear-gradient(to right, #343434, #f8f8ff, #343434);
+}
+
+.nav-link-reference {
+  margin: 0px 20px;
+  padding: 0;
+  color: #f8f8ff;
+  text-decoration: none;
+  transition: color .25s ease-in-out;
+}
+
+.nav-link-reference:hover {
+  color: #0973ba;
+}
+
+@media screen and (max-width: 850px) {
   body {
     font-size: 16pt;
   }
