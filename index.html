@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <!--
   Licensed to the Apache Software Foundation (ASF) under one
   or more contributor license agreements.  See the NOTICE file
@@ -17,230 +18,220 @@
   specific language governing permissions and limitations
   under the License.
 -->
-<html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Apache Fineract (incubating)</title>
   <link rel="icon" type="image/png" href="images/apache-fineract-icon.png">
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,latin-ext">
-  <link rel="stylesheet" type="text/css" href="css/fineract.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,latin-ext" type="text/css" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.min.css" type="text/css" rel="stylesheet"/>
+  <link href="css/fineract.css" type="text/css" rel="stylesheet">
 </head>
-<body id="top">
+<body id="top" class="ghost-white jet-text">
   <header>
-    <div class="container">
-      <div class="brand">
-        <a href="#top"><img class="logo" src="images/apache-fineract-logo.png" alt="Fineract Logo"/></a>
-        <span class="tag-line">Apache <strong>Fineract</strong> <small>(incubating)</small></span>
-      </div>
-      <nav>
-        <div class="fully-fledged">
-          <a class="nav-link nav-link-green" href="#about">About</a>
-          <a class="nav-link nav-link-blue" href="#contribute">Contribute</a>
-          <a class="nav-link nav-link-magenta" href="#docs">Resources</a>
-          <a class="nav-link nav-link-blue" href="#disclaimer">Disclaimer</a>
-          <a class="nav-link nav-link-green" href="#reference">Reference</a>
-        </div>
-        <div class="collapsed">
-          <span class="tripple-bar">&equiv;</span>
+    <div class="navbar-fixed">
+      <nav class="jet ghost-white-text">
+        <div class="nav-wrapper">
+          <div class="container">
+            <a href="#top" class="brand-logo">
+              <img class="logo" src="images/apache-fineract-logo.png" alt="Fineract Logo"/>
+              <span class="brand">Apache Fineract <sup><small>(incubating)</small></sup></span>
+            </a>
+            <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a class="ghost-white-hover" href="#about">About</a></li>
+              <li><a class="ghost-white-hover" href="#contribute">Contribute</a></li>
+              <li><a class="ghost-white-hover" href="#resources">Resources</a></li>
+              <li><a class="ghost-white-hover" href="#disclaimer">Disclaimer</a></li>
+              <li><a class="ghost-white-hover" href="#reference">Reference</a></li>
+            </ul>
+            <ul class="side-nav ghost-white jet-text" id="mobile-menu">
+              <li class="side-nav-heading">Apache Fineract <sup><small>(incubating)</small></sup></li>
+              <li><a class="jet-hover" href="#about" onclick="closeSideNav()">About</a></li>
+              <li><a class="jet-hover" href="#contribute" onclick="closeSideNav()">Contribute</a></li>
+              <li><a class="jet-hover" href="#resources" onclick="closeSideNav()">Resources</a></li>
+              <li><a class="jet-hover" href="#disclaimer" onclick="closeSideNav()">Disclaimer</a></li>
+              <li><a class="jet-hover" href="#reference" onclick="closeSideNav()">Reference</a></li>
+            </ul>
+          </div>
         </div>
       </nav>
     </div>
-    <div class="modal"></div>
-    <div class="menu-slider slide-out">
-      <span class="close-menu">&equiv;</span>
-      <ul>
-        <li><a class="nav-link-inverse nav-link-green menu-slider-item" href="#about">About</a></li>
-        <li><a class="nav-link-inverse nav-link-blue menu-slider-item" href="#contribute">Contribute</a></li>
-        <li><a class="nav-link-inverse nav-link-magenta menu-slider-item" href="#docs">Resources</a></li>
-        <li><a class="nav-link-inverse nav-link-blue menu-slider-item" href="#disclaimer">Disclaimer</a></li>
-        <li><a class="nav-link-inverse nav-link-green menu-slider-item" href="#reference">Reference</a></li>
-      </ul>
-    </div>
   </header>
-  <main>
-    <div class="container">
-      <section id="info">
-        <div class="heading">
-          <h2>Platform for Digital Financial Services</h2>
-        </div>
-        <p class="text-justified">
-          Apache Fineract (&#92;&#8217;fīn-,<small>&#477;</small>-ˌrakt&#92;) is an open source system for core banking as a platform. Fineract provides a reliable, robust, and affordable solution for entrepreneurs, financial institutions, and service providers to offer financial services to the world’s 2 billion underbanked and unbanked.
-        </p>
-      </section>
-      <hr>
-      <section id="about">
-        <div class="heading">
-          <h2>About</h2>
-        </div>
-        <p class="text-justified">
-          Apache Fineract can be deployed in any environment: cloud or on-premise, on or offline, mobile or PC; it’s extensible enough to support any organizational type or delivery channel, and flexible enough to support any product, service, or methodology. For any organization, big or small, it will provide the client data management, loan and savings portfolio management, integrated real time accounting, and social and financial reporting needed to bring digital financial services in a modern connected world.
-        </p>
-        <h3 class="text-justified">Rapid Product Creation</h3>
-        <p class="text-justified">
+  <main class="container">
+    <section class="section">
+      <h3 class="center-align">Platform for Digital Financial Services</h3>
+      <p class="flow-text justify-align">
+        Apache Fineract (&#92;&#8217;fīn-,&#477;-ˌrakt&#92;) is an open source system for core banking as a platform. Fineract provides a reliable, robust, and affordable solution for entrepreneurs, financial institutions, and service providers to offer financial services to the world’s 2 billion underbanked and unbanked.
+      </p>
+      <div class="divider"></div>
+    </section>
+    <section id="about" class="section">
+      <h3 class="center-align">About</h3>
+      <p class="flow-text justify-align">
+        Apache Fineract can be deployed in any environment: cloud or on-premise, on or offline, mobile or PC; it’s extensible enough to support any organizational type or delivery channel, and flexible enough to support any product, service, or methodology. For any organization, big or small, it will provide the client data management, loan and savings portfolio management, integrated real time accounting, and social and financial reporting needed to bring digital financial services in a modern connected world.
+      </p>
+      <article>
+        <h4>Rapid Product Creation</h4>
+        <p class="flow-text justify-align">
           Our flexible product creation engine allows you to instantly create, configure and roll out brand new products across any of your branches. You can respond to client demand in no time. You can also configure your product mix to ensure clients can only take on a responsible amount of loans at one time.
         </p>
-        <h3 class="text-justified">Multiple Lending Methodologies</h3>
-        <p class="text-justified">
+      </article>
+      <article>
+        <h4>Multiple Lending Methodologies</h4>
+        <p class="flow-text justify-align">
           The Apache Fineract API supports
         </p>
-        <ul class="inline-list">
-          <li>individual lending,</li>
-          <li>Grameen Joint Liability group lending,</li>
-          <li>multi-tranche loans,</li>
-          <li>standing instructions for automated payments,</li>
-          <li>and co-op lending.</li>
+        <ul class="flow-text justify-align">
+          <li class="circle-list-style">individual lending,</li>
+          <li class="circle-list-style">Grameen Joint Liability Group lending,</li>
+          <li class="circle-list-style">multi-tranche loans,</li>
+          <li class="circle-list-style">standing instructions for automated payments,</li>
+          <li class="circle-list-style">and co-op lending.</li>
         </ul>
-        <p class="text-justified">
+        <p class="flow-text justify-align">
           For group lending, we have full functionality to configure and manage groups including client, group, center information and hierarchy.
         </p>
-        <h3 class="text-justified">Full Range of Deposit Products</h3>
-        <p class="text-justified">
+      </article>
+      <article>
+        <h4>Full Range of Deposit Products</h4>
+        <p class="flow-text justify-align">
           Savings is one of the most proven services in the financial inclusion toolkit. Apache Fineract supports your organization as it moves beyond basic passbook savings with support for
         </p>
-        <ul class="inline-list">
-          <li>fixed (term) deposits,</li>
-          <li>recurring deposits,</li>
-          <li>and current accounts.</li>
+        <ul class="flow-text justify-align">
+          <li class="circle-list-style">fixed (term) deposits,</li>
+          <li class="circle-list-style">recurring deposits,</li>
+          <li class="circle-list-style">and current accounts.</li>
         </ul>
-        <p class="text-justified">
+        <p class="flow-text justify-align">
           Your client can benefit from a fluid mix of deposit and credit products to help them store up the funds to resist shocks and grow income needed to make larger purchases and investments.
         </p>
-        <h3 class="text-justified">Interest, Penalties, and Fees</h3>
-        <p class="text-justified">
+      </article>
+      <article>
+        <h4>Interest, Penalties, and Fees</h4>
+        <p class="flow-text justify-align">
           Apache Fineract supports:
         </p>
-        <ul class="inline-list">
-          <li>calculation of interest balance on daily or average daily balance with the ability to specify the compounding period daily or monthly</li>
-          <li>flat or percentage-based fees that can be applied and collected on a specific due date</li>
-          <li>minimum opening balance and a locking period that can be defined in days, weeks, months, and years</li>
+        <ul class="flow-text justify-align">
+          <li class="circle-list-style">calculation of interest balance on daily or average daily balance with the ability to specify the compounding period daily or monthly</li>
+          <li class="circle-list-style">flat or percentage-based fees that can be applied and collected on a specific due date</li>
+          <li class="circle-list-style">minimum opening balance and a locking period that can be defined in days, weeks, months, and years</li>
         </ul>
-      </section>
-      <hr>
-      <section id="contribute">
-        <div class="heading">
-          <h2>Contribute</h2>
-        </div>
-        <p class="text-justified">
-          The Apache Fineract (incubating) community welcomes contributors who want to support the Fineract technology. Our community builds everything from this website, from the Fineract code to documentation and best practices information.
+      </article>
+      <div class="divider"></div>
+    </section>
+    <section id="contribute" class="section">
+      <h3 class="center-align">Contribute</h3>
+      <p class="flow-text justify-align">
+        The Apache Fineract (incubating) community welcomes contributors who want to support the Fineract technology. Our community builds everything from this website, from the Fineract code to documentation and best practices information.
+      </p>
+      <p class="flow-text justify-align">
+        We especially welcome additions and corrections to the documentation, wiki, and website to improve the user experience. Bug reports and fixes and additions to the Apache Fineract code are welcome. Helping users learn best practices also earns good karma in our community.
+      </p>
+      <article>
+        <h4>Mailing Lists</h4>
+        <h5>Users</h5>
+        <p class="flow-text justify-align">
+          <i>Perfect if you build on top of or deploy Apache Fineract.</i><br/>
+          To subscribe, send a blank email to <a href="mailto:user-subscribe@fineract.incubator.apache.org">user-subscribe@fineract.incubator.apache.org</a>. You can also <a href="http://markmail.org/search/?q=list%3Aorg.apache.fineract.user+order%3Adate-backward" target="_blank">read the archives</a>.
         </p>
-        <p class="text-justified">
-          We especially welcome additions and corrections to the documentation, wiki, and website to improve the user experience. Bug reports and fixes and additions to the Apache Fineract code are welcome. Helping users learn best practices also earns good karma in our community.
-        </p>
-        <h3 class="text-justified">Mailing Lists</h3>
-        <h4 class="text-justified">Users</h4>
-        <p class="text-justified">
-          <i>Perfect if you build on top of or deploy Apache Fineract</i>.<br/>
-          To subscribe, send a blank email to <a class="inline-link" href="mailto:user-subscribe@fineract.incubator.apache.org">user-subscribe@fineract.incubator.apache.org</a>. You can also <a class="inline-link" href="http://markmail.org/search/?q=list%3Aorg.apache.fineract.user+order%3Adate-backward" target="_blank">read the archives</a>.
-        </p>
-        <h4 class="text-justified">Developers</h4>
-        <p class="text-justified">
+        <h5>Developers</h5>
+        <p class="flow-text justify-align">
           <i>If you are building contributions and modifications to Apache Fineract this is the list for you.</i><br/>
-          To subscribe, send a blank email to <a class="inline-link" href="mailto:dev-subscribe@fineract.incubator.apache.org">dev-subscribe@fineract.incubator.apache.org</a>. You can also <a class="inline-link" href="http://markmail.org/search/?q=list%3Aorg.apache.fineract.dev+order%3Adate-backward" target="_blank">read the archives</a>.
+          To subscribe, send a blank email to <a href="mailto:dev-subscribe@fineract.incubator.apache.org">dev-subscribe@fineract.incubator.apache.org</a>. You can also <a href="http://markmail.org/search/?q=list%3Aorg.apache.fineract.dev+order%3Adate-backward" target="_blank">read the archives</a>.
         </p>
-        <h4 class="text-justified">Commits</h4>
-        <p class="text-justified">
+        <h5>Commits</h5>
+        <p class="flow-text justify-align">
           <i>This list receives an email whenever new code is contributed to Apache Fineract</i>.<br/>
-          To subscribe, send a blank email to <a class="inline-link" href="mailto:commits-subscribe@fineract.incubator.apache.org">commits-subscribe@fineract.incubator.apache.org</a>. You can also <a class="inline-link" href="http://markmail.org/search/?q=list%3Aorg.apache.fineract.commits+order%3Adate-backward" target="_blank">read the archives</a>.
+          To subscribe, send a blank email to <a href="mailto:commits-subscribe@fineract.incubator.apache.org">commits-subscribe@fineract.incubator.apache.org</a>. You can also <a href="http://markmail.org/search/?q=list%3Aorg.apache.fineract.commits+order%3Adate-backward" target="_blank">read the archives</a>.
         </p>
-      </section>
-      <hr>
-      <section id="docs">
-        <div class="heading">
-          <h2>Resources</h2>
-        </div>
-        <h4 class="text-justified">Documentation</h4>
-        <p class="text-justified">
-          <a class="inline-link" href="https://cwiki.apache.org/confluence/display/FINERACT/Contributor%27s+Zone" target="_blank">Contributor's Zone</a><br/>
+      </article>
+      <div class="divider"></div>
+    </section>
+    <section id="resources" class="section">
+      <h3 class="center-align">Resources</h3>
+      <article>
+        <h4>Documentation</h4>
+        <p class="flow-text justify-align">
+          <a href="https://cwiki.apache.org/confluence/display/FINERACT/Contributor%27s+Zone" target="_blank">Contributor's Zone</a><br/>
           Here you will find guides about getting started, how to contribute, and build instructions.
         </p>
-        <p class="text-justified">
-          <a class="inline-link" href="https://cwiki.apache.org/confluence/display/FINERACT/Committer%27s+Zone" target="_blank">Committer's Zone</a><br/>
+        <p class="flow-text justify-align">
+          <a href="https://cwiki.apache.org/confluence/display/FINERACT/Committer%27s+Zone" target="_blank">Committer's Zone</a><br/>
           Here you will find guides about handling pull requests, and dealing with code reviews.
         </p>
-        <h4 class="text-justified">Repositories</h4>
-        <p class="text-justified">
-          <a class="inline-link" href="https://github.com/apache/incubator-fineract" target="_blank">Apache Fineract</a><br/>
+      </article>
+      <article>
+        <h4>Repositories</h4>
+        <p class="flow-text justify-align">
+          <a href="https://github.com/apache/incubator-fineract" target="_blank">Apache Fineract</a><br/>
           Here you will find the source code for Apache Fineract.
         </p>
-        <p class="text-justified">
-          <a class="inline-link" href="https://github.com/apache/incubator-fineract-site" target="_blank">Web Site</a><br/>
+        <p class="flow-text justify-align">
+          <a href="https://github.com/apache/incubator-fineract-site" target="_blank">Web Site</a><br/>
           Here you will find the source code for this web site.
         </p>
-      </section>
-      <hr>
-      <section id="disclaimer">
-        <div class="heading">
-          <h2>Disclaimer</h2>
-        </div>
-        <p class="text-justified">
-          Apache Fineract is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator PMC. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
-        </p>
-      </section>
-    </div>
+      </article>
+      <div class="divider"></div>
+    </section>
+    <section id="disclaimer" class="section">
+      <h3 class="center-align">Disclaimer</h3>
+      <p class="flow-text justify-align">
+        Apache Fineract is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator PMC. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
+      </p>
+    </section>
   </main>
-  <footer>
-    <section id="reference">
-      <div class="container">
-        <div class="heading">
-          <h2 class="inverse-h2">Reference</h2>
-        </div>
-        <a class="nav-link-reference" href="http://www.apache.org/" target="_blank">The Apache Software Foundation</a><br/>
-        <a class="nav-link-reference" href="http://www.apache.org/licenses/" target="_blank">License</a><br/>
-        <a class="nav-link-reference" href="http://www.apache.org/foundation/sponsorship.html" target="_blank">Sponsorship</a><br/>
-        <a class="nav-link-reference" href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a><br/>
-        <a class="nav-link-reference" href="http://www.apache.org/security/" target="_blank">Security</a><br/>
-        <hr class="inverse-line">
-        <p class="copyright">
-          &copy; 2009 - 2015&nbsp;<a class="inline-link" href="http://apache.org/" target="_blank">The Apache Software Foundation</a>. Licensed under the <a class="inline-link" href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License, Version 2.0</a>.<br/>
+  <footer class="page-footer">
+    <div class="container">
+      <section id="reference" class="section">
+        <h3>Reference</h3>
+        <p class="flow-text">
+          <a class="link-inverse" href="http://www.apache.org/" target="_blank">The Apache Software Foundation</a><br/>
+          <a class="link-inverse" href="http://www.apache.org/licenses/" target="_blank">License</a><br/>
+          <a class="link-inverse" href="http://www.apache.org/foundation/sponsorship.html" target="_blank">Sponsorship</a><br/>
+          <a class="link-inverse" href="http://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a><br/>
+          <a class="link-inverse" href="http://www.apache.org/security/" target="_blank">Security</a><br/>
+        </p>
+        <div class="divider divider-inverse"></div>
+        <p class="flow-text center-align">
+          &copy; 2009 - 2016&nbsp;<a class="link-inverse" href="http://apache.org/" target="_blank">The Apache Software Foundation</a>. Licensed under the <a class="link-inverse" href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License, Version 2.0</a>.<br/>
           Apache Incubator, Apache, the Apache feather logo, and the Apache Incubator project logo are trademarks of The Apache Software Foundation.<br/>
         </p>
-        <p class="copyright">
-          <a class="image-link" href="http://incubator.apache.org/" target="_blank">
+        <p class="flow-text center-align">
+          <a class="link-inverse" href="http://incubator.apache.org/" target="_blank">
             <img src="images/egg-logo.png" alt="Apache Incubator Logo"/>
           </a>
         </p>
-      </div>
-    </section>
+      </section>
+    </div>
   </footer>
   <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript">
-  $(function() {
-    $('a[href*=#]:not([href=#])').click(function() {
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-        var target = $(this.hash);
-        var headerHeight = $('body').find('header').height();
-        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-        if (target.length) {
-          $('html,body').animate({
-            scrollTop: target.offset().top - (headerHeight + 10)
-          }, 1000);
-          return false;
-        }
-      }
+    $(document).ready(function() {
+      $(".button-collapse").sideNav({closeOnClick: true});
+
+      $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            var headerHeight = $('body').find('header').height();
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+              $('html,body').animate({
+                scrollTop: target.offset().top - (headerHeight + 5)
+              }, 1000);
+              return false;
+            }
+          }
+        });
+      });
     });
 
-    $('.tripple-bar').click(function() {
-      if ($('.menu-slider').css('visibility') === 'hidden') {
-        $('.menu-slider').css({visibility: 'visible'});
-      }
-      $('.menu-slider').toggleClass('slide-out slide-in')
-      $(".modal").css({ opacity: 1 });
-    });
-
-    $('.menu-slider-item').click(function() {
-      closeMenu();
-    });
-
-    $('.close-menu').click(function() {
-      closeMenu();
-    });
-  });
-
-  function closeMenu() {
-    $('.menu-slider').toggleClass('slide-in slide-out')
-    $(".modal").css({ opacity: 0 });
-  }
+    function closeSideNav() {
+      $('.button-collapse').sideNav('hide');
+    }
   </script>
 </body>
 </html>
