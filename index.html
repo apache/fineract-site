@@ -287,7 +287,7 @@
         </p>
         <div class="divider divider-inverse"></div>
         <p class="flow-text center-align">
-          &copy; 2009 - 2018&nbsp;<a class="link-inverse" href="http://apache.org/" target="_blank">The Apache Software Foundation</a>. Licensed under the <a class="link-inverse" href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License, Version 2.0</a>.<br/>
+		&copy; 2009 - <span id="current-year">2020</span>&nbsp;<a class="link-inverse" href="http://apache.org/" target="_blank">The Apache Software Foundation</a>. Licensed under the <a class="link-inverse" href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License, Version 2.0</a>.<br/>
           Apache, and the Apache feather logo are trademarks of The Apache Software Foundation.<br/>
         </p>
       </section>
@@ -298,6 +298,7 @@
   <script type="text/javascript">
     $(document).ready(function() {
       $(".button-collapse").sideNav({closeOnClick: true});
+      $("#current-year").text(new Date().getFullYear());
 
       $(function() {
         $('a[href*=#]:not([href=#])').click(function() {
