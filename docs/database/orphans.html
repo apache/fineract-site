@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>fineract_default Database</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="bower/html5shiv/html5shiv.min.js"></script>
+        <script src="bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="index.html" class="navbar-brand"><b>fineract_default</b> Database</a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>Utility Tables</h1>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 class="box-title">Orphan Tables</h3>
+                        </div>
+                        <div class="box-body">
+                            <div id="grid" data-columns>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="rpt_sequenceDegreeImg" data="diagrams/orphans/rpt_sequence.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="c_cacheDegreeImg" data="diagrams/orphans/c_cache.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="m_template_m_templatemappersDegreeImg" data="diagrams/orphans/m_template_m_templatemappers.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="m_report_mailing_job_configurationDegreeImg" data="diagrams/orphans/m_report_mailing_job_configuration.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="mix_xbrl_namespaceDegreeImg" data="diagrams/orphans/mix_xbrl_namespace.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="oauth_refresh_tokenDegreeImg" data="diagrams/orphans/oauth_refresh_token.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="ppi_likelihoodsDegreeImg" data="diagrams/orphans/ppi_likelihoods.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="ppi_scoresDegreeImg" data="diagrams/orphans/ppi_scores.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="scheduled_email_configurationDegreeImg" data="diagrams/orphans/scheduled_email_configuration.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="twofactor_configurationDegreeImg" data="diagrams/orphans/twofactor_configuration.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="c_account_number_formatDegreeImg" data="diagrams/orphans/c_account_number_format.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="databasechangeloglockDegreeImg" data="diagrams/orphans/DATABASECHANGELOGLOCK.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="m_templatemappersDegreeImg" data="diagrams/orphans/m_templatemappers.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="ppi_likelihoods_ppiDegreeImg" data="diagrams/orphans/ppi_likelihoods_ppi.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="scheduler_detailDegreeImg" data="diagrams/orphans/scheduler_detail.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="m_password_validation_policyDegreeImg" data="diagrams/orphans/m_password_validation_policy.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="m_working_daysDegreeImg" data="diagrams/orphans/m_working_days.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="mix_taxonomy_mappingDegreeImg" data="diagrams/orphans/mix_taxonomy_mapping.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="r_enum_valueDegreeImg" data="diagrams/orphans/r_enum_value.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="m_trial_balanceDegreeImg" data="diagrams/orphans/m_trial_balance.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="m_creditbureau_tokenDegreeImg" data="diagrams/orphans/m_creditbureau_token.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="m_field_configurationDegreeImg" data="diagrams/orphans/m_field_configuration.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="m_organisation_currencyDegreeImg" data="diagrams/orphans/m_organisation_currency.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="mix_taxonomyDegreeImg" data="diagrams/orphans/mix_taxonomy.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="oauth_access_tokenDegreeImg" data="diagrams/orphans/oauth_access_token.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="c_configurationDegreeImg" data="diagrams/orphans/c_configuration.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="m_selfservice_beneficiaries_tptDegreeImg" data="diagrams/orphans/m_selfservice_beneficiaries_tpt.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="oauth_client_detailsDegreeImg" data="diagrams/orphans/oauth_client_details.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                                <div class="item">
+                                    <object type="image/svg+xml" id="databasechangelogDegreeImg" data="diagrams/orphans/DATABASECHANGELOG.1degree.svg" style="max-width:100%;" border="0" align="top"></object>
+                                </div>
+                            </div>
+                            <map id="rpt_sequence" name="rpt_sequence">
+<area shape="rect" id="node1" href="../../tables/rpt_sequence.html" target="_top" title="rpt_sequence" alt="" coords="5,5,228,104">
+</map><map id="c_cache" name="c_cache">
+<area shape="rect" id="node1" href="../../tables/c_cache.html" target="_top" title="c_cache" alt="" coords="5,5,285,133">
+</map><map id="m_template_m_templatemappers" name="m_template_m_templatemappers">
+<area shape="rect" id="node1" href="../../tables/m_template_m_templatemappers.html" target="_top" title="m_template_m_templatemappers" alt="" coords="5,5,425,133">
+</map><map id="m_report_mailing_job_configuration" name="m_report_mailing_job_configuration">
+<area shape="rect" id="node1" href="../../tables/m_report_mailing_job_configuration.html" target="_top" title="m_report_mailing_job_configuration" alt="" coords="5,5,471,163">
+</map><map id="mix_xbrl_namespace" name="mix_xbrl_namespace">
+<area shape="rect" id="node1" href="../../tables/mix_xbrl_namespace.html" target="_top" title="mix_xbrl_namespace" alt="" coords="5,5,335,163">
+</map><map id="oauth_refresh_token" name="oauth_refresh_token">
+<area shape="rect" id="node1" href="../../tables/oauth_refresh_token.html" target="_top" title="oauth_refresh_token" alt="" coords="5,5,333,163">
+</map><map id="ppi_likelihoods" name="ppi_likelihoods">
+<area shape="rect" id="node1" href="../../tables/ppi_likelihoods.html" target="_top" title="ppi_likelihoods" alt="" coords="5,5,283,163">
+</map><map id="ppi_scores" name="ppi_scores">
+<area shape="rect" id="node1" href="../../tables/ppi_scores.html" target="_top" title="ppi_scores" alt="" coords="5,5,225,163">
+</map><map id="scheduled_email_configuration" name="scheduled_email_configuration">
+<area shape="rect" id="node1" href="../../tables/scheduled_email_configuration.html" target="_top" title="scheduled_email_configuration" alt="" coords="5,5,427,163">
+</map><map id="twofactor_configuration" name="twofactor_configuration">
+<area shape="rect" id="node1" href="../../tables/twofactor_configuration.html" target="_top" title="twofactor_configuration" alt="" coords="5,5,373,163">
+</map><map id="c_account_number_format" name="c_account_number_format">
+<area shape="rect" id="node1" href="../../tables/c_account_number_format.html" target="_top" title="c_account_number_format" alt="" coords="5,5,376,192">
+</map><map id="DATABASECHANGELOGLOCK" name="DATABASECHANGELOGLOCK">
+<area shape="rect" id="node1" href="../../tables/DATABASECHANGELOGLOCK.html" target="_top" title="DATABASECHANGELOGLOCK" alt="" coords="5,5,404,192">
+</map><map id="m_templatemappers" name="m_templatemappers">
+<area shape="rect" id="node1" href="../../tables/m_templatemappers.html" target="_top" title="m_templatemappers" alt="" coords="5,5,333,192">
+</map><map id="ppi_likelihoods_ppi" name="ppi_likelihoods_ppi">
+<area shape="rect" id="node1" href="../../tables/ppi_likelihoods_ppi.html" target="_top" title="ppi_likelihoods_ppi" alt="" coords="5,5,319,192">
+</map><map id="scheduler_detail" name="scheduler_detail">
+<area shape="rect" id="node1" href="../../tables/scheduler_detail.html" target="_top" title="scheduler_detail" alt="" coords="5,5,379,192">
+</map><map id="m_password_validation_policy" name="m_password_validation_policy">
+<area shape="rect" id="node1" href="../../tables/m_password_validation_policy.html" target="_top" title="m_password_validation_policy" alt="" coords="5,5,419,221">
+</map><map id="m_working_days" name="m_working_days">
+<area shape="rect" id="node1" href="../../tables/m_working_days.html" target="_top" title="m_working_days" alt="" coords="5,5,443,221">
+</map><map id="mix_taxonomy_mapping" name="mix_taxonomy_mapping">
+<area shape="rect" id="node1" href="../../tables/mix_taxonomy_mapping.html" target="_top" title="mix_taxonomy_mapping" alt="" coords="5,5,365,221">
+</map><map id="r_enum_value" name="r_enum_value">
+<area shape="rect" id="node1" href="../../tables/r_enum_value.html" target="_top" title="r_enum_value" alt="" coords="5,5,373,221">
+</map><map id="m_trial_balance" name="m_trial_balance">
+<area shape="rect" id="node1" href="../../tables/m_trial_balance.html" target="_top" title="m_trial_balance" alt="" coords="5,5,295,251">
+</map><map id="m_creditbureau_token" name="m_creditbureau_token">
+<area shape="rect" id="node1" href="../../tables/m_creditbureau_token.html" target="_top" title="m_creditbureau_token" alt="" coords="5,5,415,280">
+</map><map id="m_field_configuration" name="m_field_configuration">
+<area shape="rect" id="node1" href="../../tables/m_field_configuration.html" target="_top" title="m_field_configuration" alt="" coords="5,5,343,280">
+</map><map id="m_organisation_currency" name="m_organisation_currency">
+<area shape="rect" id="node1" href="../../tables/m_organisation_currency.html" target="_top" title="m_organisation_currency" alt="" coords="5,5,404,280">
+</map><map id="mix_taxonomy" name="mix_taxonomy">
+<area shape="rect" id="node1" href="../../tables/mix_taxonomy.html" target="_top" title="mix_taxonomy" alt="" coords="5,5,288,280">
+</map><map id="oauth_access_token" name="oauth_access_token">
+<area shape="rect" id="node1" href="../../tables/oauth_access_token.html" target="_top" title="oauth_access_token" alt="" coords="5,5,328,280">
+</map><map id="c_configuration" name="c_configuration">
+<area shape="rect" id="node1" href="../../tables/c_configuration.html" target="_top" title="c_configuration" alt="" coords="5,5,288,309">
+</map><map id="m_selfservice_beneficiaries_tpt" name="m_selfservice_beneficiaries_tpt">
+<area shape="rect" id="node1" href="../../tables/m_selfservice_beneficiaries_tpt.html" target="_top" title="m_selfservice_beneficiaries_tpt" alt="" coords="5,5,421,339">
+</map><map id="oauth_client_details" name="oauth_client_details">
+<area shape="rect" id="node1" href="../../tables/oauth_client_details.html" target="_top" title="oauth_client_details" alt="" coords="5,5,372,397">
+</map><map id="DATABASECHANGELOG" name="DATABASECHANGELOG">
+<area shape="rect" id="node1" href="../../tables/DATABASECHANGELOG.html" target="_top" title="DATABASECHANGELOG" alt="" coords="5,5,356,485">
+</map>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="bower/pdfmake/pdfmake.min.js"></script>
+        <script src="bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="bower/codemirror/codemirror.js"></script>
+        <script src="bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="bower/admin-lte/dist/js/app.min.js"></script>
+        <script src=""></script>
+        <script src="schemaSpy.js"></script>
+    </body>
+</html>

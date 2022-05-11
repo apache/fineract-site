@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>m_savings_account_transaction - fineract_default Database</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="../schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="../bower/html5shiv/html5shiv.min.js"></script>
+        <script src="../bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../index.html" class="navbar-brand"><b>fineract_default</b> Database</a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="../routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>m_savings_account_transaction</h1><p><span id="recordNumber">0</span> rows</p><br />
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            <h3 id="Columns" class="box-title">Columns</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Column</th>
+                                    <th>Type</th>
+                                    <th>Size</th>
+                                    <th title='Are nulls allowed?'>Nulls</th>
+                                    <th title='Is column automatically updated?'>Auto</th>
+                                    <th title='Default value'>Default</th>
+                                    <th title='Columns in tables that reference this column'>Children</th>
+                                    <th title='Columns in tables that are referenced by this column'>Parents</th>
+                                    <th title='Comments' class="toggle"><span>Comments</span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="id">id</span></td>
+                                    <td>BIGINT</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title='Automatically updated by the database'>√</td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="acc_gl_journal_entry.savings_transaction_id references m_savings_account_transaction.id via FK_acc_gl_journal_entry_m_savings_account_transaction"><a href='acc_gl_journal_entry.html'>acc_gl_journal_entry</a><span class='relatedKey'>.savings_transaction_id</span></td>
+                                                <td class="constraint detail">FK_acc_gl_journal_entry_m_savings_account_transaction<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_account_transfer_transaction.from_savings_transaction_id references m_savings_account_transaction.id via FK_m_account_transfer_transaction_from_m_savings_transaction"><a href='m_account_transfer_transaction.html'>m_account_transfer_transaction</a><span class='relatedKey'>.from_savings_transaction_id</span></td>
+                                                <td class="constraint detail">FK_m_account_transfer_transaction_from_m_savings_transaction<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_account_transfer_transaction.to_savings_transaction_id references m_savings_account_transaction.id via FK_m_account_transfer_transaction_to_m_savings_transaction"><a href='m_account_transfer_transaction.html'>m_account_transfer_transaction</a><span class='relatedKey'>.to_savings_transaction_id</span></td>
+                                                <td class="constraint detail">FK_m_account_transfer_transaction_to_m_savings_transaction<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_savings_account_charge_paid_by.savings_account_transaction_id references m_savings_account_transaction.id via FK__m_savings_account_transaction"><a href='m_savings_account_charge_paid_by.html'>m_savings_account_charge_paid_by</a><span class='relatedKey'>.savings_account_transaction_id</span></td>
+                                                <td class="constraint detail">FK__m_savings_account_transaction<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_savings_account_transaction_tax_details.savings_transaction_id references m_savings_account_transaction.id via FK_savings_account_transaction_tax_details_savings_transaction"><a href='m_savings_account_transaction_tax_details.html'>m_savings_account_transaction_tax_details</a><span class='relatedKey'>.savings_transaction_id</span></td>
+                                                <td class="constraint detail">FK_savings_account_transaction_tax_details_savings_transaction<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="savings_account_id">savings_account_id</span></td>
+                                    <td>BIGINT</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="m_savings_account_transaction.savings_account_id references m_savings_account.id via FKSAT0000000001"><a href='m_savings_account.html'>m_savings_account</a><span class='relatedKey'>.id</span></td>
+                                                <td class="constraint detail">FKSAT0000000001<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="office_id">office_id</span></td>
+                                    <td>BIGINT</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="m_savings_account_transaction.office_id references m_office.id via FK_m_savings_account_transaction_m_office"><a href='m_office.html'>m_office</a><span class='relatedKey'>.id</span></td>
+                                                <td class="constraint detail">FK_m_savings_account_transaction_m_office<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="payment_detail_id">payment_detail_id</span></td>
+                                    <td>BIGINT</td>
+                                    <td>19</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>NULL</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="m_savings_account_transaction.payment_detail_id references m_payment_detail.id via FK_m_savings_account_transaction_m_payment_detail"><a href='m_payment_detail.html'>m_payment_detail</a><span class='relatedKey'>.id</span></td>
+                                                <td class="constraint detail">FK_m_savings_account_transaction_m_payment_detail<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="transaction_type_enum">transaction_type_enum</span></td>
+                                    <td>SMALLINT</td>
+                                    <td>5</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="is_reversed">is_reversed</span></td>
+                                    <td>BIT</td>
+                                    <td>1</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="transaction_date">transaction_date</span></td>
+                                    <td>DATE</td>
+                                    <td>10</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="amount">amount</span></td>
+                                    <td>DECIMAL</td>
+                                    <td>19,6</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="overdraft_amount_derived">overdraft_amount_derived</span></td>
+                                    <td>DECIMAL</td>
+                                    <td>19,6</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>NULL</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="balance_end_date_derived">balance_end_date_derived</span></td>
+                                    <td>DATE</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>NULL</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="balance_number_of_days_derived">balance_number_of_days_derived</span></td>
+                                    <td>INT</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>NULL</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="running_balance_derived">running_balance_derived</span></td>
+                                    <td>DECIMAL</td>
+                                    <td>19,6</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>NULL</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="cumulative_balance_derived">cumulative_balance_derived</span></td>
+                                    <td>DECIMAL</td>
+                                    <td>19,6</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>NULL</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="created_date">created_date</span></td>
+                                    <td>DATETIME</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="appuser_id">appuser_id</span></td>
+                                    <td>BIGINT</td>
+                                    <td>19</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>NULL</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="is_manual">is_manual</span></td>
+                                    <td>BIT</td>
+                                    <td>1</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>b&#39;0&#39;</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="release_id_of_hold_amount">release_id_of_hold_amount</span></td>
+                                    <td>BIGINT</td>
+                                    <td>19</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>NULL</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="is_loan_disbursement">is_loan_disbursement</span></td>
+                                    <td>BIT</td>
+                                    <td>1</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>NULL</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i><span id="ref_no">ref_no</span></td>
+                                    <td>VARCHAR</td>
+                                    <td>128</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>NULL</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="original_transaction_id">original_transaction_id</span></td>
+                                    <td>BIGINT</td>
+                                    <td>19</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>NULL</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="is_reversal">is_reversal</span></td>
+                                    <td>BIT</td>
+                                    <td>1</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>b&#39;0&#39;</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="reason_for_block">reason_for_block</span></td>
+                                    <td>VARCHAR</td>
+                                    <td>256</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>NULL</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="is_lien_transaction">is_lien_transaction</span></td>
+                                    <td>BIT</td>
+                                    <td>1</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>b&#39;0&#39;</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 id="Indexes" class="box-title">Indexes</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table id="indexes_table" class="table table-bordered table-striped dataTable" role="grid">
+                                <thead>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Type</th>
+                                    <th>Sort</th>
+                                    <th>Column(s)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PRIMARY</td>
+                                    <td>Primary key</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>id</td>
+                                </tr>
+                                <tr>
+                                    <td title='Indexed'>FK_m_savings_account_transaction_m_office</td>
+                                    <td>Performance</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>office_id</td>
+                                </tr>
+                                <tr>
+                                    <td title='Indexed'>FK_m_savings_account_transaction_m_payment_detail</td>
+                                    <td>Performance</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>payment_detail_id</td>
+                                </tr>
+                                <tr>
+                                    <td title='Indexed'>FKSAT0000000001</td>
+                                    <td>Performance</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>savings_account_id</td>
+                                </tr>
+                                <tr>
+                                    <td class='uniqueKey' title='Unique Key'><i class='icon ion-key iconkey'></i> ref_no</td>
+                                    <td>Must be unique</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>ref_no</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 id="Relationships" class="box-title">Relationships</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom"><!-- Tabs within a box -->
+                                <h5>Close relationships within degrees of separation</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="../../tables/acc_gl_journal_entry.html" target="_top" title="acc_gl_journal_entry" alt="" coords="1056,740,1377,1180">
+<area shape="rect" id="node2" href="../../tables/m_office.html" target="_top" title="m_office" alt="" coords="148,660,319,865">
+<area shape="rect" id="node3" href="../../tables/m_payment_detail.html" target="_top" title="m_payment_detail" alt="" coords="127,964,339,1111">
+<area shape="rect" id="node4" href="../../tables/m_savings_account_transaction.html" target="_top" title="m_savings_account_transaction" alt="" coords="505,247,953,991">
+<area shape="rect" id="node7" href="../../tables/m_savings_account.html" target="_top" title="m_savings_account" alt="" coords="5,279,461,601">
+<area shape="rect" id="node5" href="../../tables/m_account_transfer_transaction.html" target="_top" title="m_account_transfer_transaction" alt="" coords="1049,5,1385,269">
+<area shape="rect" id="node6" href="../../tables/m_savings_account_charge_paid_by.html" target="_top" title="m_savings_account_charge_paid_by" alt="" coords="1033,287,1401,463">
+<area shape="rect" id="node8" href="../../tables/m_savings_account_transaction_tax_details.html" target="_top" title="m_savings_account_transaction_tax_details" alt="" coords="997,480,1436,656">
+</map>
+                                        <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/m_savings_account_transaction.1degree.svg" class="diagram" border="0" align="left"></object></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="../../tables/acc_accounting_rule.html" target="_top" title="acc_accounting_rule" alt="" coords="776,5,1001,93">
+<area shape="rect" id="node2" href="../../tables/acc_gl_account.html" target="_top" title="acc_gl_account" alt="" coords="492,184,681,272">
+<area shape="rect" id="node3" href="../../tables/m_office.html" target="_top" title="m_office" alt="" coords="5,1988,176,2193">
+<area shape="rect" id="node4" href="../../tables/acc_gl_closure.html" target="_top" title="acc_gl_closure" alt="" coords="796,2281,981,2369">
+<area shape="rect" id="node5" href="../../tables/m_appuser.html" target="_top" title="m_appuser" alt="" coords="507,2485,666,2573">
+<area shape="rect" id="node19" href="../../tables/m_staff.html" target="_top" title="m_staff" alt="" coords="264,1991,404,2079">
+<area shape="rect" id="node6" href="../../tables/acc_gl_journal_entry.html" target="_top" title="acc_gl_journal_entry" alt="" coords="3213,887,3535,1327">
+<area shape="rect" id="node7" href="../../tables/m_client_transaction.html" target="_top" title="m_client_transaction" alt="" coords="2457,2387,2683,2475">
+<area shape="rect" id="node8" href="../../tables/m_loan_transaction.html" target="_top" title="m_loan_transaction" alt="" coords="1973,324,2192,412">
+<area shape="rect" id="node9" href="../../tables/m_payment_detail.html" target="_top" title="m_payment_detail" alt="" coords="1481,571,1693,717">
+<area shape="rect" id="node10" href="../../tables/m_savings_account_transaction.html" target="_top" title="m_savings_account_transaction" alt="" coords="1859,429,2307,1173">
+<area shape="rect" id="node11" href="../../tables/m_share_account_transactions.html" target="_top" title="m_share_account_transactions" alt="" coords="2851,1905,3151,1993">
+<area shape="rect" id="node17" href="../../tables/m_client.html" target="_top" title="m_client" alt="" coords="2009,2387,2157,2475">
+<area shape="rect" id="node30" href="../../tables/m_payment_type.html" target="_top" title="m_payment_type" alt="" coords="1105,603,1305,691">
+<area shape="rect" id="node15" href="../../tables/m_savings_account.html" target="_top" title="m_savings_account" alt="" coords="1359,1837,1815,2160">
+<area shape="rect" id="node39" href="../../tables/m_share_account.html" target="_top" title="m_share_account" alt="" coords="2467,2583,2673,2671">
+<area shape="rect" id="node12" href="../../tables/gsim_accounts.html" target="_top" title="gsim_accounts" alt="" coords="1112,1972,1299,2060">
+<area shape="rect" id="node13" href="../../tables/m_group.html" target="_top" title="m_group" alt="" coords="817,1804,961,1892">
+<area shape="rect" id="node14" href="../../tables/interop_identifier.html" target="_top" title="interop_identifier" alt="" coords="1982,1683,2183,1771">
+<area shape="rect" id="node20" href="../../tables/m_savings_product.html" target="_top" title="m_savings_product" alt="" coords="1096,2319,1315,2407">
+<area shape="rect" id="node32" href="../../tables/m_tax_group.html" target="_top" title="m_tax_group" alt="" coords="802,2387,975,2475">
+<area shape="rect" id="node16" href="../../tables/m_account_transfer_details.html" target="_top" title="m_account_transfer_details" alt="" coords="2433,1420,2707,1508">
+<area shape="rect" id="node18" href="../../tables/m_account_transfer_transaction.html" target="_top" title="m_account_transfer_transaction" alt="" coords="2833,517,3169,781">
+<area shape="rect" id="node21" href="../../tables/m_client_transfer_details.html" target="_top" title="m_client_transfer_details" alt="" coords="2441,2772,2699,2860">
+<area shape="rect" id="node22" href="../../tables/m_deposit_account_on_hold_transaction.html" target="_top" title="m_deposit_account_on_hold_transaction" alt="" coords="1898,1824,2267,1912">
+<area shape="rect" id="node23" href="../../tables/m_deposit_account_recurring_detail.html" target="_top" title="m_deposit_account_recurring_detail" alt="" coords="1914,1929,2251,2017">
+<area shape="rect" id="node24" href="../../tables/m_deposit_account_term_and_preclosure.html" target="_top" title="m_deposit_account_term_and_preclosure" alt="" coords="1895,2035,2270,2123">
+<area shape="rect" id="node25" href="../../tables/m_holiday_office.html" target="_top" title="m_holiday_office" alt="" coords="234,2301,434,2389">
+<area shape="rect" id="node26" href="../../tables/m_loanproduct_provisioning_entry.html" target="_top" title="m_loanproduct_provisioning_entry" alt="" coords="725,111,1052,199">
+<area shape="rect" id="node27" href="../../tables/m_mandatory_savings_schedule.html" target="_top" title="m_mandatory_savings_schedule" alt="" coords="1928,2140,2237,2228">
+<area shape="rect" id="node28" href="../../tables/m_note.html" target="_top" title="m_note" alt="" coords="2503,2016,2637,2104">
+<area shape="rect" id="node29" href="../../tables/m_office_transaction.html" target="_top" title="m_office_transaction" alt="" coords="220,2443,448,2531">
+<area shape="rect" id="node31" href="../../tables/m_portfolio_account_associations.html" target="_top" title="m_portfolio_account_associations" alt="" coords="1922,2245,2243,2333">
+<area shape="rect" id="node33" href="../../tables/m_savings_account_charge.html" target="_top" title="m_savings_account_charge" alt="" coords="1945,1577,2221,1665">
+<area shape="rect" id="node34" href="../../tables/m_savings_account_charge_paid_by.html" target="_top" title="m_savings_account_charge_paid_by" alt="" coords="2386,1227,2754,1403">
+<area shape="rect" id="node35" href="../../tables/m_savings_account_interest_rate_chart.html" target="_top" title="m_savings_account_interest_rate_chart" alt="" coords="1903,1472,2263,1560">
+<area shape="rect" id="node36" href="../../tables/m_savings_account_transaction_tax_details.html" target="_top" title="m_savings_account_transaction_tax_details" alt="" coords="2351,288,2789,464">
+<area shape="rect" id="node37" href="../../tables/m_tax_component.html" target="_top" title="m_tax_component" alt="" coords="784,393,993,481">
+<area shape="rect" id="node38" href="../../tables/m_savings_officer_assignment_history.html" target="_top" title="m_savings_officer_assignment_history" alt="" coords="1905,1315,2260,1403">
+<area shape="rect" id="node40" href="../../tables/m_tellers.html" target="_top" title="m_tellers" alt="" coords="816,252,961,340">
+</map>
+                                        <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/m_savings_account_transaction.2degrees.svg" class="diagram" border="0" align="left"></object></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <script>
+                    var config = {
+                        pagination: true
+                    }
+                </script>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="../bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="../bower/pdfmake/pdfmake.min.js"></script>
+        <script src="../bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="../bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="../bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="../bower/codemirror/codemirror.js"></script>
+        <script src="../bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="table.js"></script>
+        <script src="../schemaSpy.js"></script>
+    </body>
+</html>

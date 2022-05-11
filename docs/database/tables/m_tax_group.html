@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>m_tax_group - fineract_default Database</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="../schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="../bower/html5shiv/html5shiv.min.js"></script>
+        <script src="../bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../index.html" class="navbar-brand"><b>fineract_default</b> Database</a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="../routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>m_tax_group</h1><p><span id="recordNumber">0</span> rows</p><br />
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            <h3 id="Columns" class="box-title">Columns</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Column</th>
+                                    <th>Type</th>
+                                    <th>Size</th>
+                                    <th title='Are nulls allowed?'>Nulls</th>
+                                    <th title='Is column automatically updated?'>Auto</th>
+                                    <th title='Default value'>Default</th>
+                                    <th title='Columns in tables that reference this column'>Children</th>
+                                    <th title='Columns in tables that are referenced by this column'>Parents</th>
+                                    <th title='Comments' class="toggle"><span>Comments</span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="id">id</span></td>
+                                    <td>BIGINT</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title='Automatically updated by the database'>√</td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="m_charge.tax_group_id references m_tax_group.id via FK_m_charge_m_tax_group"><a href='m_charge.html'>m_charge</a><span class='relatedKey'>.tax_group_id</span></td>
+                                                <td class="constraint detail">FK_m_charge_m_tax_group<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_savings_account.tax_group_id references m_tax_group.id via FK_savings_account_tax_group"><a href='m_savings_account.html'>m_savings_account</a><span class='relatedKey'>.tax_group_id</span></td>
+                                                <td class="constraint detail">FK_savings_account_tax_group<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_savings_product.tax_group_id references m_tax_group.id via FK_savings_product_tax_group"><a href='m_savings_product.html'>m_savings_product</a><span class='relatedKey'>.tax_group_id</span></td>
+                                                <td class="constraint detail">FK_savings_product_tax_group<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_tax_group_mappings.tax_group_id references m_tax_group.id via FK_tax_group_mappings_tax_group"><a href='m_tax_group_mappings.html'>m_tax_group_mappings</a><span class='relatedKey'>.tax_group_id</span></td>
+                                                <td class="constraint detail">FK_tax_group_mappings_tax_group<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="name">name</span></td>
+                                    <td>VARCHAR</td>
+                                    <td>50</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="createdby_id">createdby_id</span></td>
+                                    <td>BIGINT</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="m_tax_group.createdby_id references m_appuser.id via FK_tax_group_createdby"><a href='m_appuser.html'>m_appuser</a><span class='relatedKey'>.id</span></td>
+                                                <td class="constraint detail">FK_tax_group_createdby<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="created_date">created_date</span></td>
+                                    <td>DATETIME</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="lastmodifiedby_id">lastmodifiedby_id</span></td>
+                                    <td>BIGINT</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="m_tax_group.lastmodifiedby_id references m_appuser.id via FK_tax_group_lastmodifiedby"><a href='m_appuser.html'>m_appuser</a><span class='relatedKey'>.id</span></td>
+                                                <td class="constraint detail">FK_tax_group_lastmodifiedby<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="lastmodified_date">lastmodified_date</span></td>
+                                    <td>DATETIME</td>
+                                    <td>19</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 id="Indexes" class="box-title">Indexes</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table id="indexes_table" class="table table-bordered table-striped dataTable" role="grid">
+                                <thead>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Type</th>
+                                    <th>Sort</th>
+                                    <th>Column(s)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PRIMARY</td>
+                                    <td>Primary key</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>id</td>
+                                </tr>
+                                <tr>
+                                    <td title='Indexed'>FK_tax_group_createdby</td>
+                                    <td>Performance</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>createdby_id</td>
+                                </tr>
+                                <tr>
+                                    <td title='Indexed'>FK_tax_group_lastmodifiedby</td>
+                                    <td>Performance</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>lastmodifiedby_id</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 id="Relationships" class="box-title">Relationships</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom"><!-- Tabs within a box -->
+                                <h5>Close relationships within degrees of separation</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="../../tables/m_charge.html" target="_top" title="m_charge" alt="" coords="752,5,1115,240">
+<area shape="rect" id="node2" href="../../tables/m_tax_group.html" target="_top" title="m_tax_group" alt="" coords="357,377,661,623">
+<area shape="rect" id="node5" href="../../tables/m_appuser.html" target="_top" title="m_appuser" alt="" coords="5,549,313,784">
+<area shape="rect" id="node3" href="../../tables/m_savings_account.html" target="_top" title="m_savings_account" alt="" coords="1205,159,1661,481">
+<area shape="rect" id="node4" href="../../tables/m_savings_product.html" target="_top" title="m_savings_product" alt="" coords="705,257,1161,463">
+<area shape="rect" id="node6" href="../../tables/m_tax_group_mappings.html" target="_top" title="m_tax_group_mappings" alt="" coords="803,516,1063,751">
+</map>
+                                        <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/m_tax_group.1degree.svg" class="diagram" border="0" align="left"></object></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="../../tables/acc_gl_closure.html" target="_top" title="acc_gl_closure" alt="" coords="786,251,971,339">
+<area shape="rect" id="node2" href="../../tables/m_appuser.html" target="_top" title="m_appuser" alt="" coords="375,1346,683,1580">
+<area shape="rect" id="node3" href="../../tables/m_office.html" target="_top" title="m_office" alt="" coords="5,2714,147,2802">
+<area shape="rect" id="node19" href="../../tables/m_staff.html" target="_top" title="m_staff" alt="" coords="191,2763,331,2851">
+<area shape="rect" id="node4" href="../../tables/acc_gl_journal_entry.html" target="_top" title="acc_gl_journal_entry" alt="" coords="2915,222,3142,310">
+<area shape="rect" id="node5" href="../../tables/acc_gl_account.html" target="_top" title="acc_gl_account" alt="" coords="434,110,623,198">
+<area shape="rect" id="node6" href="../../tables/m_client_transaction.html" target="_top" title="m_client_transaction" alt="" coords="2545,342,2772,430">
+<area shape="rect" id="node7" href="../../tables/m_savings_account_transaction.html" target="_top" title="m_savings_account_transaction" alt="" coords="2109,303,2415,391">
+<area shape="rect" id="node16" href="../../tables/m_client.html" target="_top" title="m_client" alt="" coords="2188,2118,2336,2206">
+<area shape="rect" id="node14" href="../../tables/m_savings_account.html" target="_top" title="m_savings_account" alt="" coords="1575,2587,2031,2910">
+<area shape="rect" id="node8" href="../../tables/acc_product_mapping.html" target="_top" title="acc_product_mapping" alt="" coords="2143,948,2381,1036">
+<area shape="rect" id="node9" href="../../tables/m_charge.html" target="_top" title="m_charge" alt="" coords="1621,1204,1984,1439">
+<area shape="rect" id="node10" href="../../tables/m_payment_type.html" target="_top" title="m_payment_type" alt="" coords="1203,704,1403,792">
+<area shape="rect" id="node22" href="../../tables/m_tax_group.html" target="_top" title="m_tax_group" alt="" coords="727,1763,1031,2008">
+<area shape="rect" id="node11" href="../../tables/gsim_accounts.html" target="_top" title="gsim_accounts" alt="" coords="1209,2855,1396,2943">
+<area shape="rect" id="node12" href="../../tables/m_group.html" target="_top" title="m_group" alt="" coords="807,2906,951,2994">
+<area shape="rect" id="node13" href="../../tables/interop_identifier.html" target="_top" title="interop_identifier" alt="" coords="2161,2522,2363,2610">
+<area shape="rect" id="node23" href="../../tables/m_savings_product.html" target="_top" title="m_savings_product" alt="" coords="1075,2302,1531,2507">
+<area shape="rect" id="node15" href="../../tables/m_account_transfer_details.html" target="_top" title="m_account_transfer_details" alt="" coords="2891,2448,3166,2536">
+<area shape="rect" id="node17" href="../../tables/m_loan.html" target="_top" title="m_loan" alt="" coords="2585,1650,2733,1738">
+<area shape="rect" id="node18" href="../../tables/m_adhoc.html" target="_top" title="m_adhoc" alt="" coords="806,2378,951,2466">
+<area shape="rect" id="node20" href="../../tables/m_appuser_previous_password.html" target="_top" title="m_appuser_previous_password" alt="" coords="727,2483,1031,2571">
+<area shape="rect" id="node21" href="../../tables/m_appuser_role.html" target="_top" title="m_appuser_role" alt="" coords="782,2588,975,2676">
+<area shape="rect" id="node24" href="../../tables/m_client_charge.html" target="_top" title="m_client_charge" alt="" coords="2561,1402,2757,1490">
+<area shape="rect" id="node25" href="../../tables/m_client_transfer_details.html" target="_top" title="m_client_transfer_details" alt="" coords="2530,3198,2787,3286">
+<area shape="rect" id="node26" href="../../tables/m_deposit_account_on_hold_transaction.html" target="_top" title="m_deposit_account_on_hold_transaction" alt="" coords="2077,2627,2447,2715">
+<area shape="rect" id="node27" href="../../tables/m_deposit_account_recurring_detail.html" target="_top" title="m_deposit_account_recurring_detail" alt="" coords="2093,2732,2431,2820">
+<area shape="rect" id="node28" href="../../tables/m_deposit_account_term_and_preclosure.html" target="_top" title="m_deposit_account_term_and_preclosure" alt="" coords="2075,2838,2449,2926">
+<area shape="rect" id="node29" href="../../tables/m_deposit_product_interest_rate_chart.html" target="_top" title="m_deposit_product_interest_rate_chart" alt="" coords="1624,2446,1981,2534">
+<area shape="rect" id="node30" href="../../tables/m_deposit_product_recurring_detail.html" target="_top" title="m_deposit_product_recurring_detail" alt="" coords="1635,2199,1971,2287">
+<area shape="rect" id="node31" href="../../tables/m_deposit_product_term_and_preclosure.html" target="_top" title="m_deposit_product_term_and_preclosure" alt="" coords="1616,2304,1989,2392">
+<area shape="rect" id="node32" href="../../tables/m_import_document.html" target="_top" title="m_import_document" alt="" coords="766,560,991,648">
+<area shape="rect" id="node33" href="../../tables/m_loan_charge.html" target="_top" title="m_loan_charge" alt="" coords="2935,1435,3123,1523">
+<area shape="rect" id="node34" href="../../tables/m_loan_reschedule_request.html" target="_top" title="m_loan_reschedule_request" alt="" coords="2890,1558,3167,1646">
+<area shape="rect" id="node35" href="../../tables/m_loan_tranche_charges.html" target="_top" title="m_loan_tranche_charges" alt="" coords="2900,1294,3157,1382">
+<area shape="rect" id="node36" href="../../tables/m_mandatory_savings_schedule.html" target="_top" title="m_mandatory_savings_schedule" alt="" coords="2107,2275,2417,2363">
+<area shape="rect" id="node37" href="../../tables/m_note.html" target="_top" title="m_note" alt="" coords="2962,2852,3095,2940">
+<area shape="rect" id="node38" href="../../tables/m_pocket.html" target="_top" title="m_pocket" alt="" coords="804,666,953,754">
+<area shape="rect" id="node39" href="../../tables/m_portfolio_account_associations.html" target="_top" title="m_portfolio_account_associations" alt="" coords="2868,1928,3189,2016">
+<area shape="rect" id="node40" href="../../tables/m_portfolio_command_source.html" target="_top" title="m_portfolio_command_source" alt="" coords="731,771,1026,859">
+<area shape="rect" id="node41" href="../../tables/m_product_loan_charge.html" target="_top" title="m_product_loan_charge" alt="" coords="2137,1207,2387,1295">
+<area shape="rect" id="node42" href="../../tables/m_provisioning_criteria.html" target="_top" title="m_provisioning_criteria" alt="" coords="755,876,1002,964">
+<area shape="rect" id="node43" href="../../tables/m_provisioning_history.html" target="_top" title="m_provisioning_history" alt="" coords="755,982,1002,1070">
+<area shape="rect" id="node44" href="../../tables/m_rate.html" target="_top" title="m_rate" alt="" coords="813,1087,945,1175">
+<area shape="rect" id="node45" href="../../tables/m_report_mailing_job.html" target="_top" title="m_report_mailing_job" alt="" coords="762,1244,995,1332">
+<area shape="rect" id="node46" href="../../tables/m_savings_account_charge.html" target="_top" title="m_savings_account_charge" alt="" coords="2124,1904,2400,1992">
+<area shape="rect" id="node47" href="../../tables/m_savings_account_interest_rate_chart.html" target="_top" title="m_savings_account_interest_rate_chart" alt="" coords="2082,2380,2442,2468">
+<area shape="rect" id="node48" href="../../tables/m_savings_officer_assignment_history.html" target="_top" title="m_savings_officer_assignment_history" alt="" coords="2085,3119,2439,3207">
+<area shape="rect" id="node49" href="../../tables/m_savings_product_charge.html" target="_top" title="m_savings_product_charge" alt="" coords="2125,1763,2399,1851">
+<area shape="rect" id="node50" href="../../tables/m_selfservice_user_client_mapping.html" target="_top" title="m_selfservice_user_client_mapping" alt="" coords="2493,1942,2824,2030">
+<area shape="rect" id="node51" href="../../tables/m_share_account.html" target="_top" title="m_share_account" alt="" coords="2556,447,2761,535">
+<area shape="rect" id="node52" href="../../tables/m_share_product.html" target="_top" title="m_share_product" alt="" coords="777,1422,981,1510">
+<area shape="rect" id="node53" href="../../tables/m_share_account_charge.html" target="_top" title="m_share_account_charge" alt="" coords="2898,790,3159,878">
+<area shape="rect" id="node54" href="../../tables/m_share_product_charge.html" target="_top" title="m_share_product_charge" alt="" coords="2132,1420,2392,1508">
+<area shape="rect" id="node55" href="../../tables/m_share_product_dividend_pay_out.html" target="_top" title="m_share_product_dividend_pay_out" alt="" coords="1135,1438,1471,1526">
+<area shape="rect" id="node56" href="../../tables/m_survey_scorecards.html" target="_top" title="m_survey_scorecards" alt="" coords="2541,2698,2776,2786">
+<area shape="rect" id="node57" href="../../tables/m_tax_component.html" target="_top" title="m_tax_component" alt="" coords="774,146,983,234">
+<area shape="rect" id="node58" href="../../tables/m_tax_component_history.html" target="_top" title="m_tax_component_history" alt="" coords="1169,599,1436,687">
+<area shape="rect" id="node59" href="../../tables/m_tax_group_mappings.html" target="_top" title="m_tax_group_mappings" alt="" coords="1173,883,1433,1118">
+<area shape="rect" id="node60" href="../../tables/notification_mapper.html" target="_top" title="notification_mapper" alt="" coords="768,2026,989,2114">
+<area shape="rect" id="node61" href="../../tables/topic_subscriber.html" target="_top" title="topic_subscriber" alt="" coords="779,2131,978,2219">
+<area shape="rect" id="node62" href="../../tables/twofactor_access_token.html" target="_top" title="twofactor_access_token" alt="" coords="754,2236,1003,2324">
+</map>
+                                        <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/m_tax_group.2degrees.svg" class="diagram" border="0" align="left"></object></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <script>
+                    var config = {
+                        pagination: true
+                    }
+                </script>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="../bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="../bower/pdfmake/pdfmake.min.js"></script>
+        <script src="../bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="../bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="../bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="../bower/codemirror/codemirror.js"></script>
+        <script src="../bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="table.js"></script>
+        <script src="../schemaSpy.js"></script>
+    </body>
+</html>

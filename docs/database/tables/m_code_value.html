@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>m_code_value - fineract_default Database</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="../schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="../bower/html5shiv/html5shiv.min.js"></script>
+        <script src="../bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../index.html" class="navbar-brand"><b>fineract_default</b> Database</a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="../routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>m_code_value</h1><p><span id="recordNumber">0</span> rows</p><br />
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            <h3 id="Columns" class="box-title">Columns</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Column</th>
+                                    <th>Type</th>
+                                    <th>Size</th>
+                                    <th title='Are nulls allowed?'>Nulls</th>
+                                    <th title='Is column automatically updated?'>Auto</th>
+                                    <th title='Default value'>Default</th>
+                                    <th title='Columns in tables that reference this column'>Children</th>
+                                    <th title='Columns in tables that are referenced by this column'>Parents</th>
+                                    <th title='Comments' class="toggle"><span>Comments</span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="id">id</span></td>
+                                    <td>INT</td>
+                                    <td>10</td>
+                                    <td title=''></td>
+                                    <td title='Automatically updated by the database'>√</td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="acc_gl_account.tag_id references m_code_value.id via FKGLACC000000002"><a href='acc_gl_account.html'>acc_gl_account</a><span class='relatedKey'>.tag_id</span></td>
+                                                <td class="constraint detail">FKGLACC000000002<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="acc_rule_tags.tag_id references m_code_value.id via FK_m_code_value_id"><a href='acc_rule_tags.html'>acc_rule_tags</a><span class='relatedKey'>.tag_id</span></td>
+                                                <td class="constraint detail">FK_m_code_value_id<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_address.country_id references m_code_value.id via address_fields_codefk2"><a href='m_address.html'>m_address</a><span class='relatedKey'>.country_id</span></td>
+                                                <td class="constraint detail">address_fields_codefk2<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_address.state_province_id references m_code_value.id via address_fields_codefk1"><a href='m_address.html'>m_address</a><span class='relatedKey'>.state_province_id</span></td>
+                                                <td class="constraint detail">address_fields_codefk1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_client.client_classification_cv_id references m_code_value.id via FK_m_client_classification_m_code_value"><a href='m_client.html'>m_client</a><span class='relatedKey'>.client_classification_cv_id</span></td>
+                                                <td class="constraint detail">FK_m_client_classification_m_code_value<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_client.client_type_cv_id references m_code_value.id via FK_m_client_type_m_code_value"><a href='m_client.html'>m_client</a><span class='relatedKey'>.client_type_cv_id</span></td>
+                                                <td class="constraint detail">FK_m_client_type_m_code_value<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_client.closure_reason_cv_id references m_code_value.id via FK_m_client_m_code"><a href='m_client.html'>m_client</a><span class='relatedKey'>.closure_reason_cv_id</span></td>
+                                                <td class="constraint detail">FK_m_client_m_code<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_client.gender_cv_id references m_code_value.id via FK1_m_client_gender_m_code_value"><a href='m_client.html'>m_client</a><span class='relatedKey'>.gender_cv_id</span></td>
+                                                <td class="constraint detail">FK1_m_client_gender_m_code_value<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_client.reject_reason_cv_id references m_code_value.id via FK_m_client_type_mcode_value_reject"><a href='m_client.html'>m_client</a><span class='relatedKey'>.reject_reason_cv_id</span></td>
+                                                <td class="constraint detail">FK_m_client_type_mcode_value_reject<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_client.sub_status references m_code_value.id via FK_m_client_substatus_m_code_value"><a href='m_client.html'>m_client</a><span class='relatedKey'>.sub_status</span></td>
+                                                <td class="constraint detail">FK_m_client_substatus_m_code_value<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_client.withdraw_reason_cv_id references m_code_value.id via FK_m_client_type_m_code_value_withdraw"><a href='m_client.html'>m_client</a><span class='relatedKey'>.withdraw_reason_cv_id</span></td>
+                                                <td class="constraint detail">FK_m_client_type_m_code_value_withdraw<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_client_address.address_type_id references m_code_value.id via address_codefk"><a href='m_client_address.html'>m_client_address</a><span class='relatedKey'>.address_type_id</span></td>
+                                                <td class="constraint detail">address_codefk<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_client_identifier.document_type_id references m_code_value.id via FK_m_client_document_m_code_value"><a href='m_client_identifier.html'>m_client_identifier</a><span class='relatedKey'>.document_type_id</span></td>
+                                                <td class="constraint detail">FK_m_client_document_m_code_value<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_entity_to_entity_access.access_type_code_value_id references m_code_value.id via FK_access_type_code_m_code_value"><a href='m_entity_to_entity_access.html'>m_entity_to_entity_access</a><span class='relatedKey'>.access_type_code_value_id</span></td>
+                                                <td class="constraint detail">FK_access_type_code_m_code_value<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_family_members.gender_cv_id references m_code_value.id via FK_m_family_members_gender_m_code_value"><a href='m_family_members.html'>m_family_members</a><span class='relatedKey'>.gender_cv_id</span></td>
+                                                <td class="constraint detail">FK_m_family_members_gender_m_code_value<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_family_members.marital_status_cv_id references m_code_value.id via FK_m_family_members_marital_status_m_code_value"><a href='m_family_members.html'>m_family_members</a><span class='relatedKey'>.marital_status_cv_id</span></td>
+                                                <td class="constraint detail">FK_m_family_members_marital_status_m_code_value<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_family_members.profession_cv_id references m_code_value.id via FK_m_family_members_profession_m_code_value"><a href='m_family_members.html'>m_family_members</a><span class='relatedKey'>.profession_cv_id</span></td>
+                                                <td class="constraint detail">FK_m_family_members_profession_m_code_value<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_family_members.relationship_cv_id references m_code_value.id via FK_m_family_members_relationship_m_code_value"><a href='m_family_members.html'>m_family_members</a><span class='relatedKey'>.relationship_cv_id</span></td>
+                                                <td class="constraint detail">FK_m_family_members_relationship_m_code_value<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_group.closure_reason_cv_id references m_code_value.id via FK_m_group_m_code"><a href='m_group.html'>m_group</a><span class='relatedKey'>.closure_reason_cv_id</span></td>
+                                                <td class="constraint detail">FK_m_group_m_code<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_group_roles.role_cv_id references m_code_value.id via FK_grouprole_m_codevalue"><a href='m_group_roles.html'>m_group_roles</a><span class='relatedKey'>.role_cv_id</span></td>
+                                                <td class="constraint detail">FK_grouprole_m_codevalue<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_guarantor.client_reln_cv_id references m_code_value.id via FK_m_guarantor_m_code_value"><a href='m_guarantor.html'>m_guarantor</a><span class='relatedKey'>.client_reln_cv_id</span></td>
+                                                <td class="constraint detail">FK_m_guarantor_m_code_value<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_loan.loanpurpose_cv_id references m_code_value.id via FK_m_loanpurpose_codevalue"><a href='m_loan.html'>m_loan</a><span class='relatedKey'>.loanpurpose_cv_id</span></td>
+                                                <td class="constraint detail">FK_m_loanpurpose_codevalue<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_loan.writeoff_reason_cv_id references m_code_value.id via FK_writeoffreason_m_loan_m_code_value"><a href='m_loan.html'>m_loan</a><span class='relatedKey'>.writeoff_reason_cv_id</span></td>
+                                                <td class="constraint detail">FK_writeoffreason_m_loan_m_code_value<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_loan_collateral.type_cv_id references m_code_value.id via FK_collateral_code_value"><a href='m_loan_collateral.html'>m_loan_collateral</a><span class='relatedKey'>.type_cv_id</span></td>
+                                                <td class="constraint detail">FK_collateral_code_value<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="m_loan_reschedule_request.reschedule_reason_cv_id references m_code_value.id via m_loan_reschedule_request_ibfk_2"><a href='m_loan_reschedule_request.html'>m_loan_reschedule_request</a><span class='relatedKey'>.reschedule_reason_cv_id</span></td>
+                                                <td class="constraint detail">m_loan_reschedule_request_ibfk_2<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="code_id">code_id</span></td>
+                                    <td>INT</td>
+                                    <td>10</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="m_code_value.code_id references m_code.id via FKCFCEA42640BE071Z"><a href='m_code.html'>m_code</a><span class='relatedKey'>.id</span></td>
+                                                <td class="constraint detail">FKCFCEA42640BE071Z<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i><span id="code_value">code_value</span></td>
+                                    <td>VARCHAR</td>
+                                    <td>100</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>NULL</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="code_description">code_description</span></td>
+                                    <td>VARCHAR</td>
+                                    <td>500</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>NULL</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="order_position">order_position</span></td>
+                                    <td>INT</td>
+                                    <td>10</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>0</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="code_score">code_score</span></td>
+                                    <td>INT</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>NULL</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="is_active">is_active</span></td>
+                                    <td>BIT</td>
+                                    <td>1</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>b&#39;1&#39;</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="is_mandatory">is_mandatory</span></td>
+                                    <td>BIT</td>
+                                    <td>1</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>b&#39;0&#39;</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 id="Indexes" class="box-title">Indexes</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table id="indexes_table" class="table table-bordered table-striped dataTable" role="grid">
+                                <thead>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Type</th>
+                                    <th>Sort</th>
+                                    <th>Column(s)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> PRIMARY</td>
+                                    <td>Primary key</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>id</td>
+                                </tr>
+                                <tr>
+                                    <td class='uniqueKey' title='Unique Key'><i class='icon ion-key iconkey'></i> code_value</td>
+                                    <td>Must be unique</td>
+                                    <td><span title='Ascending'>Asc</span>/<span title='Ascending'>Asc</span></td>
+                                    <td>code_id + code_value</td>
+                                </tr>
+                                <tr>
+                                    <td title='Indexed'>FKCFCEA42640BE071Z</td>
+                                    <td>Performance</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>code_id</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 id="Relationships" class="box-title">Relationships</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom"><!-- Tabs within a box -->
+                                <h5>Close relationships within degrees of separation</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="../../tables/acc_gl_account.html" target="_top" title="acc_gl_account" alt="" coords="603,5,939,211">
+<area shape="rect" id="node2" href="../../tables/m_code_value.html" target="_top" title="m_code_value" alt="" coords="263,1159,559,1463">
+<area shape="rect" id="node8" href="../../tables/m_code.html" target="_top" title="m_code" alt="" coords="5,1191,219,1337">
+<area shape="rect" id="node3" href="../../tables/acc_rule_tags.html" target="_top" title="acc_rule_tags" alt="" coords="678,228,863,409">
+<area shape="rect" id="node4" href="../../tables/m_address.html" target="_top" title="m_address" alt="" coords="667,427,874,603">
+<area shape="rect" id="node5" href="../../tables/m_client.html" target="_top" title="m_client" alt="" coords="631,692,910,1279">
+<area shape="rect" id="node6" href="../../tables/m_client_address.html" target="_top" title="m_client_address" alt="" coords="1110,467,1314,672">
+<area shape="rect" id="node7" href="../../tables/m_client_identifier.html" target="_top" title="m_client_identifier" alt="" coords="1105,689,1319,924">
+<area shape="rect" id="node9" href="../../tables/m_entity_to_entity_access.html" target="_top" title="m_entity_to_entity_access" alt="" coords="626,1296,915,1536">
+<area shape="rect" id="node10" href="../../tables/m_family_members.html" target="_top" title="m_family_members" alt="" coords="1097,1405,1327,1669">
+<area shape="rect" id="node11" href="../../tables/m_group.html" target="_top" title="m_group" alt="" coords="653,1697,889,2020">
+<area shape="rect" id="node12" href="../../tables/m_group_roles.html" target="_top" title="m_group_roles" alt="" coords="1119,1687,1305,1868">
+<area shape="rect" id="node13" href="../../tables/m_guarantor.html" target="_top" title="m_guarantor" alt="" coords="1518,1840,1762,2016">
+<area shape="rect" id="node14" href="../../tables/m_loan.html" target="_top" title="m_loan" alt="" coords="983,1921,1441,2537">
+<area shape="rect" id="node15" href="../../tables/m_loan_collateral.html" target="_top" title="m_loan_collateral" alt="" coords="1537,2140,1743,2316">
+<area shape="rect" id="node16" href="../../tables/m_loan_reschedule_request.html" target="_top" title="m_loan_reschedule_request" alt="" coords="1485,2413,1795,2677">
+</map>
+                                        <a name='diagram'><object type="image/svg+xml" id="oneDegreeImg" data="../diagrams/tables/m_code_value.1degree.svg" class="diagram" border="0" align="left"></object></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="../../tables/acc_accounting_rule.html" target="_top" title="acc_accounting_rule" alt="" coords="2189,183,2414,271">
+<area shape="rect" id="node2" href="../../tables/acc_gl_account.html" target="_top" title="acc_gl_account" alt="" coords="1692,528,2028,733">
+<area shape="rect" id="node3" href="../../tables/m_office.html" target="_top" title="m_office" alt="" coords="41,2756,183,2844">
+<area shape="rect" id="node4" href="../../tables/m_code_value.html" target="_top" title="m_code_value" alt="" coords="269,1880,565,2184">
+<area shape="rect" id="node31" href="../../tables/m_code.html" target="_top" title="m_code" alt="" coords="5,957,219,1104">
+<area shape="rect" id="node5" href="../../tables/acc_gl_financial_activity_account.html" target="_top" title="acc_gl_financial_activity_account" alt="" coords="2144,393,2459,481">
+<area shape="rect" id="node6" href="../../tables/acc_gl_journal_entry.html" target="_top" title="acc_gl_journal_entry" alt="" coords="3068,2127,3295,2215">
+<area shape="rect" id="node7" href="../../tables/m_client_transaction.html" target="_top" title="m_client_transaction" alt="" coords="2188,2512,2415,2600">
+<area shape="rect" id="node8" href="../../tables/m_appuser.html" target="_top" title="m_appuser" alt="" coords="1781,3513,1939,3601">
+<area shape="rect" id="node9" href="../../tables/m_loan_transaction.html" target="_top" title="m_loan_transaction" alt="" coords="2631,2863,2849,2951">
+<area shape="rect" id="node12" href="../../tables/m_client.html" target="_top" title="m_client" alt="" coords="1721,2135,1999,2721">
+<area shape="rect" id="node20" href="../../tables/m_staff.html" target="_top" title="m_staff" alt="" coords="347,3355,487,3443">
+<area shape="rect" id="node17" href="../../tables/m_loan.html" target="_top" title="m_loan" alt="" coords="2072,3775,2531,4391">
+<area shape="rect" id="node10" href="../../tables/acc_rule_tags.html" target="_top" title="acc_rule_tags" alt="" coords="2647,293,2833,475">
+<area shape="rect" id="node11" href="../../tables/client_device_registration.html" target="_top" title="client_device_registration" alt="" coords="2171,2124,2432,2212">
+<area shape="rect" id="node18" href="../../tables/m_savings_account.html" target="_top" title="m_savings_account" alt="" coords="1350,2789,1570,2877">
+<area shape="rect" id="node22" href="../../tables/m_savings_product.html" target="_top" title="m_savings_product" alt="" coords="979,2680,1198,2768">
+<area shape="rect" id="node23" href="../../tables/m_image.html" target="_top" title="m_image" alt="" coords="40,3113,184,3201">
+<area shape="rect" id="node13" href="../../tables/glim_accounts.html" target="_top" title="glim_accounts" alt="" coords="1369,3673,1551,3761">
+<area shape="rect" id="node14" href="../../tables/m_group.html" target="_top" title="m_group" alt="" coords="643,3011,879,3333">
+<area shape="rect" id="node34" href="../../tables/m_group_level.html" target="_top" title="m_group_level" alt="" coords="325,3160,509,3248">
+<area shape="rect" id="node15" href="../../tables/gsim_accounts.html" target="_top" title="gsim_accounts" alt="" coords="995,2873,1182,2961">
+<area shape="rect" id="node16" href="../../tables/m_account_transfer_details.html" target="_top" title="m_account_transfer_details" alt="" coords="2603,3248,2877,3336">
+<area shape="rect" id="node40" href="../../tables/m_fund.html" target="_top" title="m_fund" alt="" coords="1393,3391,1527,3479">
+<area shape="rect" id="node41" href="../../tables/ref_loan_transaction_processing_strategy.html" target="_top" title="ref_loan_transaction_processing_strategy" alt="" coords="1272,3532,1648,3620">
+<area shape="rect" id="node42" href="../../tables/m_product_loan.html" target="_top" title="m_product_loan" alt="" coords="1763,3399,1957,3487">
+<area shape="rect" id="node19" href="../../tables/m_address.html" target="_top" title="m_address" alt="" coords="657,1905,864,2081">
+<area shape="rect" id="node21" href="../../tables/m_charge.html" target="_top" title="m_charge" alt="" coords="2227,640,2376,728">
+<area shape="rect" id="node24" href="../../tables/m_client_address.html" target="_top" title="m_client_address" alt="" coords="2199,923,2403,1128">
+<area shape="rect" id="node25" href="../../tables/m_client_attendance.html" target="_top" title="m_client_attendance" alt="" coords="2189,2229,2414,2317">
+<area shape="rect" id="node26" href="../../tables/m_client_charge.html" target="_top" title="m_client_charge" alt="" coords="2642,603,2838,691">
+<area shape="rect" id="node27" href="../../tables/m_client_collateral_management.html" target="_top" title="m_client_collateral_management" alt="" coords="2585,2616,2895,2704">
+<area shape="rect" id="node28" href="../../tables/m_client_identifier.html" target="_top" title="m_client_identifier" alt="" coords="2194,1344,2409,1579">
+<area shape="rect" id="node29" href="../../tables/m_client_non_person.html" target="_top" title="m_client_non_person" alt="" coords="2185,1913,2417,2001">
+<area shape="rect" id="node30" href="../../tables/m_client_transfer_details.html" target="_top" title="m_client_transfer_details" alt="" coords="2173,2863,2430,2951">
+<area shape="rect" id="node32" href="../../tables/m_entity_to_entity_access.html" target="_top" title="m_entity_to_entity_access" alt="" coords="616,2099,905,2339">
+<area shape="rect" id="node33" href="../../tables/m_family_members.html" target="_top" title="m_family_members" alt="" coords="2186,1596,2417,1860">
+<area shape="rect" id="node35" href="../../tables/m_group_client.html" target="_top" title="m_group_client" alt="" coords="2207,2669,2396,2757">
+<area shape="rect" id="node36" href="../../tables/m_group_roles.html" target="_top" title="m_group_roles" alt="" coords="2208,1145,2395,1327">
+<area shape="rect" id="node37" href="../../tables/m_guarantor.html" target="_top" title="m_guarantor" alt="" coords="2618,2423,2862,2599">
+<area shape="rect" id="node38" href="../../tables/m_guarantor_funding_details.html" target="_top" title="m_guarantor_funding_details" alt="" coords="3038,2591,3325,2679">
+<area shape="rect" id="node39" href="../../tables/m_portfolio_account_associations.html" target="_top" title="m_portfolio_account_associations" alt="" coords="2579,2757,2901,2845">
+<area shape="rect" id="node43" href="../../tables/m_loan_arrears_aging.html" target="_top" title="m_loan_arrears_aging" alt="" coords="2621,3567,2859,3655">
+<area shape="rect" id="node44" href="../../tables/m_loan_charge.html" target="_top" title="m_loan_charge" alt="" coords="2646,1023,2834,1111">
+<area shape="rect" id="node45" href="../../tables/m_loan_collateral.html" target="_top" title="m_loan_collateral" alt="" coords="2637,2229,2843,2405">
+<area shape="rect" id="node46" href="../../tables/m_loan_collateral_management.html" target="_top" title="m_loan_collateral_management" alt="" coords="3031,2861,3332,2949">
+<area shape="rect" id="node47" href="../../tables/m_loan_disbursement_detail.html" target="_top" title="m_loan_disbursement_detail" alt="" coords="2599,3672,2881,3760">
+<area shape="rect" id="node48" href="../../tables/m_loan_officer_assignment_history.html" target="_top" title="m_loan_officer_assignment_history" alt="" coords="2575,4568,2905,4656">
+<area shape="rect" id="node49" href="../../tables/m_loan_paid_in_advance.html" target="_top" title="m_loan_paid_in_advance" alt="" coords="2611,3777,2869,3865">
+<area shape="rect" id="node50" href="../../tables/m_loan_rate.html" target="_top" title="m_loan_rate" alt="" coords="2657,3883,2823,3971">
+<area shape="rect" id="node51" href="../../tables/m_loan_recalculation_details.html" target="_top" title="m_loan_recalculation_details" alt="" coords="2598,3988,2882,4076">
+<area shape="rect" id="node52" href="../../tables/m_loan_repayment_schedule.html" target="_top" title="m_loan_repayment_schedule" alt="" coords="2597,3425,2883,3513">
+<area shape="rect" id="node53" href="../../tables/m_loan_repayment_schedule_history.html" target="_top" title="m_loan_repayment_schedule_history" alt="" coords="3011,4173,3352,4261">
+<area shape="rect" id="node54" href="../../tables/m_loan_reschedule_request.html" target="_top" title="m_loan_reschedule_request" alt="" coords="2585,4287,2895,4551">
+<area shape="rect" id="node55" href="../../tables/m_loan_reschedule_request_term_variations_mapping.html" target="_top" title="m_loan_reschedule_request_term_variations_mapping" alt="" coords="2949,4285,3413,4373">
+<area shape="rect" id="node56" href="../../tables/m_loan_term_variations.html" target="_top" title="m_loan_term_variations" alt="" coords="2615,4181,2865,4269">
+<area shape="rect" id="node57" href="../../tables/m_loan_topup.html" target="_top" title="m_loan_topup" alt="" coords="3091,4064,3272,4152">
+<area shape="rect" id="node58" href="../../tables/m_loan_tranche_charges.html" target="_top" title="m_loan_tranche_charges" alt="" coords="2611,1757,2869,1845">
+<area shape="rect" id="node59" href="../../tables/m_loanproduct_provisioning_entry.html" target="_top" title="m_loanproduct_provisioning_entry" alt="" coords="2138,499,2465,587">
+<area shape="rect" id="node60" href="../../tables/m_note.html" target="_top" title="m_note" alt="" coords="3115,2967,3248,3055">
+<area shape="rect" id="node61" href="../../tables/m_provisioning_criteria_definition.html" target="_top" title="m_provisioning_criteria_definition" alt="" coords="2141,288,2462,376">
+<area shape="rect" id="node62" href="../../tables/m_repayment_with_post_dated_checks.html" target="_top" title="m_repayment_with_post_dated_checks" alt="" coords="3003,3459,3359,3547">
+<area shape="rect" id="node63" href="../../tables/m_selfservice_user_client_mapping.html" target="_top" title="m_selfservice_user_client_mapping" alt="" coords="2136,3408,2467,3496">
+<area shape="rect" id="node64" href="../../tables/m_share_account.html" target="_top" title="m_share_account" alt="" coords="2199,3513,2404,3601">
+<area shape="rect" id="node65" href="../../tables/m_staff_assignment_history.html" target="_top" title="m_staff_assignment_history" alt="" coords="949,3323,1228,3411">
+<area shape="rect" id="node66" href="../../tables/m_survey_scorecards.html" target="_top" title="m_survey_scorecards" alt="" coords="2184,3303,2419,3391">
+<area shape="rect" id="node67" href="../../tables/m_tax_component.html" target="_top" title="m_tax_component" alt="" coords="2197,2407,2406,2495">
+<area shape="rect" id="node68" href="../../tables/m_tellers.html" target="_top" title="m_tellers" alt="" coords="2229,745,2374,833">
+<area shape="rect" id="node69" href="../../tables/request_audit_table.html" target="_top" title="request_audit_table" alt="" coords="2192,2019,2411,2107">
+<area shape="rect" id="node70" href="../../tables/scheduled_email_messages_outbound.html" target="_top" title="scheduled_email_messages_outbound" alt="" coords="2125,3145,2477,3233">
+<area shape="rect" id="node71" href="../../tables/sms_messages_outbound.html" target="_top" title="sms_messages_outbound" alt="" coords="2169,3040,2433,3128">
+<area shape="rect" id="node72" href="../../tables/x_table_column_code_mappings.html" target="_top" title="x_table_column_code_mappings" alt="" coords="263,5,572,93">
+</map>
+                                        <a name='diagram'><object type="image/svg+xml" id="twodegreesDegreeImg" data="../diagrams/tables/m_code_value.2degrees.svg" class="diagram" border="0" align="left"></object></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <script>
+                    var config = {
+                        pagination: true
+                    }
+                </script>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="../bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="../bower/pdfmake/pdfmake.min.js"></script>
+        <script src="../bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="../bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="../bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="../bower/codemirror/codemirror.js"></script>
+        <script src="../bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="table.js"></script>
+        <script src="../schemaSpy.js"></script>
+    </body>
+</html>

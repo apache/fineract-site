@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>fineract_default Database</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="bower/html5shiv/html5shiv.min.js"></script>
+        <script src="bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="index.html" class="navbar-brand"><b>fineract_default</b> Database</a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>All Relationships</h1>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 class="box-title">Diagrams</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom">
+                                <!-- Tabs within a box -->
+                                <h5>By default only columns that are primary keys, foreign keys or indexes are shown.</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#compactDegreeImg-chart" data-toggle="tab" aria-expanded="true">Compact</a></li>
+                                    <li class=""><a href="#largeDegreeImg-chart" data-toggle="tab" aria-expanded="true">Large</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="compactDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="compactRelationshipsDiagram" name="compactRelationshipsDiagram">
+<area shape="rect" id="node1" href="../../tables/acc_accounting_rule.html" target="_top" title="acc_accounting_rule" alt="" coords="1927,1565,2176,1800">
+<area shape="rect" id="node2" href="../../tables/acc_gl_account.html" target="_top" title="acc_gl_account" alt="" coords="1334,1943,1670,2148">
+<area shape="rect" id="node113" href="../../tables/m_office.html" target="_top" title="m_office" alt="" coords="71,3280,241,3485">
+<area shape="rect" id="node43" href="../../tables/m_code_value.html" target="_top" title="m_code_value" alt="" coords="871,2447,1072,2623">
+<area shape="rect" id="node3" href="../../tables/acc_gl_closure.html" target="_top" title="acc_gl_closure" alt="" coords="1397,3320,1607,3555">
+<area shape="rect" id="node23" href="../../tables/m_appuser.html" target="_top" title="m_appuser" alt="" coords="817,5081,1125,5316">
+<area shape="rect" id="node4" href="../../tables/acc_gl_financial_activity_account.html" target="_top" title="acc_gl_financial_activity_account" alt="" coords="1880,1988,2223,2140">
+<area shape="rect" id="node5" href="../../tables/acc_gl_journal_entry.html" target="_top" title="acc_gl_journal_entry" alt="" coords="4418,1692,4739,2132">
+<area shape="rect" id="node40" href="../../tables/m_client_transaction.html" target="_top" title="m_client_transaction" alt="" coords="3405,3759,3664,3964">
+<area shape="rect" id="node106" href="../../tables/m_loan_transaction.html" target="_top" title="m_loan_transaction" alt="" coords="3859,1539,4217,1773">
+<area shape="rect" id="node116" href="../../tables/m_payment_detail.html" target="_top" title="m_payment_detail" alt="" coords="2447,1764,2659,1911">
+<area shape="rect" id="node148" href="../../tables/m_savings_account_transaction.html" target="_top" title="m_savings_account_transaction" alt="" coords="2869,1480,3218,1715">
+<area shape="rect" id="node159" href="../../tables/m_share_account_transactions.html" target="_top" title="m_share_account_transactions" alt="" coords="3876,3552,4200,3699">
+<area shape="rect" id="node6" href="../../tables/acc_product_mapping.html" target="_top" title="acc_product_mapping" alt="" coords="2917,1964,3170,2140">
+<area shape="rect" id="node31" href="../../tables/m_charge.html" target="_top" title="m_charge" alt="" coords="2372,2216,2735,2451">
+<area shape="rect" id="node117" href="../../tables/m_payment_type.html" target="_top" title="m_payment_type" alt="" coords="1951,1853,2152,1971">
+<area shape="rect" id="node7" href="../../tables/acc_rule_tags.html" target="_top" title="acc_rule_tags" alt="" coords="2461,1565,2646,1747">
+<area shape="rect" id="node8" href="../../tables/c_external_service.html" target="_top" title="c_external_service" alt="" coords="4472,1211,4685,1333">
+<area shape="rect" id="node9" href="../../tables/c_external_service_properties.html" target="_top" title="c_external_service_properties" alt="" coords="4981,1211,5297,1328">
+<area shape="rect" id="node10" href="../../tables/client_device_registration.html" target="_top" title="client_device_registration" alt="" coords="3395,3565,3675,3741">
+<area shape="rect" id="node32" href="../../tables/m_client.html" target="_top" title="m_client" alt="" coords="2904,3377,3183,3964">
+<area shape="rect" id="node11" href="../../tables/glim_accounts.html" target="_top" title="glim_accounts" alt="" coords="2433,7015,2673,7191">
+<area shape="rect" id="node65" href="../../tables/m_group.html" target="_top" title="m_group" alt="" coords="1384,7216,1620,7539">
+<area shape="rect" id="node12" href="../../tables/gsim_accounts.html" target="_top" title="gsim_accounts" alt="" coords="1931,7388,2171,7564">
+<area shape="rect" id="node13" href="../../tables/interop_identifier.html" target="_top" title="interop_identifier" alt="" coords="2937,7383,3150,7617">
+<area shape="rect" id="node143" href="../../tables/m_savings_account.html" target="_top" title="m_savings_account" alt="" coords="2325,7219,2781,7541">
+<area shape="rect" id="node14" href="../../tables/job.html" target="_top" title="job" alt="" coords="4446,993,4711,1111">
+<area shape="rect" id="node15" href="../../tables/job_parameters.html" target="_top" title="job_parameters" alt="" coords="5039,883,5240,1029">
+<area shape="rect" id="node16" href="../../tables/job_run_history.html" target="_top" title="job_run_history" alt="" coords="5043,1047,5235,1193">
+<area shape="rect" id="node17" href="../../tables/m_account_transfer_details.html" target="_top" title="m_account_transfer_details" alt="" coords="3891,6732,4185,7084">
+<area shape="rect" id="node84" href="../../tables/m_loan.html" target="_top" title="m_loan" alt="" coords="3305,6168,3764,6784">
+<area shape="rect" id="node18" href="../../tables/m_account_transfer_standing_instructions.html" target="_top" title="m_account_transfer_standing_instructions" alt="" coords="4365,6673,4793,6849">
+<area shape="rect" id="node19" href="../../tables/m_account_transfer_standing_instructions_history.html" target="_top" title="m_account_transfer_standing_instructions_history" alt="" coords="4889,6644,5389,6791">
+<area shape="rect" id="node20" href="../../tables/m_account_transfer_transaction.html" target="_top" title="m_account_transfer_transaction" alt="" coords="4411,1351,4747,1615">
+<area shape="rect" id="node21" href="../../tables/m_address.html" target="_top" title="m_address" alt="" coords="1399,2165,1605,2341">
+<area shape="rect" id="node22" href="../../tables/m_adhoc.html" target="_top" title="m_adhoc" alt="" coords="1355,5439,1649,5615">
+<area shape="rect" id="node164" href="../../tables/m_staff.html" target="_top" title="m_staff" alt="" coords="351,8944,716,9208">
+<area shape="rect" id="node24" href="../../tables/m_appuser_previous_password.html" target="_top" title="m_appuser_previous_password" alt="" coords="1339,5632,1665,5779">
+<area shape="rect" id="node25" href="../../tables/m_appuser_role.html" target="_top" title="m_appuser_role" alt="" coords="1405,8252,1599,8375">
+<area shape="rect" id="node141" href="../../tables/m_role.html" target="_top" title="m_role" alt="" coords="896,8825,1047,8972">
+<area shape="rect" id="node26" href="../../tables/m_calendar.html" target="_top" title="m_calendar" alt="" coords="1935,2481,2168,2599">
+<area shape="rect" id="node27" href="../../tables/m_calendar_history.html" target="_top" title="m_calendar_history" alt="" coords="2437,2632,2670,2779">
+<area shape="rect" id="node28" href="../../tables/m_calendar_instance.html" target="_top" title="m_calendar_instance" alt="" coords="2435,2468,2671,2615">
+<area shape="rect" id="node29" href="../../tables/m_cashier_transactions.html" target="_top" title="m_cashier_transactions" alt="" coords="2914,5729,3173,5876">
+<area shape="rect" id="node30" href="../../tables/m_cashiers.html" target="_top" title="m_cashiers" alt="" coords="2473,5759,2634,5935">
+<area shape="rect" id="node176" href="../../tables/m_tellers.html" target="_top" title="m_tellers" alt="" coords="1949,2652,2154,2887">
+<area shape="rect" id="node174" href="../../tables/m_tax_group.html" target="_top" title="m_tax_group" alt="" coords="1397,4823,1607,4999">
+<area shape="rect" id="node79" href="../../tables/m_image.html" target="_top" title="m_image" alt="" coords="44,10149,268,10267">
+<area shape="rect" id="node152" href="../../tables/m_savings_product.html" target="_top" title="m_savings_product" alt="" coords="1823,5424,2279,5629">
+<area shape="rect" id="node33" href="../../tables/m_client_address.html" target="_top" title="m_client_address" alt="" coords="3433,2033,3637,2239">
+<area shape="rect" id="node34" href="../../tables/m_client_attendance.html" target="_top" title="m_client_attendance" alt="" coords="3406,2809,3663,2985">
+<area shape="rect" id="node111" href="../../tables/m_meeting.html" target="_top" title="m_meeting" alt="" coords="2925,3172,3161,3324">
+<area shape="rect" id="node35" href="../../tables/m_client_charge.html" target="_top" title="m_client_charge" alt="" coords="3379,2508,3690,2684">
+<area shape="rect" id="node36" href="../../tables/m_client_charge_paid_by.html" target="_top" title="m_client_charge_paid_by" alt="" coords="3903,2911,4173,3087">
+<area shape="rect" id="node37" href="../../tables/m_client_collateral_management.html" target="_top" title="m_client_collateral_management" alt="" coords="3867,2636,4209,2812">
+<area shape="rect" id="node44" href="../../tables/m_collateral_management.html" target="_top" title="m_collateral_management" alt="" coords="3392,661,3677,808">
+<area shape="rect" id="node38" href="../../tables/m_client_identifier.html" target="_top" title="m_client_identifier" alt="" coords="3427,2256,3642,2491">
+<area shape="rect" id="node39" href="../../tables/m_client_non_person.html" target="_top" title="m_client_non_person" alt="" coords="3397,3237,3672,3384">
+<area shape="rect" id="node41" href="../../tables/m_client_transfer_details.html" target="_top" title="m_client_transfer_details" alt="" coords="3398,861,3671,1096">
+<area shape="rect" id="node42" href="../../tables/m_code.html" target="_top" title="m_code" alt="" coords="427,2407,640,2553">
+<area shape="rect" id="node49" href="../../tables/m_currency.html" target="_top" title="m_currency" alt="" coords="2887,691,3199,837">
+<area shape="rect" id="node45" href="../../tables/m_creditbureau.html" target="_top" title="m_creditbureau" alt="" coords="855,10681,1087,10892">
+<area shape="rect" id="node46" href="../../tables/m_creditbureau_configuration.html" target="_top" title="m_creditbureau_configuration" alt="" coords="1343,10816,1661,10992">
+<area shape="rect" id="node47" href="../../tables/m_creditbureau_loanproduct_mapping.html" target="_top" title="m_creditbureau_loanproduct_mapping" alt="" coords="1855,9385,2248,9561">
+<area shape="rect" id="node115" href="../../tables/m_organisation_creditbureau.html" target="_top" title="m_organisation_creditbureau" alt="" coords="1346,10152,1658,10328">
+<area shape="rect" id="node123" href="../../tables/m_product_loan.html" target="_top" title="m_product_loan" alt="" coords="1227,8397,1777,8661">
+<area shape="rect" id="node48" href="../../tables/m_creditreport.html" target="_top" title="m_creditreport" alt="" coords="1403,10652,1601,10799">
+<area shape="rect" id="node50" href="../../tables/m_deposit_account_on_hold_transaction.html" target="_top" title="m_deposit_account_on_hold_transaction" alt="" coords="4374,7705,4783,7852">
+<area shape="rect" id="node51" href="../../tables/m_deposit_account_recurring_detail.html" target="_top" title="m_deposit_account_recurring_detail" alt="" coords="2825,7635,3261,7781">
+<area shape="rect" id="node52" href="../../tables/m_deposit_account_term_and_preclosure.html" target="_top" title="m_deposit_account_term_and_preclosure" alt="" coords="2835,7799,3251,7975">
+<area shape="rect" id="node53" href="../../tables/m_deposit_product_interest_rate_chart.html" target="_top" title="m_deposit_product_interest_rate_chart" alt="" coords="2354,5219,2753,5341">
+<area shape="rect" id="node82" href="../../tables/m_interest_rate_chart.html" target="_top" title="m_interest_rate_chart" alt="" coords="1882,4300,2221,4417">
+<area shape="rect" id="node54" href="../../tables/m_deposit_product_recurring_detail.html" target="_top" title="m_deposit_product_recurring_detail" alt="" coords="2338,5559,2769,5705">
+<area shape="rect" id="node55" href="../../tables/m_deposit_product_term_and_preclosure.html" target="_top" title="m_deposit_product_term_and_preclosure" alt="" coords="2345,5395,2761,5541">
+<area shape="rect" id="node56" href="../../tables/m_document.html" target="_top" title="m_document" alt="" coords="859,7585,1083,7703">
+<area shape="rect" id="node57" href="../../tables/m_entity_datatable_check.html" target="_top" title="m_entity_datatable_check" alt="" coords="4999,631,5280,865">
+<area shape="rect" id="node192" href="../../tables/x_registered_table.html" target="_top" title="x_registered_table" alt="" coords="4448,689,4709,807">
+<area shape="rect" id="node58" href="../../tables/m_entity_relation.html" target="_top" title="m_entity_relation" alt="" coords="4476,437,4681,619">
+<area shape="rect" id="node59" href="../../tables/m_entity_to_entity_access.html" target="_top" title="m_entity_to_entity_access" alt="" coords="1357,2359,1647,2599">
+<area shape="rect" id="node60" href="../../tables/m_entity_to_entity_mapping.html" target="_top" title="m_entity_to_entity_mapping" alt="" coords="4989,408,5290,613">
+<area shape="rect" id="node61" href="../../tables/m_family_members.html" target="_top" title="m_family_members" alt="" coords="3419,1113,3650,1377">
+<area shape="rect" id="node62" href="../../tables/m_floating_rates.html" target="_top" title="m_floating_rates" alt="" coords="1385,9251,1619,9397">
+<area shape="rect" id="node63" href="../../tables/m_floating_rates_periods.html" target="_top" title="m_floating_rates_periods" alt="" coords="1866,9579,2237,9725">
+<area shape="rect" id="node64" href="../../tables/m_fund.html" target="_top" title="m_fund" alt="" coords="897,8345,1046,8497">
+<area shape="rect" id="node67" href="../../tables/m_group_level.html" target="_top" title="m_group_level" alt="" coords="871,7404,1071,7551">
+<area shape="rect" id="node66" href="../../tables/m_group_client.html" target="_top" title="m_group_client" alt="" coords="3440,5341,3629,5464">
+<area shape="rect" id="node68" href="../../tables/m_group_roles.html" target="_top" title="m_group_roles" alt="" coords="3441,3003,3628,3184">
+<area shape="rect" id="node69" href="../../tables/m_guarantor.html" target="_top" title="m_guarantor" alt="" coords="3916,3909,4160,4085">
+<area shape="rect" id="node70" href="../../tables/m_guarantor_funding_details.html" target="_top" title="m_guarantor_funding_details" alt="" coords="4423,4063,4734,4239">
+<area shape="rect" id="node121" href="../../tables/m_portfolio_account_associations.html" target="_top" title="m_portfolio_account_associations" alt="" coords="3863,5375,4213,5609">
+<area shape="rect" id="node71" href="../../tables/m_guarantor_transaction.html" target="_top" title="m_guarantor_transaction" alt="" coords="4975,4033,5304,4239">
+<area shape="rect" id="node72" href="../../tables/m_holiday.html" target="_top" title="m_holiday" alt="" coords="5,8172,307,8348">
+<area shape="rect" id="node73" href="../../tables/m_holiday_office.html" target="_top" title="m_holiday_office" alt="" coords="433,8172,633,8295">
+<area shape="rect" id="node74" href="../../tables/m_hook.html" target="_top" title="m_hook" alt="" coords="4473,169,4684,345">
+<area shape="rect" id="node78" href="../../tables/m_hook_templates.html" target="_top" title="m_hook_templates" alt="" coords="3930,64,4146,181">
+<area shape="rect" id="node177" href="../../tables/m_template.html" target="_top" title="m_template" alt="" coords="3957,228,4119,375">
+<area shape="rect" id="node75" href="../../tables/m_hook_configuration.html" target="_top" title="m_hook_configuration" alt="" coords="5016,65,5263,212">
+<area shape="rect" id="node76" href="../../tables/m_hook_registered_events.html" target="_top" title="m_hook_registered_events" alt="" coords="4995,229,5283,376">
+<area shape="rect" id="node77" href="../../tables/m_hook_schema.html" target="_top" title="m_hook_schema" alt="" coords="4475,5,4682,152">
+<area shape="rect" id="node80" href="../../tables/m_import_document.html" target="_top" title="m_import_document" alt="" coords="1386,7556,1618,7732">
+<area shape="rect" id="node81" href="../../tables/m_interest_incentives.html" target="_top" title="m_interest_incentives" alt="" coords="2921,4372,3166,4519">
+<area shape="rect" id="node83" href="../../tables/m_interest_rate_slab.html" target="_top" title="m_interest_rate_slab" alt="" coords="2431,4368,2676,4515">
+<area shape="rect" id="node180" href="../../tables/ref_loan_transaction_processing_strategy.html" target="_top" title="ref_loan_transaction_processing_strategy" alt="" coords="760,9651,1183,9797">
+<area shape="rect" id="node85" href="../../tables/m_loan_arrears_aging.html" target="_top" title="m_loan_arrears_aging" alt="" coords="3861,6155,4215,6272">
+<area shape="rect" id="node86" href="../../tables/m_loan_charge.html" target="_top" title="m_loan_charge" alt="" coords="3875,4465,4201,4671">
+<area shape="rect" id="node87" href="../../tables/m_loan_charge_paid_by.html" target="_top" title="m_loan_charge_paid_by" alt="" coords="4449,2228,4708,2404">
+<area shape="rect" id="node88" href="../../tables/m_loan_collateral.html" target="_top" title="m_loan_collateral" alt="" coords="3935,4103,4141,4279">
+<area shape="rect" id="node89" href="../../tables/m_loan_collateral_management.html" target="_top" title="m_loan_collateral_management" alt="" coords="4413,2577,4745,2783">
+<area shape="rect" id="node90" href="../../tables/m_loan_disbursement_detail.html" target="_top" title="m_loan_disbursement_detail" alt="" coords="3886,5791,4190,5937">
+<area shape="rect" id="node91" href="../../tables/m_loan_installment_charge.html" target="_top" title="m_loan_installment_charge" alt="" coords="4401,4463,4756,4639">
+<area shape="rect" id="node98" href="../../tables/m_loan_repayment_schedule.html" target="_top" title="m_loan_repayment_schedule" alt="" coords="3850,5627,4226,5773">
+<area shape="rect" id="node92" href="../../tables/m_loan_interest_recalculation_additional_details.html" target="_top" title="m_loan_interest_recalculation_additional_details" alt="" coords="4336,5597,4821,5744">
+<area shape="rect" id="node93" href="../../tables/m_loan_officer_assignment_history.html" target="_top" title="m_loan_officer_assignment_history" alt="" coords="3857,7943,4219,8119">
+<area shape="rect" id="node94" href="../../tables/m_loan_overdue_installment_charge.html" target="_top" title="m_loan_overdue_installment_charge" alt="" coords="4391,4681,4766,4857">
+<area shape="rect" id="node95" href="../../tables/m_loan_paid_in_advance.html" target="_top" title="m_loan_paid_in_advance" alt="" coords="3848,6325,4228,6443">
+<area shape="rect" id="node96" href="../../tables/m_loan_rate.html" target="_top" title="m_loan_rate" alt="" coords="3955,5199,4121,5321">
+<area shape="rect" id="node137" href="../../tables/m_rate.html" target="_top" title="m_rate" alt="" coords="1397,5052,1607,5228">
+<area shape="rect" id="node97" href="../../tables/m_loan_recalculation_details.html" target="_top" title="m_loan_recalculation_details" alt="" coords="3808,6460,4268,6607">
+<area shape="rect" id="node99" href="../../tables/m_loan_repayment_schedule_history.html" target="_top" title="m_loan_repayment_schedule_history" alt="" coords="4390,5199,4767,5375">
+<area shape="rect" id="node100" href="../../tables/m_loan_reschedule_request.html" target="_top" title="m_loan_reschedule_request" alt="" coords="3883,4917,4193,5181">
+<area shape="rect" id="node101" href="../../tables/m_loan_reschedule_request_term_variations_mapping.html" target="_top" title="m_loan_reschedule_request_term_variations_mapping" alt="" coords="4312,5847,4845,5999">
+<area shape="rect" id="node102" href="../../tables/m_loan_term_variations.html" target="_top" title="m_loan_term_variations" alt="" coords="3899,5991,4177,6137">
+<area shape="rect" id="node103" href="../../tables/m_loan_topup.html" target="_top" title="m_loan_topup" alt="" coords="4431,6451,4726,6656">
+<area shape="rect" id="node104" href="../../tables/m_loan_tranche_charges.html" target="_top" title="m_loan_tranche_charges" alt="" coords="3903,4296,4173,4448">
+<area shape="rect" id="node105" href="../../tables/m_loan_tranche_disbursement_charge.html" target="_top" title="m_loan_tranche_disbursement_charge" alt="" coords="4383,4927,4775,5079">
+<area shape="rect" id="node107" href="../../tables/m_loan_transaction_repayment_schedule_mapping.html" target="_top" title="m_loan_transaction_repayment_schedule_mapping" alt="" coords="4327,3228,4831,3404">
+<area shape="rect" id="node108" href="../../tables/m_loanproduct_provisioning_entry.html" target="_top" title="m_loanproduct_provisioning_entry" alt="" coords="1872,3552,2231,3875">
+<area shape="rect" id="node133" href="../../tables/m_provision_category.html" target="_top" title="m_provision_category" alt="" coords="1380,2652,1624,2799">
+<area shape="rect" id="node134" href="../../tables/m_provisioning_criteria.html" target="_top" title="m_provisioning_criteria" alt="" coords="1373,3837,1631,4043">
+<area shape="rect" id="node136" href="../../tables/m_provisioning_history.html" target="_top" title="m_provisioning_history" alt="" coords="1373,3644,1631,3820">
+<area shape="rect" id="node109" href="../../tables/m_loanproduct_provisioning_mapping.html" target="_top" title="m_loanproduct_provisioning_mapping" alt="" coords="1857,7219,2246,7371">
+<area shape="rect" id="node110" href="../../tables/m_mandatory_savings_schedule.html" target="_top" title="m_mandatory_savings_schedule" alt="" coords="2857,7055,3229,7201">
+<area shape="rect" id="node112" href="../../tables/m_note.html" target="_top" title="m_note" alt="" coords="4413,6867,4745,7219">
+<area shape="rect" id="node114" href="../../tables/m_office_transaction.html" target="_top" title="m_office_transaction" alt="" coords="416,3356,651,3532">
+<area shape="rect" id="node118" href="../../tables/m_permission.html" target="_top" title="m_permission" alt="" coords="859,9444,1083,9591">
+<area shape="rect" id="node119" href="../../tables/m_pocket.html" target="_top" title="m_pocket" alt="" coords="1425,5832,1579,5955">
+<area shape="rect" id="node120" href="../../tables/m_pocket_accounts_mapping.html" target="_top" title="m_pocket_accounts_mapping" alt="" coords="1897,6024,2206,6229">
+<area shape="rect" id="node122" href="../../tables/m_portfolio_command_source.html" target="_top" title="m_portfolio_command_source" alt="" coords="1345,5972,1659,6353">
+<area shape="rect" id="node124" href="../../tables/m_product_loan_charge.html" target="_top" title="m_product_loan_charge" alt="" coords="2913,2839,3173,2961">
+<area shape="rect" id="node125" href="../../tables/m_product_loan_configurable_attributes.html" target="_top" title="m_product_loan_configurable_attributes" alt="" coords="1846,8372,2257,8519">
+<area shape="rect" id="node126" href="../../tables/m_product_loan_floating_rates.html" target="_top" title="m_product_loan_floating_rates" alt="" coords="1826,9192,2277,9368">
+<area shape="rect" id="node127" href="../../tables/m_product_loan_guarantee_details.html" target="_top" title="m_product_loan_guarantee_details" alt="" coords="1831,8536,2272,8683">
+<area shape="rect" id="node128" href="../../tables/m_product_loan_rate.html" target="_top" title="m_product_loan_rate" alt="" coords="1933,7653,2169,7776">
+<area shape="rect" id="node129" href="../../tables/m_product_loan_recalculation_details.html" target="_top" title="m_product_loan_recalculation_details" alt="" coords="1821,8700,2281,8847">
+<area shape="rect" id="node130" href="../../tables/m_product_loan_variable_installment_config.html" target="_top" title="m_product_loan_variable_installment_config" alt="" coords="1829,8864,2274,9011">
+<area shape="rect" id="node131" href="../../tables/m_product_loan_variations_borrower_cycle.html" target="_top" title="m_product_loan_variations_borrower_cycle" alt="" coords="1835,9028,2268,9175">
+<area shape="rect" id="node132" href="../../tables/m_product_mix.html" target="_top" title="m_product_mix" alt="" coords="1931,8203,2171,8355">
+<area shape="rect" id="node135" href="../../tables/m_provisioning_criteria_definition.html" target="_top" title="m_provisioning_criteria_definition" alt="" coords="1875,2229,2228,2464">
+<area shape="rect" id="node138" href="../../tables/m_repayment_with_post_dated_checks.html" target="_top" title="m_repayment_with_post_dated_checks" alt="" coords="4381,6079,4777,6284">
+<area shape="rect" id="node139" href="../../tables/m_report_mailing_job.html" target="_top" title="m_report_mailing_job" alt="" coords="1344,6767,1660,7031">
+<area shape="rect" id="node187" href="../../tables/stretchy_report.html" target="_top" title="stretchy_report" alt="" coords="838,9887,1105,10033">
+<area shape="rect" id="node140" href="../../tables/m_report_mailing_job_run_history.html" target="_top" title="m_report_mailing_job_run_history" alt="" coords="1876,6767,2227,6913">
+<area shape="rect" id="node142" href="../../tables/m_role_permission.html" target="_top" title="m_role_permission" alt="" coords="1394,9415,1610,9537">
+<area shape="rect" id="node144" href="../../tables/m_savings_account_charge.html" target="_top" title="m_savings_account_charge" alt="" coords="2888,2979,3199,3155">
+<area shape="rect" id="node145" href="../../tables/m_savings_account_charge_paid_by.html" target="_top" title="m_savings_account_charge_paid_by" alt="" coords="3351,1840,3719,2016">
+<area shape="rect" id="node146" href="../../tables/m_savings_account_interest_rate_chart.html" target="_top" title="m_savings_account_interest_rate_chart" alt="" coords="2843,7219,3244,7365">
+<area shape="rect" id="node147" href="../../tables/m_savings_account_interest_rate_slab.html" target="_top" title="m_savings_account_interest_rate_slab" alt="" coords="3334,7196,3735,7343">
+<area shape="rect" id="node149" href="../../tables/m_savings_account_transaction_tax_details.html" target="_top" title="m_savings_account_transaction_tax_details" alt="" coords="3315,1611,3754,1787">
+<area shape="rect" id="node172" href="../../tables/m_tax_component.html" target="_top" title="m_tax_component" alt="" coords="1907,3300,2195,3535">
+<area shape="rect" id="node150" href="../../tables/m_savings_interest_incentives.html" target="_top" title="m_savings_interest_incentives" alt="" coords="3843,7173,4233,7320">
+<area shape="rect" id="node151" href="../../tables/m_savings_officer_assignment_history.html" target="_top" title="m_savings_officer_assignment_history" alt="" coords="2847,8280,3239,8456">
+<area shape="rect" id="node153" href="../../tables/m_savings_product_charge.html" target="_top" title="m_savings_product_charge" alt="" coords="2898,2699,3189,2821">
+<area shape="rect" id="node154" href="../../tables/m_selfservice_user_client_mapping.html" target="_top" title="m_selfservice_user_client_mapping" alt="" coords="3353,4125,3717,4277">
+<area shape="rect" id="node155" href="../../tables/m_share_account.html" target="_top" title="m_share_account" alt="" coords="3325,4367,3744,4748">
+<area shape="rect" id="node160" href="../../tables/m_share_product.html" target="_top" title="m_share_product" alt="" coords="1293,4276,1711,4481">
+<area shape="rect" id="node156" href="../../tables/m_share_account_charge.html" target="_top" title="m_share_account_charge" alt="" coords="3875,3716,4201,3892">
+<area shape="rect" id="node157" href="../../tables/m_share_account_charge_paid_by.html" target="_top" title="m_share_account_charge_paid_by" alt="" coords="4404,3591,4753,3767">
+<area shape="rect" id="node158" href="../../tables/m_share_account_dividend_details.html" target="_top" title="m_share_account_dividend_details" alt="" coords="3859,4724,4217,4900">
+<area shape="rect" id="node162" href="../../tables/m_share_product_dividend_pay_out.html" target="_top" title="m_share_product_dividend_pay_out" alt="" coords="1868,4707,2235,4912">
+<area shape="rect" id="node161" href="../../tables/m_share_product_charge.html" target="_top" title="m_share_product_charge" alt="" coords="2907,2559,3179,2681">
+<area shape="rect" id="node163" href="../../tables/m_share_product_market_price.html" target="_top" title="m_share_product_market_price" alt="" coords="1887,4435,2215,4581">
+<area shape="rect" id="node165" href="../../tables/m_staff_assignment_history.html" target="_top" title="m_staff_assignment_history" alt="" coords="1902,7901,2201,8077">
+<area shape="rect" id="node166" href="../../tables/m_survey_components.html" target="_top" title="m_survey_components" alt="" coords="2427,10288,2679,10435">
+<area shape="rect" id="node171" href="../../tables/m_surveys.html" target="_top" title="m_surveys" alt="" coords="1967,10400,2136,10517">
+<area shape="rect" id="node167" href="../../tables/m_survey_lookup_tables.html" target="_top" title="m_survey_lookup_tables" alt="" coords="2420,10452,2687,10599">
+<area shape="rect" id="node168" href="../../tables/m_survey_questions.html" target="_top" title="m_survey_questions" alt="" coords="2438,10652,2669,10799">
+<area shape="rect" id="node169" href="../../tables/m_survey_responses.html" target="_top" title="m_survey_responses" alt="" coords="2927,10563,3160,10709">
+<area shape="rect" id="node170" href="../../tables/m_survey_scorecards.html" target="_top" title="m_survey_scorecards" alt="" coords="3415,10252,3655,10516">
+<area shape="rect" id="node173" href="../../tables/m_tax_component_history.html" target="_top" title="m_tax_component_history" alt="" coords="2412,4744,2695,4949">
+<area shape="rect" id="node175" href="../../tables/m_tax_group_mappings.html" target="_top" title="m_tax_group_mappings" alt="" coords="2423,4967,2683,5201">
+<area shape="rect" id="node178" href="../../tables/notification_generator.html" target="_top" title="notification_generator" alt="" coords="846,7779,1097,7896">
+<area shape="rect" id="node179" href="../../tables/notification_mapper.html" target="_top" title="notification_mapper" alt="" coords="1387,7749,1617,7925">
+<area shape="rect" id="node181" href="../../tables/request_audit_table.html" target="_top" title="request_audit_table" alt="" coords="3415,3401,3655,3548">
+<area shape="rect" id="node182" href="../../tables/scheduled_email_campaign.html" target="_top" title="scheduled_email_campaign" alt="" coords="2885,9852,3201,9999">
+<area shape="rect" id="node183" href="../../tables/scheduled_email_messages_outbound.html" target="_top" title="scheduled_email_messages_outbound" alt="" coords="3340,8775,3729,9009">
+<area shape="rect" id="node184" href="../../tables/sms_campaign.html" target="_top" title="sms_campaign" alt="" coords="2426,10052,2681,10199">
+<area shape="rect" id="node185" href="../../tables/sms_messages_outbound.html" target="_top" title="sms_messages_outbound" alt="" coords="3397,9325,3673,9560">
+<area shape="rect" id="node186" href="../../tables/stretchy_parameter.html" target="_top" title="stretchy_parameter" alt="" coords="841,10075,1101,10251">
+<area shape="rect" id="node188" href="../../tables/stretchy_report_parameter.html" target="_top" title="stretchy_report_parameter" alt="" coords="1357,9959,1647,10135">
+<area shape="rect" id="node189" href="../../tables/topic.html" target="_top" title="topic" alt="" coords="885,7972,1057,8119">
+<area shape="rect" id="node190" href="../../tables/topic_subscriber.html" target="_top" title="topic_subscriber" alt="" coords="1397,7943,1607,8119">
+<area shape="rect" id="node191" href="../../tables/twofactor_access_token.html" target="_top" title="twofactor_access_token" alt="" coords="1371,5245,1633,5421">
+<area shape="rect" id="node193" href="../../tables/x_table_column_code_mappings.html" target="_top" title="x_table_column_code_mappings" alt="" coords="805,2307,1138,2429">
+</map>
+                                        <a name='diagram'><object type="image/svg+xml" id="compactDegreeImg" data="diagrams/summary/relationships.real.compact.svg" class="diagram" border="0" align="left"></object></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="largeDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="largeRelationshipsDiagram" name="largeRelationshipsDiagram">
+<area shape="rect" id="node1" href="../../tables/acc_accounting_rule.html" target="_top" title="acc_accounting_rule" alt="" coords="1927,4611,2176,4939">
+<area shape="rect" id="node2" href="../../tables/acc_gl_account.html" target="_top" title="acc_gl_account" alt="" coords="1334,5684,1670,6071">
+<area shape="rect" id="node113" href="../../tables/m_office.html" target="_top" title="m_office" alt="" coords="71,3748,241,3988">
+<area shape="rect" id="node43" href="../../tables/m_code_value.html" target="_top" title="m_code_value" alt="" coords="871,3872,1072,4171">
+<area shape="rect" id="node3" href="../../tables/acc_gl_closure.html" target="_top" title="acc_gl_closure" alt="" coords="1397,13448,1607,13776">
+<area shape="rect" id="node23" href="../../tables/m_appuser.html" target="_top" title="m_appuser" alt="" coords="817,9620,1125,10212">
+<area shape="rect" id="node4" href="../../tables/acc_gl_financial_activity_account.html" target="_top" title="acc_gl_financial_activity_account" alt="" coords="1880,3501,2223,3653">
+<area shape="rect" id="node5" href="../../tables/acc_gl_journal_entry.html" target="_top" title="acc_gl_journal_entry" alt="" coords="4418,2035,4739,2920">
+<area shape="rect" id="node40" href="../../tables/m_client_transaction.html" target="_top" title="m_client_transaction" alt="" coords="3405,2375,3664,2791">
+<area shape="rect" id="node106" href="../../tables/m_loan_transaction.html" target="_top" title="m_loan_transaction" alt="" coords="3859,5685,4217,6336">
+<area shape="rect" id="node116" href="../../tables/m_payment_detail.html" target="_top" title="m_payment_detail" alt="" coords="2447,3776,2659,4045">
+<area shape="rect" id="node148" href="../../tables/m_savings_account_transaction.html" target="_top" title="m_savings_account_transaction" alt="" coords="2869,6073,3218,6812">
+<area shape="rect" id="node159" href="../../tables/m_share_account_transactions.html" target="_top" title="m_share_account_transactions" alt="" coords="3876,12471,4200,12857">
+<area shape="rect" id="node6" href="../../tables/acc_product_mapping.html" target="_top" title="acc_product_mapping" alt="" coords="2917,3896,3170,4165">
+<area shape="rect" id="node31" href="../../tables/m_charge.html" target="_top" title="m_charge" alt="" coords="2372,6248,2735,7045">
+<area shape="rect" id="node117" href="../../tables/m_payment_type.html" target="_top" title="m_payment_type" alt="" coords="1951,3987,2152,4197">
+<area shape="rect" id="node7" href="../../tables/acc_rule_tags.html" target="_top" title="acc_rule_tags" alt="" coords="2461,4539,2646,4720">
+<area shape="rect" id="node8" href="../../tables/c_external_service.html" target="_top" title="c_external_service" alt="" coords="4472,1871,4685,1993">
+<area shape="rect" id="node9" href="../../tables/c_external_service_properties.html" target="_top" title="c_external_service_properties" alt="" coords="4981,1812,5297,1964">
+<area shape="rect" id="node10" href="../../tables/client_device_registration.html" target="_top" title="client_device_registration" alt="" coords="3395,4565,3675,4747">
+<area shape="rect" id="node32" href="../../tables/m_client.html" target="_top" title="m_client" alt="" coords="2904,4183,3183,5567">
+<area shape="rect" id="node11" href="../../tables/glim_accounts.html" target="_top" title="glim_accounts" alt="" coords="2433,9420,2673,9719">
+<area shape="rect" id="node65" href="../../tables/m_group.html" target="_top" title="m_group" alt="" coords="1384,10132,1620,10695">
+<area shape="rect" id="node12" href="../../tables/gsim_accounts.html" target="_top" title="gsim_accounts" alt="" coords="1931,10103,2171,10401">
+<area shape="rect" id="node13" href="../../tables/interop_identifier.html" target="_top" title="interop_identifier" alt="" coords="2937,9880,3150,10208">
+<area shape="rect" id="node143" href="../../tables/m_savings_account.html" target="_top" title="m_savings_account" alt="" coords="2325,9909,2781,11909">
+<area shape="rect" id="node14" href="../../tables/job.html" target="_top" title="job" alt="" coords="4446,1261,4711,1853">
+<area shape="rect" id="node15" href="../../tables/job_parameters.html" target="_top" title="job_parameters" alt="" coords="5039,1133,5240,1315">
+<area shape="rect" id="node16" href="../../tables/job_run_history.html" target="_top" title="job_run_history" alt="" coords="5043,1332,5235,1660">
+<area shape="rect" id="node17" href="../../tables/m_account_transfer_details.html" target="_top" title="m_account_transfer_details" alt="" coords="3891,6389,4185,6747">
+<area shape="rect" id="node84" href="../../tables/m_loan.html" target="_top" title="m_loan" alt="" coords="3305,7728,3764,10960">
+<area shape="rect" id="node18" href="../../tables/m_account_transfer_standing_instructions.html" target="_top" title="m_account_transfer_standing_instructions" alt="" coords="4365,6331,4793,6835">
+<area shape="rect" id="node19" href="../../tables/m_account_transfer_standing_instructions_history.html" target="_top" title="m_account_transfer_standing_instructions_history" alt="" coords="4889,6301,5389,6541">
+<area shape="rect" id="node20" href="../../tables/m_account_transfer_transaction.html" target="_top" title="m_account_transfer_transaction" alt="" coords="4411,5797,4747,6243">
+<area shape="rect" id="node21" href="../../tables/m_address.html" target="_top" title="m_address" alt="" coords="1399,3743,1605,4305">
+<area shape="rect" id="node22" href="../../tables/m_adhoc.html" target="_top" title="m_adhoc" alt="" coords="1355,9381,1649,9856">
+<area shape="rect" id="node164" href="../../tables/m_staff.html" target="_top" title="m_staff" alt="" coords="351,10283,716,10757">
+<area shape="rect" id="node24" href="../../tables/m_appuser_previous_password.html" target="_top" title="m_appuser_previous_password" alt="" coords="1339,9873,1665,10055">
+<area shape="rect" id="node25" href="../../tables/m_appuser_role.html" target="_top" title="m_appuser_role" alt="" coords="1405,17069,1599,17192">
+<area shape="rect" id="node141" href="../../tables/m_role.html" target="_top" title="m_role" alt="" coords="896,17096,1047,17277">
+<area shape="rect" id="node26" href="../../tables/m_calendar.html" target="_top" title="m_calendar" alt="" coords="1935,5328,2168,5920">
+<area shape="rect" id="node27" href="../../tables/m_calendar_history.html" target="_top" title="m_calendar_history" alt="" coords="2437,5545,2670,6020">
+<area shape="rect" id="node28" href="../../tables/m_calendar_instance.html" target="_top" title="m_calendar_instance" alt="" coords="2435,5347,2671,5528">
+<area shape="rect" id="node29" href="../../tables/m_cashier_transactions.html" target="_top" title="m_cashier_transactions" alt="" coords="2914,8465,3173,8823">
+<area shape="rect" id="node30" href="../../tables/m_cashiers.html" target="_top" title="m_cashiers" alt="" coords="2473,8405,2634,8733">
+<area shape="rect" id="node176" href="../../tables/m_tellers.html" target="_top" title="m_tellers" alt="" coords="1949,8643,2154,8971">
+<area shape="rect" id="node174" href="../../tables/m_tax_group.html" target="_top" title="m_tax_group" alt="" coords="1397,8872,1607,9112">
+<area shape="rect" id="node79" href="../../tables/m_image.html" target="_top" title="m_image" alt="" coords="44,10405,268,10557">
+<area shape="rect" id="node152" href="../../tables/m_savings_product.html" target="_top" title="m_savings_product" alt="" coords="1823,7277,2279,8368">
+<area shape="rect" id="node33" href="../../tables/m_client_address.html" target="_top" title="m_client_address" alt="" coords="3433,3897,3637,4108">
+<area shape="rect" id="node34" href="../../tables/m_client_attendance.html" target="_top" title="m_client_attendance" alt="" coords="3406,5761,3663,5943">
+<area shape="rect" id="node111" href="../../tables/m_meeting.html" target="_top" title="m_meeting" alt="" coords="2925,5725,3161,5877">
+<area shape="rect" id="node35" href="../../tables/m_client_charge.html" target="_top" title="m_client_charge" alt="" coords="3379,2844,3690,3377">
+<area shape="rect" id="node36" href="../../tables/m_client_charge_paid_by.html" target="_top" title="m_client_charge_paid_by" alt="" coords="3903,2492,4173,2673">
+<area shape="rect" id="node37" href="../../tables/m_client_collateral_management.html" target="_top" title="m_client_collateral_management" alt="" coords="3867,4431,4209,4612">
+<area shape="rect" id="node44" href="../../tables/m_collateral_management.html" target="_top" title="m_collateral_management" alt="" coords="3392,3395,3677,3664">
+<area shape="rect" id="node38" href="../../tables/m_client_identifier.html" target="_top" title="m_client_identifier" alt="" coords="3427,4125,3642,4512">
+<area shape="rect" id="node39" href="../../tables/m_client_non_person.html" target="_top" title="m_client_non_person" alt="" coords="3397,4999,3672,5268">
+<area shape="rect" id="node41" href="../../tables/m_client_transfer_details.html" target="_top" title="m_client_transfer_details" alt="" coords="3398,1459,3671,1757">
+<area shape="rect" id="node42" href="../../tables/m_code.html" target="_top" title="m_code" alt="" coords="427,3549,640,3701">
+<area shape="rect" id="node49" href="../../tables/m_currency.html" target="_top" title="m_currency" alt="" coords="2887,3285,3199,3555">
+<area shape="rect" id="node45" href="../../tables/m_creditbureau.html" target="_top" title="m_creditbureau" alt="" coords="855,17852,1087,18063">
+<area shape="rect" id="node46" href="../../tables/m_creditbureau_configuration.html" target="_top" title="m_creditbureau_configuration" alt="" coords="1343,18021,1661,18232">
+<area shape="rect" id="node47" href="../../tables/m_creditbureau_loanproduct_mapping.html" target="_top" title="m_creditbureau_loanproduct_mapping" alt="" coords="1855,17167,2248,17436">
+<area shape="rect" id="node115" href="../../tables/m_organisation_creditbureau.html" target="_top" title="m_organisation_creditbureau" alt="" coords="1346,17624,1658,17805">
+<area shape="rect" id="node123" href="../../tables/m_product_loan.html" target="_top" title="m_product_loan" alt="" coords="1227,15055,1777,16908">
+<area shape="rect" id="node48" href="../../tables/m_creditreport.html" target="_top" title="m_creditreport" alt="" coords="1403,17823,1601,18004">
+<area shape="rect" id="node50" href="../../tables/m_deposit_account_on_hold_transaction.html" target="_top" title="m_deposit_account_on_hold_transaction" alt="" coords="4374,13401,4783,13671">
+<area shape="rect" id="node51" href="../../tables/m_deposit_account_recurring_detail.html" target="_top" title="m_deposit_account_recurring_detail" alt="" coords="2825,10225,3261,10553">
+<area shape="rect" id="node52" href="../../tables/m_deposit_account_term_and_preclosure.html" target="_top" title="m_deposit_account_term_and_preclosure" alt="" coords="2835,10607,3251,11257">
+<area shape="rect" id="node53" href="../../tables/m_deposit_product_interest_rate_chart.html" target="_top" title="m_deposit_product_interest_rate_chart" alt="" coords="2354,7891,2753,8013">
+<area shape="rect" id="node82" href="../../tables/m_interest_rate_chart.html" target="_top" title="m_interest_rate_chart" alt="" coords="1882,8385,2221,8625">
+<area shape="rect" id="node54" href="../../tables/m_deposit_product_recurring_detail.html" target="_top" title="m_deposit_product_recurring_detail" alt="" coords="2338,7663,2769,7873">
+<area shape="rect" id="node55" href="../../tables/m_deposit_product_term_and_preclosure.html" target="_top" title="m_deposit_product_term_and_preclosure" alt="" coords="2345,7171,2761,7645">
+<area shape="rect" id="node56" href="../../tables/m_document.html" target="_top" title="m_document" alt="" coords="859,13647,1083,14004">
+<area shape="rect" id="node57" href="../../tables/m_entity_datatable_check.html" target="_top" title="m_entity_datatable_check" alt="" coords="4999,876,5280,1116">
+<area shape="rect" id="node192" href="../../tables/x_registered_table.html" target="_top" title="x_registered_table" alt="" coords="4448,935,4709,1116">
+<area shape="rect" id="node58" href="../../tables/m_entity_relation.html" target="_top" title="m_entity_relation" alt="" coords="4476,648,4681,829">
+<area shape="rect" id="node59" href="../../tables/m_entity_to_entity_access.html" target="_top" title="m_entity_to_entity_access" alt="" coords="1357,3485,1647,3725">
+<area shape="rect" id="node60" href="../../tables/m_entity_to_entity_mapping.html" target="_top" title="m_entity_to_entity_mapping" alt="" coords="4989,619,5290,859">
+<area shape="rect" id="node61" href="../../tables/m_family_members.html" target="_top" title="m_family_members" alt="" coords="3419,1775,3650,2249">
+<area shape="rect" id="node62" href="../../tables/m_floating_rates.html" target="_top" title="m_floating_rates" alt="" coords="1385,14739,1619,15037">
+<area shape="rect" id="node63" href="../../tables/m_floating_rates_periods.html" target="_top" title="m_floating_rates_periods" alt="" coords="1866,13484,2237,13841">
+<area shape="rect" id="node64" href="../../tables/m_fund.html" target="_top" title="m_fund" alt="" coords="897,15040,1046,15192">
+<area shape="rect" id="node67" href="../../tables/m_group_level.html" target="_top" title="m_group_level" alt="" coords="871,10329,1071,10569">
+<area shape="rect" id="node66" href="../../tables/m_group_client.html" target="_top" title="m_group_client" alt="" coords="3440,6364,3629,6487">
+<area shape="rect" id="node68" href="../../tables/m_group_roles.html" target="_top" title="m_group_roles" alt="" coords="3441,4800,3628,4981">
+<area shape="rect" id="node69" href="../../tables/m_guarantor.html" target="_top" title="m_guarantor" alt="" coords="3916,6764,4160,7356">
+<area shape="rect" id="node70" href="../../tables/m_guarantor_funding_details.html" target="_top" title="m_guarantor_funding_details" alt="" coords="4423,8556,4734,8855">
+<area shape="rect" id="node121" href="../../tables/m_portfolio_account_associations.html" target="_top" title="m_portfolio_account_associations" alt="" coords="3863,9452,4213,9721">
+<area shape="rect" id="node71" href="../../tables/m_guarantor_transaction.html" target="_top" title="m_guarantor_transaction" alt="" coords="4975,8527,5304,8737">
+<area shape="rect" id="node72" href="../../tables/m_holiday.html" target="_top" title="m_holiday" alt="" coords="5,10775,307,11103">
+<area shape="rect" id="node73" href="../../tables/m_holiday_office.html" target="_top" title="m_holiday_office" alt="" coords="433,10775,633,10897">
+<area shape="rect" id="node74" href="../../tables/m_hook.html" target="_top" title="m_hook" alt="" coords="4473,263,4684,591">
+<area shape="rect" id="node78" href="../../tables/m_hook_templates.html" target="_top" title="m_hook_templates" alt="" coords="3930,163,4146,285">
+<area shape="rect" id="node177" href="../../tables/m_template.html" target="_top" title="m_template" alt="" coords="3957,497,4119,708">
+<area shape="rect" id="node75" href="../../tables/m_hook_configuration.html" target="_top" title="m_hook_configuration" alt="" coords="5016,99,5263,309">
+<area shape="rect" id="node76" href="../../tables/m_hook_registered_events.html" target="_top" title="m_hook_registered_events" alt="" coords="4995,327,5283,508">
+<area shape="rect" id="node77" href="../../tables/m_hook_schema.html" target="_top" title="m_hook_schema" alt="" coords="4475,5,4682,245">
+<area shape="rect" id="node80" href="../../tables/m_import_document.html" target="_top" title="m_import_document" alt="" coords="1386,13793,1618,14151">
+<area shape="rect" id="node81" href="../../tables/m_interest_incentives.html" target="_top" title="m_interest_incentives" alt="" coords="2921,8149,3166,8448">
+<area shape="rect" id="node83" href="../../tables/m_interest_rate_slab.html" target="_top" title="m_interest_rate_slab" alt="" coords="2431,8031,2676,8388">
+<area shape="rect" id="node180" href="../../tables/ref_loan_transaction_processing_strategy.html" target="_top" title="ref_loan_transaction_processing_strategy" alt="" coords="760,15616,1183,15797">
+<area shape="rect" id="node85" href="../../tables/m_loan_arrears_aging.html" target="_top" title="m_loan_arrears_aging" alt="" coords="3861,9165,4215,9435">
+<area shape="rect" id="node86" href="../../tables/m_loan_charge.html" target="_top" title="m_loan_charge" alt="" coords="3875,7373,4201,8083">
+<area shape="rect" id="node87" href="../../tables/m_loan_charge_paid_by.html" target="_top" title="m_loan_charge_paid_by" alt="" coords="4449,7083,4708,7293">
+<area shape="rect" id="node88" href="../../tables/m_loan_collateral.html" target="_top" title="m_loan_collateral" alt="" coords="3935,5252,4141,5463">
+<area shape="rect" id="node89" href="../../tables/m_loan_collateral_management.html" target="_top" title="m_loan_collateral_management" alt="" coords="4413,5504,4745,5744">
+<area shape="rect" id="node90" href="../../tables/m_loan_disbursement_detail.html" target="_top" title="m_loan_disbursement_detail" alt="" coords="3886,8100,4190,8340">
+<area shape="rect" id="node91" href="../../tables/m_loan_installment_charge.html" target="_top" title="m_loan_installment_charge" alt="" coords="4401,9159,4756,9575">
+<area shape="rect" id="node98" href="../../tables/m_loan_repayment_schedule.html" target="_top" title="m_loan_repayment_schedule" alt="" coords="3850,9739,4226,10771">
+<area shape="rect" id="node92" href="../../tables/m_loan_interest_recalculation_additional_details.html" target="_top" title="m_loan_interest_recalculation_additional_details" alt="" coords="4336,9709,4821,9891">
+<area shape="rect" id="node93" href="../../tables/m_loan_officer_assignment_history.html" target="_top" title="m_loan_officer_assignment_history" alt="" coords="3857,13513,4219,13841">
+<area shape="rect" id="node94" href="../../tables/m_loan_overdue_installment_charge.html" target="_top" title="m_loan_overdue_installment_charge" alt="" coords="4391,8901,4766,9083">
+<area shape="rect" id="node95" href="../../tables/m_loan_paid_in_advance.html" target="_top" title="m_loan_paid_in_advance" alt="" coords="3848,8357,4228,8597">
+<area shape="rect" id="node96" href="../../tables/m_loan_rate.html" target="_top" title="m_loan_rate" alt="" coords="3955,11415,4121,11537">
+<area shape="rect" id="node137" href="../../tables/m_rate.html" target="_top" title="m_rate" alt="" coords="1397,10784,1607,11141">
+<area shape="rect" id="node97" href="../../tables/m_loan_recalculation_details.html" target="_top" title="m_loan_recalculation_details" alt="" coords="3808,8615,4268,9148">
+<area shape="rect" id="node99" href="../../tables/m_loan_repayment_schedule_history.html" target="_top" title="m_loan_repayment_schedule_history" alt="" coords="4390,11387,4767,11891">
+<area shape="rect" id="node100" href="../../tables/m_loan_reschedule_request.html" target="_top" title="m_loan_reschedule_request" alt="" coords="3883,11979,4193,12453">
+<area shape="rect" id="node101" href="../../tables/m_loan_reschedule_request_term_variations_mapping.html" target="_top" title="m_loan_reschedule_request_term_variations_mapping" alt="" coords="4312,11941,4845,12093">
+<area shape="rect" id="node102" href="../../tables/m_loan_term_variations.html" target="_top" title="m_loan_term_variations" alt="" coords="3899,11040,4177,11397">
+<area shape="rect" id="node103" href="../../tables/m_loan_topup.html" target="_top" title="m_loan_topup" alt="" coords="4431,10305,4726,10516">
+<area shape="rect" id="node104" href="../../tables/m_loan_tranche_charges.html" target="_top" title="m_loan_tranche_charges" alt="" coords="3903,5480,4173,5632">
+<area shape="rect" id="node105" href="../../tables/m_loan_tranche_disbursement_charge.html" target="_top" title="m_loan_tranche_disbursement_charge" alt="" coords="4383,7693,4775,7845">
+<area shape="rect" id="node107" href="../../tables/m_loan_transaction_repayment_schedule_mapping.html" target="_top" title="m_loan_transaction_repayment_schedule_mapping" alt="" coords="4327,8225,4831,8524">
+<area shape="rect" id="node108" href="../../tables/m_loanproduct_provisioning_entry.html" target="_top" title="m_loanproduct_provisioning_entry" alt="" coords="1872,6479,2231,6865">
+<area shape="rect" id="node133" href="../../tables/m_provision_category.html" target="_top" title="m_provision_category" alt="" coords="1380,5348,1624,5500">
+<area shape="rect" id="node134" href="../../tables/m_provisioning_criteria.html" target="_top" title="m_provisioning_criteria" alt="" coords="1373,7793,1631,8033">
+<area shape="rect" id="node136" href="../../tables/m_provisioning_history.html" target="_top" title="m_provisioning_history" alt="" coords="1373,7536,1631,7776">
+<area shape="rect" id="node109" href="../../tables/m_loanproduct_provisioning_mapping.html" target="_top" title="m_loanproduct_provisioning_mapping" alt="" coords="1857,11601,2246,11753">
+<area shape="rect" id="node110" href="../../tables/m_mandatory_savings_schedule.html" target="_top" title="m_mandatory_savings_schedule" alt="" coords="2857,11275,3229,11779">
+<area shape="rect" id="node112" href="../../tables/m_note.html" target="_top" title="m_note" alt="" coords="4413,10879,4745,11353">
+<area shape="rect" id="node114" href="../../tables/m_office_transaction.html" target="_top" title="m_office_transaction" alt="" coords="416,3719,651,4017">
+<area shape="rect" id="node118" href="../../tables/m_permission.html" target="_top" title="m_permission" alt="" coords="859,17295,1083,17535">
+<area shape="rect" id="node119" href="../../tables/m_pocket.html" target="_top" title="m_pocket" alt="" coords="1425,6267,1579,6389">
+<area shape="rect" id="node120" href="../../tables/m_pocket_accounts_mapping.html" target="_top" title="m_pocket_accounts_mapping" alt="" coords="1897,5064,2206,5275">
+<area shape="rect" id="node122" href="../../tables/m_portfolio_command_source.html" target="_top" title="m_portfolio_command_source" alt="" coords="1345,11416,1659,12096">
+<area shape="rect" id="node124" href="../../tables/m_product_loan_charge.html" target="_top" title="m_product_loan_charge" alt="" coords="2913,7217,3173,7340">
+<area shape="rect" id="node125" href="../../tables/m_product_loan_configurable_attributes.html" target="_top" title="m_product_loan_configurable_attributes" alt="" coords="1846,14247,2257,14604">
+<area shape="rect" id="node126" href="../../tables/m_product_loan_floating_rates.html" target="_top" title="m_product_loan_floating_rates" alt="" coords="1826,13859,2277,14157">
+<area shape="rect" id="node127" href="../../tables/m_product_loan_guarantee_details.html" target="_top" title="m_product_loan_guarantee_details" alt="" coords="1831,14621,2272,14832">
+<area shape="rect" id="node128" href="../../tables/m_product_loan_rate.html" target="_top" title="m_product_loan_rate" alt="" coords="1933,12188,2169,12311">
+<area shape="rect" id="node129" href="../../tables/m_product_loan_recalculation_details.html" target="_top" title="m_product_loan_recalculation_details" alt="" coords="1821,14849,2281,15441">
+<area shape="rect" id="node130" href="../../tables/m_product_loan_variable_installment_config.html" target="_top" title="m_product_loan_variable_installment_config" alt="" coords="1829,15459,2274,15640">
+<area shape="rect" id="node131" href="../../tables/m_product_loan_variations_borrower_cycle.html" target="_top" title="m_product_loan_variations_borrower_cycle" alt="" coords="1835,15657,2268,15956">
+<area shape="rect" id="node132" href="../../tables/m_product_mix.html" target="_top" title="m_product_mix" alt="" coords="1931,15973,2171,16125">
+<area shape="rect" id="node135" href="../../tables/m_provisioning_criteria_definition.html" target="_top" title="m_provisioning_criteria_definition" alt="" coords="1875,3671,2228,3969">
+<area shape="rect" id="node138" href="../../tables/m_repayment_with_post_dated_checks.html" target="_top" title="m_repayment_with_post_dated_checks" alt="" coords="4381,10533,4777,10861">
+<area shape="rect" id="node139" href="../../tables/m_report_mailing_job.html" target="_top" title="m_report_mailing_job" alt="" coords="1344,8087,1660,8855">
+<area shape="rect" id="node187" href="../../tables/stretchy_report.html" target="_top" title="stretchy_report" alt="" coords="838,16264,1105,16621">
+<area shape="rect" id="node140" href="../../tables/m_report_mailing_job_run_history.html" target="_top" title="m_report_mailing_job_run_history" alt="" coords="1876,6919,2227,7188">
+<area shape="rect" id="node142" href="../../tables/m_role_permission.html" target="_top" title="m_role_permission" alt="" coords="1394,17408,1610,17531">
+<area shape="rect" id="node144" href="../../tables/m_savings_account_charge.html" target="_top" title="m_savings_account_charge" alt="" coords="2888,7357,3199,8096">
+<area shape="rect" id="node145" href="../../tables/m_savings_account_charge_paid_by.html" target="_top" title="m_savings_account_charge_paid_by" alt="" coords="3351,6767,3719,6948">
+<area shape="rect" id="node146" href="../../tables/m_savings_account_interest_rate_chart.html" target="_top" title="m_savings_account_interest_rate_chart" alt="" coords="2843,11832,3244,12101">
+<area shape="rect" id="node147" href="../../tables/m_savings_account_interest_rate_slab.html" target="_top" title="m_savings_account_interest_rate_slab" alt="" coords="3334,11809,3735,12167">
+<area shape="rect" id="node149" href="../../tables/m_savings_account_transaction_tax_details.html" target="_top" title="m_savings_account_transaction_tax_details" alt="" coords="3315,6129,3754,6311">
+<area shape="rect" id="node172" href="../../tables/m_tax_component.html" target="_top" title="m_tax_component" alt="" coords="1907,5973,2195,6389">
+<area shape="rect" id="node150" href="../../tables/m_savings_interest_incentives.html" target="_top" title="m_savings_interest_incentives" alt="" coords="3843,11591,4233,11889">
+<area shape="rect" id="node151" href="../../tables/m_savings_officer_assignment_history.html" target="_top" title="m_savings_officer_assignment_history" alt="" coords="2847,12851,3239,13179">
+<area shape="rect" id="node153" href="../../tables/m_savings_product_charge.html" target="_top" title="m_savings_product_charge" alt="" coords="2898,7077,3189,7200">
+<area shape="rect" id="node154" href="../../tables/m_selfservice_user_client_mapping.html" target="_top" title="m_selfservice_user_client_mapping" alt="" coords="3353,5960,3717,6112">
+<area shape="rect" id="node155" href="../../tables/m_share_account.html" target="_top" title="m_share_account" alt="" coords="3325,12871,3744,13815">
+<area shape="rect" id="node160" href="../../tables/m_share_product.html" target="_top" title="m_share_product" alt="" coords="1293,12257,1711,13143">
+<area shape="rect" id="node156" href="../../tables/m_share_account_charge.html" target="_top" title="m_share_account_charge" alt="" coords="3875,12875,4201,13496">
+<area shape="rect" id="node157" href="../../tables/m_share_account_charge_paid_by.html" target="_top" title="m_share_account_charge_paid_by" alt="" coords="4404,12628,4753,12809">
+<area shape="rect" id="node158" href="../../tables/m_share_account_dividend_details.html" target="_top" title="m_share_account_dividend_details" alt="" coords="3859,13895,4217,14135">
+<area shape="rect" id="node162" href="../../tables/m_share_product_dividend_pay_out.html" target="_top" title="m_share_product_dividend_pay_out" alt="" coords="1868,12785,2235,13143">
+<area shape="rect" id="node161" href="../../tables/m_share_product_charge.html" target="_top" title="m_share_product_charge" alt="" coords="2907,6937,3179,7060">
+<area shape="rect" id="node163" href="../../tables/m_share_product_market_price.html" target="_top" title="m_share_product_market_price" alt="" coords="1887,12436,2215,12617">
+<area shape="rect" id="node165" href="../../tables/m_staff_assignment_history.html" target="_top" title="m_staff_assignment_history" alt="" coords="1902,11807,2201,12135">
+<area shape="rect" id="node166" href="../../tables/m_survey_components.html" target="_top" title="m_survey_components" alt="" coords="2427,17947,2679,18187">
+<area shape="rect" id="node171" href="../../tables/m_surveys.html" target="_top" title="m_surveys" alt="" coords="1967,17833,2136,18103">
+<area shape="rect" id="node167" href="../../tables/m_survey_lookup_tables.html" target="_top" title="m_survey_lookup_tables" alt="" coords="2420,17660,2687,17929">
+<area shape="rect" id="node168" href="../../tables/m_survey_questions.html" target="_top" title="m_survey_questions" alt="" coords="2438,18204,2669,18473">
+<area shape="rect" id="node169" href="../../tables/m_survey_responses.html" target="_top" title="m_survey_responses" alt="" coords="2927,18175,3160,18385">
+<area shape="rect" id="node170" href="../../tables/m_survey_scorecards.html" target="_top" title="m_survey_scorecards" alt="" coords="3415,18040,3655,18339">
+<area shape="rect" id="node173" href="../../tables/m_tax_component_history.html" target="_top" title="m_tax_component_history" alt="" coords="2412,4965,2695,5293">
+<area shape="rect" id="node175" href="../../tables/m_tax_group_mappings.html" target="_top" title="m_tax_group_mappings" alt="" coords="2423,8823,2683,9151">
+<area shape="rect" id="node178" href="../../tables/notification_generator.html" target="_top" title="notification_generator" alt="" coords="846,14021,1097,14320">
+<area shape="rect" id="node179" href="../../tables/notification_mapper.html" target="_top" title="notification_mapper" alt="" coords="1387,14168,1617,14379">
+<area shape="rect" id="node181" href="../../tables/request_audit_table.html" target="_top" title="request_audit_table" alt="" coords="3415,5321,3655,5708">
+<area shape="rect" id="node182" href="../../tables/scheduled_email_campaign.html" target="_top" title="scheduled_email_campaign" alt="" coords="2885,14716,3201,15513">
+<area shape="rect" id="node183" href="../../tables/scheduled_email_messages_outbound.html" target="_top" title="scheduled_email_messages_outbound" alt="" coords="3340,14067,3729,14483">
+<area shape="rect" id="node184" href="../../tables/sms_campaign.html" target="_top" title="sms_campaign" alt="" coords="2426,16891,2681,17571">
+<area shape="rect" id="node185" href="../../tables/sms_messages_outbound.html" target="_top" title="sms_messages_outbound" alt="" coords="3397,15695,3673,16111">
+<area shape="rect" id="node186" href="../../tables/stretchy_parameter.html" target="_top" title="stretchy_parameter" alt="" coords="841,16663,1101,17079">
+<area shape="rect" id="node188" href="../../tables/stretchy_report_parameter.html" target="_top" title="stretchy_report_parameter" alt="" coords="1357,17209,1647,17391">
+<area shape="rect" id="node189" href="../../tables/topic.html" target="_top" title="topic" alt="" coords="885,14337,1057,14577">
+<area shape="rect" id="node190" href="../../tables/topic_subscriber.html" target="_top" title="topic_subscriber" alt="" coords="1397,14396,1607,14577">
+<area shape="rect" id="node191" href="../../tables/twofactor_access_token.html" target="_top" title="twofactor_access_token" alt="" coords="1371,11159,1633,11399">
+<area shape="rect" id="node193" href="../../tables/x_table_column_code_mappings.html" target="_top" title="x_table_column_code_mappings" alt="" coords="805,3520,1138,3643">
+</map>
+                                        <a name='diagram'><object type="image/svg+xml" id="largeDegreeImg" data="diagrams/summary/relationships.real.large.svg" class="diagram" border="0" align="left"></object></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="bower/pdfmake/pdfmake.min.js"></script>
+        <script src="bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="bower/codemirror/codemirror.js"></script>
+        <script src="bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="relationships.js"></script>
+        <script src="schemaSpy.js"></script>
+    </body>
+</html>
