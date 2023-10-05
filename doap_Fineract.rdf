@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl"?>
+<rdf:RDF xml:lang="en"
+         xmlns="http://usefulinc.com/ns/doap#" 
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+         xmlns:asfext="http://projects.apache.org/ns/asfext#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+   
+         https://www.apache.org/licenses/LICENSE-2.0
+   
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+  <Project rdf:about="https://fineract.apache.org">
+    <created>2023-07-12</created>
+    <license rdf:resource="https://spdx.org/licenses/Apache-2.0" />
+    <name>Apache Fineract</name>
+    <homepage rdf:resource="https://fineract.apache.org" />
+    <asfext:pmc rdf:resource="https://fineract.apache.org" />
+    <shortdesc>Core bank processing and lending </shortdesc>
+    <description>At Apache Fineract, our mission is to build, maintain and enhance a cloud-ready core banking system for robust, scalable, and secure operations of financial institutions.</description>
+    <bug-database rdf:resource="https://issues.apache.org/jira/projects/FINERACT/issues/" />
+    <mailing-list rdf:resource="https://lists.apache.org/list?dev@fineract.apache.org" />
+    <download-page rdf:resource="https://fineract.apache.org" />
+    <programming-language>Java</programming-language>
+<!--
+<category rdf:resource="https://projects.apache.org/category/financial" /> 
+-->
+    <release>
+      <Version>
+        <name>Fineract 1.8.4</name>
+        <created>2024-03-24</created>
+        <revision>1.84</revision>
+      </Version>
+    </release>
+    <repository>
+      <GitRepository>
+        <location rdf:resource="https://github.com/apache/fineract"/>
+        <browse rdf:resource="https://github.com/apache/fineract"/>
+      </GitRepository>
+    </repository>
+    <maintainer>
+      <foaf:Person>
+        <foaf:name>Fineract PMC</foaf:name>
+          <foaf:mbox rdf:resource="mailto:dev@fineract.apache.org"/>
+      </foaf:Person>
+    </maintainer>
+  </Project>
+</rdf:RDF>
+
