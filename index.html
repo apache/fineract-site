@@ -35,136 +35,789 @@
         <div class="nav-wrapper">
           <div class="container">
             <a href="#top" class="brand-logo">
-              <img class="logo" src="images/apache-fineract-logo.png" alt="Fineract Logo"/>
-              <span class="brand">Apache Fineract&reg;</span>
-		    <img referrerpolicy="no-referrer-when-downgrade" src="https://static.scarf.sh/a.png?x-pxid=2067fdb9-816d-461c-8713-bfb6cd8bb098" />
+              <div class="logo-wrapper">
+                <div class="logo-container">
+                  <img class="logo-img" src="images/apache-fineract-logo.png" alt="Apache Fineract Logo"/>
+                  <div class="brand-text">
+                    <span class="brand-name">Apache Fineract&reg;</span>
+                  </div>
+                </div>
+              </div>
             </a>
             <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-              <li><a class="ghost-white-hover" href="#about">About</a></li>
-              <li><a class="ghost-white-hover" href="#contribute">Contribute</a></li>
-              <li><a class="ghost-white-hover" href="#downloads">Downloads</a></li>
-              <li><a class="ghost-white-hover" href="#resources">Resources</a></li>
-              <li><a class="ghost-white-hover" href="#reference">Reference</a></li>
+            
+            <ul class="right hide-on-med-and-down nav-links">
+              <li>
+                <a class="nav-link" href="#about">
+                  <i class="material-icons left">info</i>About
+                </a>
+              </li>
+              <li>
+                <a class="nav-link" href="#contribute">
+                  <i class="material-icons left">people</i>Contribute
+                </a>
+              </li>
+              <li>
+                <a class="nav-link" href="#downloads">
+                  <i class="material-icons left">download</i>Downloads
+                </a>
+              </li>
+              <li>
+                <a class="nav-link" href="#resources">
+                  <i class="material-icons left">library_books</i>Resources
+                </a>
+              </li>
+              <li>
+                <a class="nav-link" href="#reference">
+                  <i class="material-icons left">link</i>Reference
+                </a>
+              </li>
             </ul>
+
             <ul class="side-nav ghost-white jet-text" id="mobile-menu">
-              <li class="side-nav-heading">Apache Fineract&reg;</li>
-              <li><a class="jet-hover" href="#about" onclick="closeSideNav()">About</a></li>
-              <li><a class="jet-hover" href="#contribute" onclick="closeSideNav()">Contribute</a></li>
-              <li><a class="jet-hover" href="#downloads" onclick="closeSideNav()">Downloads</a></li>
-              <li><a class="jet-hover" href="#resources" onclick="closeSideNav()">Resources</a></li>
-              <li><a class="jet-hover" href="#reference" onclick="closeSideNav()">Reference</a></li>
+              <li class="side-nav-header">
+                <div class="logo-container">
+                  <img class="logo" src="images/apache-fineract-logo.png" alt="Fineract Logo"/>
+                  <span class="brand">Apache Fineract&reg;</span>
+                </div>
+              </li>
+              <li><div class="divider"></div></li>
+              <li>
+                <a class="side-nav-link" href="#about" onclick="closeSideNav()">
+                  <i class="material-icons left">info</i>About
+                </a>
+              </li>
+              <li>
+                <a class="side-nav-link" href="#contribute" onclick="closeSideNav()">
+                  <i class="material-icons left">people</i>Contribute
+                </a>
+              </li>
+              <li>
+                <a class="side-nav-link" href="#downloads" onclick="closeSideNav()">
+                  <i class="material-icons left">download</i>Downloads
+                </a>
+              </li>
+              <li>
+                <a class="side-nav-link" href="#resources" onclick="closeSideNav()">
+                  <i class="material-icons left">library_books</i>Resources
+                </a>
+              </li>
+              <li>
+                <a class="side-nav-link" href="#reference" onclick="closeSideNav()">
+                  <i class="material-icons left">link</i>Reference
+                </a>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
     </div>
+
+    <style>
+      .navbar-fixed {
+        height: 72px;
+      }
+      
+      .nav-wrapper {
+        padding: 0 15px;
+      }
+
+      /* Logo Styles */
+      .logo-wrapper {
+        display: flex;
+        align-items: center;
+        height: 72px;
+        padding: 5px 0;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .logo-img {
+        height: 52px;
+        width: auto;
+        margin: 0;
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .brand-name {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #ffffff;
+        line-height: 1.2;
+        letter-spacing: 0.5px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Responsive adjustments */
+      @media only screen and (max-width: 992px) {
+        .brand-logo {
+          transform: translateX(-50%);
+          left: 50%;
+        }
+
+        .logo-img {
+          height: 46px;
+        }
+
+        .brand-name {
+          font-size: 1.6rem;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .logo-img {
+          height: 40px;
+        }
+        
+        .brand-name {
+          font-size: 1.4rem;
+        }
+      }
+
+      /* Rest of the existing styles */
+      .nav-links li {
+        margin: 0 5px;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        height: 72px;
+        transition: background-color 0.3s ease;
+        border-bottom: 3px solid transparent;
+      }
+
+      .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-bottom: 3px solid #26a69a;
+      }
+
+      .nav-link i {
+        margin-right: 8px;
+        transition: transform 0.3s ease;
+      }
+
+      .nav-link:hover i {
+        transform: translateY(-2px);
+      }
+
+      .side-nav-header {
+        padding: 20px 15px;
+        background-color: #343434;
+      }
+
+      .side-nav-header .logo-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .side-nav-header .brand {
+        color: white;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      .side-nav-link {
+        display: flex !important;
+        align-items: center;
+        padding: 15px !important;
+        height: auto !important;
+        transition: background-color 0.3s ease;
+      }
+
+      .side-nav-link i {
+        margin-right: 15px !important;
+        color: #26a69a;
+      }
+
+      .side-nav-link:hover {
+        background-color: #f5f5f5 !important;
+      }
+
+      @media only screen and (max-width: 992px) {
+        .brand-logo {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    </style>
   </header>
+  <div class="cube-loader">
+    <div class="cube">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+      <div class="inner-cube">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face right"></div>
+        <div class="face left"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .cube-loader {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 120px;
+      perspective: 1000px;
+      display: none; /* Hidden by default, show with .show class */
+    }
+
+    .cube-loader.show {
+      display: block;
+    }
+
+    .cube {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      animation: rotate 4s infinite linear;
+    }
+
+    .cube .face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(186, 0, 143, 0.9);
+      border: 2px solid rgba(186, 0, 143, 1);
+      box-sizing: border-box;
+    }
+
+    .inner-cube {
+      position: absolute;
+      width: 60%;
+      height: 60%;
+      top: 20%;
+      left: 20%;
+      transform-style: preserve-3d;
+    }
+
+    .inner-cube .face {
+      background: rgba(0, 119, 190, 0.9);
+      border: 2px solid rgba(0, 119, 190, 1);
+    }
+
+    .inner-cube::after {
+      content: '';
+      position: absolute;
+      width: 40%;
+      height: 40%;
+      top: 30%;
+      left: 30%;
+      background: rgba(141, 198, 63, 0.9);
+      border: 2px solid rgba(141, 198, 63, 1);
+      transform: translateZ(0);
+    }
+
+    /* Face Transformations */
+    .cube .face.front  { transform: rotateY(0deg) translateZ(60px); }
+    .cube .face.back   { transform: rotateY(180deg) translateZ(60px); }
+    .cube .face.right  { transform: rotateY(90deg) translateZ(60px); }
+    .cube .face.left   { transform: rotateY(-90deg) translateZ(60px); }
+    .cube .face.top    { transform: rotateX(90deg) translateZ(60px); }
+    .cube .face.bottom { transform: rotateX(-90deg) translateZ(60px); }
+
+    .inner-cube .face.front  { transform: rotateY(0deg) translateZ(36px); }
+    .inner-cube .face.back   { transform: rotateY(180deg) translateZ(36px); }
+    .inner-cube .face.right  { transform: rotateY(90deg) translateZ(36px); }
+    .inner-cube .face.left   { transform: rotateY(-90deg) translateZ(36px); }
+    .inner-cube .face.top    { transform: rotateX(90deg) translateZ(36px); }
+    .inner-cube .face.bottom { transform: rotateX(-90deg) translateZ(36px); }
+
+    @keyframes rotate {
+      0% {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+      100% {
+        transform: rotateX(360deg) rotateY(360deg);
+      }
+    }
+
+    /* Add shadow effect */
+    .cube-loader::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 85%;
+      height: 10px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+      filter: blur(5px);
+      animation: shadow 4s infinite linear;
+    }
+
+    @keyframes shadow {
+      0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.4;
+      }
+      50% {
+        transform: translateX(-50%) scale(1.2);
+        opacity: 0.2;
+      }
+    }
+  </style>
+
+  <script>
+    // Function to show/hide loader
+    function showLoader() {
+      document.querySelector('.cube-loader').classList.add('show');
+    }
+
+    function hideLoader() {
+      document.querySelector('.cube-loader').classList.remove('show');
+    }
+  </script>
   <main class="container">
     <section class="section">
       <h3 class="center-align">Platform for Digital Financial Services</h3>
-      <p class="flow-text justify-align">
-        Apache Fineract&reg; (&#92;&#8217;f&#299;n-,&#1241;-,rakt&#92;) is open source software for financial services. 
-      </p>
-      <p class="flow-text justify-align">
-        At Apache Fineract&reg;, our mission is to build, maintain and enhance a cloud-ready
-	core banking system for robust, scalable, and secure operations of financial institutions.   
-        Fineract&reg; provides a reliable, robust, and affordable solution
-        for entrepreneurs, financial institutions, and service providers. 
-        We believe in financial services for everyone, including and especially for the unbanked and underbanked. 
-	      
-        Fineract&reg; is aimed at innovative mobile and cloud-based solutions,
-        and enables digital transaction accounts for all.
-      </p>
-	<p class="flow-text justify-align">ASF Fineract&reg; 1.x is a cloud-ready platform with open APIs. It is, by design, a headless application.  
-		Solution Providers, including system integrators and banking system operators are able to build their own front end solutions on top of Fineract&reg;. 
-		We encourage all Consumers (or users) of fineract to consult competent technical resources for all questions related to securing and running the software properly. 
-		Please consult the Apache license for further legal information and the <a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=91554327">FAQ<a></a> and <a href="https://cwiki.apache.org/confluence/display/FINERACT/Securing+Fineract">Securing Fineract</a> for key information about the setup of this project. 
-	    </p>
-	   
-	<p class="flow-text justify-align"> NOTE DEPRECATED SUB-PROJECT: The Fineract&reg; Community has also worked on a code project called Fineract&reg; CN, 
-		intended to operate as a microservice architecture.  If you find references to this CN project it was not released.  In May 2023, the Fineract&reg; Community decided to DEPRECATE this project, and archived in late 2023. This side-project served an important role in describing a microservice approach. 	
-      </p>
+      
+      <div class="row">
+        <div class="col s12">
+          <div class="card-panel">
+            <h4><i class="material-icons left">account_balance</i>What is Apache Fineract?</h4>
+            <p class="flow-text justify-align">
+              Apache Fineract&reg; (\'fīn-,ˌ,rakt\) is open source software for financial services, designed to create a cloud-ready 
+              core banking system that enables digital financial services for everyone, including the unbanked and underbanked.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card-panel">
+            <h4><i class="material-icons left">rocket_launch</i>Our Mission</h4>
+            <div class="mission-points">
+              <div class="mission-item">
+                <i class="material-icons">cloud_done</i>
+                <p>Build and maintain a cloud-ready core banking system</p>
+              </div>
+              <div class="mission-item">
+                <i class="material-icons">security</i>
+                <p>Ensure robust, scalable, and secure operations</p>
+              </div>
+              <div class="mission-item">
+                <i class="material-icons">accessibility_new</i>
+                <p>Promote financial inclusion worldwide</p>
+              </div>
+              <div class="mission-item">
+                <i class="material-icons">savings</i>
+                <p>Enable digital transaction accounts for all</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m6">
+          <div class="card-panel">
+            <h4><i class="material-icons left">stars</i>Key Benefits</h4>
+            <div class="benefits-list">
+              <div class="benefit-item">
+                <i class="material-icons">verified</i>
+                <div class="benefit-content">
+                  <h5>Reliable</h5>
+                  <p>Proven track record in high-transaction environments</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <i class="material-icons">trending_up</i>
+                <div class="benefit-content">
+                  <h5>Scalable</h5>
+                  <p>Designed for cloud deployment and growth</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <i class="material-icons">savings</i>
+                <div class="benefit-content">
+                  <h5>Affordable</h5>
+                  <p>Cost-effective solution for institutions of all sizes</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <i class="material-icons">api</i>
+                <div class="benefit-content">
+                  <h5>Open APIs</h5>
+                  <p>Headless application design for maximum flexibility</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <div class="card-panel blue lighten-5">
+            <h4><i class="material-icons left">business</i>For Solution Providers</h4>
+            <p class="flow-text">
+              Fineract&reg; 1.x is a cloud-ready platform with open APIs, designed as a headless application. 
+              This makes it ideal for solution providers who want to:
+            </p>
+            <div class="row provider-benefits">
+              <div class="col s12 m4">
+                <div class="center-align">
+                  <i class="material-icons medium">integration_instructions</i>
+                  <h5>Integrate</h5>
+                  <p>Build custom interfaces and extensions</p>
+                </div>
+              </div>
+              <div class="col s12 m4">
+                <div class="center-align">
+                  <i class="material-icons medium">architecture</i>
+                  <h5>Scale</h5>
+                  <p>Deploy cloud-native solutions</p>
+                </div>
+              </div>
+              <div class="col s12 m4">
+                <div class="center-align">
+                  <i class="material-icons medium">hub</i>
+                  <h5>Innovate</h5>
+                  <p>Create unique financial products</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        .mission-points, .benefits-list {
+          padding: 20px 0;
+        }
+        .mission-item, .benefit-item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 15px;
+        }
+        .mission-item i, .benefit-item i {
+          margin-right: 15px;
+          color: #26a69a;
+        }
+        .mission-item p {
+          margin: 0;
+          font-size: 1.1rem;
+        }
+        .benefit-content {
+          flex: 1;
+        }
+        .benefit-content h5 {
+          margin: 0;
+          color: #26a69a;
+        }
+        .benefit-content p {
+          margin: 5px 0 0 0;
+          font-size: 1rem;
+        }
+        .provider-benefits .material-icons.medium {
+          color: #26a69a;
+        }
+        .provider-benefits h5 {
+          color: #26a69a;
+        }
+        .provider-benefits p {
+          font-size: 1rem;
+        }
+      </style>
+
       <div class="divider"></div>
     </section>
 	
-	
     <section id="about" class="section">
       <h3 class="center-align">About</h3>
-      <p class="flow-text justify-align">
-        Fineract&reg; can be deployed in any environment:
-        cloud or on-premise, although most active contributions are coming in on cloud based deployments.  
-	It can support front end interfaces on or offline, mobile or PC, depending on the requirements and as managed by the implementing organization.
+      
+      <div class="row">
+        <div class="col s12">
+          <div class="card-panel">
+            <h4><i class="material-icons left">info</i>What is Fineract?</h4>
+            <p class="flow-text justify-align">
+              Apache Fineract&reg; is a sophisticated core banking system that provides comprehensive financial technology solutions. 
+              It offers robust features for client data management, loan and savings portfolio management, integrated real-time accounting, 
+              and extensive reporting capabilities.
+            </p>
+          </div>
+        </div>
+      </div>
 
-	It’s aim is to be extensible enough to support any organizational type or delivery channel,
-        and flexible enough to support any product, service, or lending methodology.  
-        
-	For any organization, big or small, it provides
-        the client data management, loan and savings portfolio management, integrated real time accounting,
-        and social and financial reporting needed
-        to bring digital financial services to a modern connected world.
-      </p>
-	  <p class="flow-text justify-align">
-      Fineract&reg; 1.x compares well to other core banking systems
-      and draws from requirements in credit unions, microfinance institutions, and small non-banking financial institutions.
-      Features include
-      flexible product configuration,
-      KYC documentation support,
-      business rule sets,
-      payment transactions,
-      and portfolio management.
-      It includes an open API that dates to 2011 and is deployed in relatively high transaction
-      volume environments.
-    </p>
-		
-	  <p class="flow-text justify-align">
-      Fineract&reg; 1.x began incubation at Apache in December 2015 and is used by
-      an active community of companies
-      who build solutions for both financial inclusion and fintech innovation.
-    </p>
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card-panel">
+            <h4><i class="material-icons left">settings</i>Key Features</h4>
+            <ul class="collection">
+              <li class="collection-item">
+                <i class="material-icons left tiny">tune</i>
+                <span><strong>Flexible Product Configuration</strong><br>
+                Customize financial products to meet your needs</span>
+              </li>
+              <li class="collection-item">
+                <i class="material-icons left tiny">verified_user</i>
+                <span><strong>KYC Documentation Support</strong><br>
+                Comprehensive customer verification system</span>
+              </li>
+              <li class="collection-item">
+                <i class="material-icons left tiny">rule</i>
+                <span><strong>Business Rule Sets</strong><br>
+                Configurable business logic and workflows</span>
+              </li>
+              <li class="collection-item">
+                <i class="material-icons left tiny">payments</i>
+                <span><strong>Payment Transactions</strong><br>
+                Secure and efficient payment processing</span>
+              </li>
+              <li class="collection-item">
+                <i class="material-icons left tiny">account_balance</i>
+                <span><strong>Portfolio Management</strong><br>
+                Complete loan and investment tracking</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col s12 m6">
+          <div class="card-panel">
+            <h4><i class="material-icons left">architecture</i>Deployment Options</h4>
+            <ul class="collection">
+              <li class="collection-item">
+                <i class="material-icons left tiny">cloud</i>
+                <span><strong>Cloud Deployment</strong><br>
+                Scalable cloud-based solutions with active community support</span>
+              </li>
+              <li class="collection-item">
+                <i class="material-icons left tiny">computer</i>
+                <span><strong>On-Premise</strong><br>
+                Traditional deployment for complete control</span>
+              </li>
+              <li class="collection-item">
+                <i class="material-icons left tiny">phone_iphone</i>
+                <span><strong>Mobile Access</strong><br>
+                Support for both online and offline mobile interfaces</span>
+              </li>
+              <li class="collection-item">
+                <i class="material-icons left tiny">api</i>
+                <span><strong>Open API</strong><br>
+                Comprehensive API support since 2011</span>
+              </li>
+              <li class="collection-item">
+                <i class="material-icons left tiny">extension</i>
+                <span><strong>Extensible Architecture</strong><br>
+                Support for any organizational type or delivery channel</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <div class="card-panel yellow lighten-4">
+            <h4><i class="material-icons left">warning</i>Important Notice</h4>
+            <p class="flow-text">
+              We encourage all users of Fineract to:
+            </p>
+            <ul class="browser-default">
+              <li>Consult competent technical resources for questions about secure deployment and operation</li>
+              <li>Review the <a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=91554327">FAQ</a> and 
+                  <a href="https://cwiki.apache.org/confluence/display/FINERACT/Securing+Fineract">Security Guide</a> for essential setup information</li>
+              <li>Refer to the Apache license for legal information</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <div class="card-panel red lighten-5">
+            <h4><i class="material-icons left">history</i>Deprecated Sub-Project Notice</h4>
+            <p class="flow-text">
+              The Fineract&reg; CN project (microservice architecture version) was deprecated in May 2023 and archived in late 2023. 
+              While this side-project served an important role in describing a microservice approach, it was never officially released.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        .collection-item i.tiny {
+          margin-top: 3px;
+        }
+        .collection-item span {
+          display: block;
+          margin-left: 30px;
+        }
+        .collection-item strong {
+          color: #26a69a;
+        }
+      </style>
 
       <div class="divider"></div>
     </section>
     <section id="contribute" class="section">
       <h3 class="center-align">Contribute</h3>
-      <p class="flow-text justify-align">
-        The Apache Fineract&reg; community welcomes contributors who want to support the
-        Fineract&reg; technology. Our community builds everything from this website,
-        to the Fineract&reg; code to documentation and best practices information.
-      </p>
-      <p class="flow-text justify-align">
-        We especially welcome additions and corrections to the
-        documentation, wiki, and website to improve the user experience.
-        Bug reports and fixes and additions to the Apache Fineract&reg; code are welcome.
-        Helping users learn best practices also earns good karma in our community.
-      </p>
-      <article>
-        <h4>Mailing Lists</h4>
-        <h5>Users &amp; Developers</h5>
-        <p class="flow-text">
-          <i>If you use, build on top of, deploy or are building contributions and modifications to Apache Fineract&reg;, this is the list for you.</i><br/>
-          To subscribe, send a blank email to <a href="mailto:dev-subscribe@fineract.apache.org">dev-subscribe@fineract.apache.org</a>.<br/>
-          To <b>un</b>subscribe later, just send a blank email to <a href="mailto:dev-unsubscribe@fineract.apache.org">dev-unsubscribe@fineract.apache.org</a>.<br/>
-          You can also read the archives 
-		<a href="https://lists.apache.org/list.html?dev@fineract.apache.org" target="_blank">on lists.apache.org</a>.
-        </p>
-        <h5>Commits</h5>
-        <p class="flow-text">
-          <i>This list receives an email whenever new code is contributed to Apache Fineract&reg;</i>.<br/>
-          To subscribe, send a blank email to <a href="mailto:commits-subscribe@fineract.apache.org">commits-subscribe@fineract.apache.org</a>.<br/>
-          You can also <a href="https://markmail.org/search/?q=list%3Aorg.apache.fineract.commits+order%3Adate-backward" target="_blank">read the archives</a>.
-        </p>
-      </article>
+      
+      <div class="row">
+        <div class="col s12">
+          <div class="card-panel">
+            <h4><i class="material-icons left">people</i>Join Our Community</h4>
+            <p class="flow-text justify-align">
+              The Apache Fineract&reg; community welcomes contributors who want to support the
+              Fineract&reg; technology. Our community builds everything from this website,
+              to the Fineract&reg; code to documentation and best practices information.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card-panel">
+            <h4><i class="material-icons left">build</i>Ways to Contribute</h4>
+            <ul class="collection">
+              <li class="collection-item">
+                <i class="material-icons left tiny">code</i>
+                <span>Submit bug fixes and new features to the codebase</span>
+              </li>
+              <li class="collection-item">
+                <i class="material-icons left tiny">description</i>
+                <span>Improve documentation and wiki pages</span>
+              </li>
+              <li class="collection-item">
+                <i class="material-icons left tiny">web</i>
+                <span>Enhance the website user experience</span>
+              </li>
+              <li class="collection-item">
+                <i class="material-icons left tiny">school</i>
+                <span>Help users learn best practices</span>
+              </li>
+              <li class="collection-item">
+                <i class="material-icons left tiny">bug_report</i>
+                <span>Report bugs and suggest improvements</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col s12 m6">
+          <div class="card-panel">
+            <h4><i class="material-icons left">mail</i>Mailing Lists</h4>
+            
+            <div class="collection">
+              <div class="collection-item">
+                <h5 class="title">Development List</h5>
+                <p class="grey-text">For users, developers, and contributors discussing Apache Fineract&reg;</p>
+                <div class="chip">
+                  <i class="material-icons left">email</i>
+                  dev@fineract.apache.org
+                </div>
+                <div class="mailing-actions">
+                  <a href="mailto:dev-subscribe@fineract.apache.org" class="btn-small waves-effect waves-light">
+                    <i class="material-icons left">person_add</i>Subscribe
+                  </a>
+                  <a href="https://lists.apache.org/list.html?dev@fineract.apache.org" target="_blank" class="btn-small waves-effect waves-light">
+                    <i class="material-icons left">history</i>Archives
+                  </a>
+                </div>
+              </div>
+
+              <div class="collection-item">
+                <h5 class="title">Commits List</h5>
+                <p class="grey-text">Receive notifications of all code contributions</p>
+                <div class="chip">
+                  <i class="material-icons left">email</i>
+                  commits@fineract.apache.org
+                </div>
+                <div class="mailing-actions">
+                  <a href="mailto:commits-subscribe@fineract.apache.org" class="btn-small waves-effect waves-light">
+                    <i class="material-icons left">person_add</i>Subscribe
+                  </a>
+                  <a href="https://markmail.org/search/?q=list%3Aorg.apache.fineract.commits+order%3Adate-backward" target="_blank" class="btn-small waves-effect waves-light">
+                    <i class="material-icons left">history</i>Archives
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <div class="card-panel yellow lighten-4">
+            <h4><i class="material-icons left">tips_and_updates</i>Getting Started</h4>
+            <p class="flow-text">
+              New to contributing? Check out our <a href="https://cwiki.apache.org/confluence/display/FINERACT/Contributor%27s+Zone">Contributor's Guide</a> for:
+            </p>
+            <div class="row">
+              <div class="col s12 m6">
+                <ul class="browser-default">
+                  <li>Development environment setup</li>
+                  <li>Coding standards and best practices</li>
+                  <li>Pull request guidelines</li>
+                </ul>
+              </div>
+              <div class="col s12 m6">
+                <ul class="browser-default">
+                  <li>Testing procedures</li>
+                  <li>Documentation guidelines</li>
+                  <li>Community best practices</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        .mailing-actions {
+          margin-top: 10px;
+        }
+        .mailing-actions .btn-small {
+          margin-right: 10px;
+        }
+        .collection-item .title {
+          margin-top: 0;
+          color: #26a69a;
+        }
+        .collection-item .chip {
+          margin-bottom: 10px;
+        }
+      </style>
+
       <div class="divider"></div>
     </section>
     <section id="downloads" class="section">
       <h3 class="center-align">Downloads</h3>
-      <p class="flow-text justify-align">The below table lists mirrored release artifacts and their associated hashes and signatures available at apache.org.
-        The keys used to sign releases are published at <a href="https://www.apache.org/dist/fineract/KEYS">KEYS</a>.
-        Instructions for verifying your mirrored downloads are located <a href="https://www.apache.org/dyn/closer.cgi#verify">here</a>.
-      </p>
       <article>
-        <table class="responsive-table striped">
+        <h4>Downloads</h4>
+        <p class="flow-text justify-align">
+          Below you'll find official Apache Fineract&reg; releases. We recommend using the latest stable version.
+          Each release includes binary and source distributions with corresponding verification files.
+        </p>
+        
+        <div class="table-responsive">
+          <table class="striped highlight">
           <thead>
           <tr>
             <th>Version</th>
@@ -175,45 +828,46 @@
           </thead>
 
           <tbody>
- 	   <tr>
-            <td>1.10.1 </td>
-            <td><a href="https://cwiki.apache.org/confluence/display/FINERACT/1.10.1+-+Apache+Fineract">Apache Fineract&reg; 1.10.1</a></td>
-            <td>
-		<a href="https://fineract.gateway.scarf.sh/1.10.1">apache-fineract-1.10.1-binary.tar.gz</a>
-              (<a href="https://www.apache.org/dist/fineract/1.10.1/apache-fineract-1.10.1-binary.tar.gz.asc">asc</a>,
-              <a href="https://www.apache.org/dist/fineract/1.10.1/apache-fineract-1.10.1-binary.tar.gz.sha512">sha512</a>)</td>
-            <td><a href="https://www.apache.org/dyn/closer.cgi?path=/fineract/1.10.1/apache-fineract-1.10.1-src.tar.gz">apache-fineract-1.10.1src.tar.gz</a>
-              (<a href="https://www.apache.org/dist/fineract/1.10.1/apache-fineract-1.10.1-src.tar.gz.asc">asc</a>,
-              <a href="https://www.apache.org/dist/fineract/1.10.1/apache-fineract-1.10.1-src.tar.gz.sha512">sha512</a>)
-            </td>
-           </tr>
-	  <tr>
-            <td>1.9.0 PENDING DEPRECATION</td>
-            <td><a href="https://cwiki.apache.org/confluence/display/FINERACT/1.9.0+-+Apache+Fineract">Apache Fineract&reg; 1.9.0</a></td>
-            <td>
-		<a href="https://fineract.gateway.scarf.sh/1.9.0">apache-fineract-1.9.0-binary.tar.gz</a>
-              (<a href="https://www.apache.org/dist/fineract/1.9.0/apache-fineract-1.9.0-binary.tar.gz.asc">asc</a>,
-              <a href="https://www.apache.org/dist/fineract/1.9.0/apache-fineract-1.9.0-binary.tar.gz.sha512">sha512</a>)</td>
-            <td><a href="https://www.apache.org/dyn/closer.cgi?path=/fineract/1.9.0/apache-fineract-1.9.0-src.tar.gz">apache-fineract-1.9.0-src.tar.gz</a>
-              (<a href="https://www.apache.org/dist/fineract/1.9.0/apache-fineract-1.9.0-src.tar.gz.asc">asc</a>,
-              <a href="https://www.apache.org/dist/fineract/1.9.0/apache-fineract-1.9.0-src.tar.gz.sha512">sha512</a>)
-            </td>
-          </tr>
-	  <!--
-          <tr>
-            <td>1.8.4</td>
-            <td><a href="https://cwiki.apache.org/confluence/display/FINERACT/1.8.4+-+Apache+Fineract">Apache Fineract&reg; 1.8.4</a></td>
-            <td><a href="https://www.apache.org/dyn/closer.cgi?path=/fineract/1.8.4/apache-fineract-1.8.4-binary.tar.gz">apache-fineract-1.8.4-binary.tar.gz</a>
-              (<a href="https://www.apache.org/dist/fineract/1.8.4/apache-fineract-1.8.4-binary.tar.gz.asc">asc</a>,
-              <a href="https://www.apache.org/dist/fineract/1.8.4/apache-fineract-1.8.4-binary.tar.gz.sha512">sha512</a>)</td>
-            <td><a href="https://www.apache.org/dyn/closer.cgi?path=/fineract/1.8.4/apache-fineract-1.8.4-src.tar.gz">apache-fineract-1.8.4-src.tar.gz</a>
-              (<a href="https://www.apache.org/dist/fineract/1.8.4/apache-fineract-1.8.4-src.tar.gz.asc">asc</a>,
-              <a href="https://www.apache.org/dist/fineract/1.8.4/apache-fineract-1.8.4-src.tar.gz.sha512">sha512</a>)
-            </td>
-          </tr>
-	  -->
+            <tr>
+              <td>1.10.1</td>
+              <td><a href="https://cwiki.apache.org/confluence/display/FINERACT/1.10.1+-+Apache+Fineract">Apache Fineract&reg; 1.10.1</a></td>
+              <td>
+                <a href="https://dlcdn.apache.org/fineract/1.10.1/apache-fineract-1.10.1-binary.tar.gz">apache-fineract-1.10.1-binary.tar.gz</a>
+                (<a href="https://www.apache.org/dist/fineract/1.10.1/apache-fineract-1.10.1-binary.tar.gz.asc">asc</a>,
+                <a href="https://www.apache.org/dist/fineract/1.10.1/apache-fineract-1.10.1-binary.tar.gz.sha512">sha512</a>)
+              </td>
+              <td>
+                <a href="https://dlcdn.apache.org/fineract/1.10.1/apache-fineract-1.10.1-src.tar.gz">apache-fineract-1.10.1-src.tar.gz</a>
+                (<a href="https://www.apache.org/dist/fineract/1.10.1/apache-fineract-1.10.1-src.tar.gz.asc">asc</a>,
+                <a href="https://www.apache.org/dist/fineract/1.10.1/apache-fineract-1.10.1-src.tar.gz.sha512">sha512</a>)
+              </td>
+            </tr>
+            <tr>
+              <td><span class="red-text">1.9.0</span><br><small>(Pending Deprecation)</small></td>
+              <td><a href="https://cwiki.apache.org/confluence/display/FINERACT/1.9.0+-+Apache+Fineract">Apache Fineract&reg; 1.9.0</a></td>
+              <td>
+                <a href="https://archive.apache.org/dist/fineract/1.9.0/apache-fineract-1.9.0-binary.tar.gz">apache-fineract-1.9.0-binary.tar.gz</a>
+                (<a href="https://www.apache.org/dist/fineract/1.9.0/apache-fineract-1.9.0-binary.tar.gz.asc">asc</a>,
+                <a href="https://www.apache.org/dist/fineract/1.9.0/apache-fineract-1.9.0-binary.tar.gz.sha512">sha512</a>)
+              </td>
+              <td>
+                <a href="https://archive.apache.org/dist/fineract/1.9.0/apache-fineract-1.9.0-src.tar.gz">apache-fineract-1.9.0-src.tar.gz</a>
+                (<a href="https://www.apache.org/dist/fineract/1.9.0/apache-fineract-1.9.0-src.tar.gz.asc">asc</a>,
+                <a href="https://www.apache.org/dist/fineract/1.9.0/apache-fineract-1.9.0-src.tar.gz.sha512">sha512</a>)
+              </td>
+            </tr>
           </tbody>
-        </table>
+          </table>
+        </div>
+
+        <div class="card-panel grey lighten-4 z-depth-1">
+          <p><strong>Verifying Downloads:</strong> We strongly recommend verifying the integrity of the downloaded files using:</p>
+          <ul>
+            <li><strong>ASC files</strong> - PGP signatures that can be verified using our <a href="https://downloads.apache.org/fineract/KEYS">KEYS file</a></li>
+            <li><strong>SHA512 files</strong> - Checksums to verify the downloaded file hasn't been corrupted</li>
+          </ul>
+          <p>For instructions on signature verification, please see the <a href="https://www.apache.org/info/verification.html">Apache Release Download Guide</a>.</p>
+        </div>
       </article>
       <p class="flow-text justify-align">If you are looking for an old release that is not present here or on the mirror, please check the
         <a href="https://archive.apache.org/dist/fineract/">Apache archives</a>.</p>
@@ -221,78 +875,336 @@
     </section>
     <section id="resources" class="section">
       <h3 class="center-align">Resources</h3>
-      <article>
-        <h4>Frequently Used Links</h4>
-        <p class="flow-text justify-align">
-        <a href="https://www.fineract.dev/">Fineract.dev</a><br/>
-	Community Demo Server (CI/CD)
-        </p>
-        <p class="flow-text justify-align">
-        <a href="https://issues.apache.org/jira/projects/FINERACT">JIRA</a><br/>
-        Issue tracking
-      </p>
-      <p class="flow-text justify-align">
-        <a href="https://cwiki.apache.org/confluence/display/FINERACT/Fineract+Home">Confluence</a><br/>
-        Project management and documentation
-        </p>
-        <p class="flow-text justify-align">
-        <a href="https://cwiki.apache.org/confluence/display/FINERACT/Getting+Started+Docs">Getting Started Guide</a>
-        for Fineract&reg; 1.x (non-CN)
-        </p>
-      </article>
-      <article>
-        <h4>Documentation</h4>
-        <p class="flow-text justify-align">
-          <a href="https://cwiki.apache.org/confluence/display/FINERACT/Contributor%27s+Zone" target="_blank">Contributor's Zone</a><br/>
-          Here you will find guides about getting started, how to contribute, and build instructions.
-        </p>
-        <p class="flow-text justify-align">
-          <a href="https://cwiki.apache.org/confluence/display/FINERACT/Committer%27s+Zone" target="_blank">Committer's Zone</a><br/>
-          Here you will find guides about handling pull requests, and dealing with code reviews.
-        </p>
-        <p class="flow-text justify-align">
-          <a href="https://cwiki.apache.org/confluence/x/nK9zB" target="_blank">Security Report</a><br/>
-          Lists of security issues fixed in released versions of the Apache Fineract&reg; are available here.
-        </p>
-        <p class="flow-text justify-align">
-          <a href="https://fineract.apache.org/docs/legacy/index.html" target="_blank">Legacy Docs</a><br/>
-          Apache Fineract&reg; API Legacy Documentation
-        </p>
-      </article>
-      <article>
-        <h4>Repositories</h4>
-        <p class="flow-text justify-align">
-          <a href="https://github.com/apache/fineract" target="_blank">Apache Fineract&reg;</a><br/>
-          Here you will find the source code for Apache Fineract&reg;.
-        </p>
+      
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card-panel">
+            <h4><i class="material-icons left">rocket_launch</i>Getting Started</h4>
+            <div class="collection">
+              <a href="https://www.fineract.dev/" class="collection-item">
+                <strong>Demo Server</strong>
+                <p class="grey-text">Try Fineract on our community CI/CD server</p>
+              </a>
+              <a href="https://cwiki.apache.org/confluence/display/FINERACT/Getting+Started+Docs" class="collection-item">
+                <strong>Getting Started Guide</strong>
+                <p class="grey-text">Setup guide for Fineract 1.x (non-CN)</p>
+              </a>
+              <a href="https://cwiki.apache.org/confluence/display/FINERACT/Contributor%27s+Zone" class="collection-item">
+                <strong>Contributor's Guide</strong>
+                <p class="grey-text">Learn how to contribute to Fineract</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col s12 m6">
+          <div class="card-panel">
+            <h4><i class="material-icons left">engineering</i>Development</h4>
+            <div class="collection">
+              <a href="https://github.com/apache/fineract" class="collection-item">
+                <strong>Main Repository</strong>
+                <p class="grey-text">Source code for Apache Fineract</p>
+              </a>
+              <a href="https://issues.apache.org/jira/projects/FINERACT" class="collection-item">
+                <strong>Issue Tracker</strong>
+                <p class="grey-text">Report bugs and request features</p>
+              </a>
+              <a href="https://cwiki.apache.org/confluence/display/FINERACT/Committer%27s+Zone" class="collection-item">
+                <strong>Committer's Zone</strong>
+                <p class="grey-text">Guidelines for pull requests and code reviews</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <p class="flow-text justify-align">
-          <a href="https://github.com/apache/fineract-site" target="_blank">Web Site</a><br/>
-          Here you will find the source code for this web site.
-        </p>
-      </article>
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card-panel">
+            <h4><i class="material-icons left">description</i>Documentation</h4>
+            <div class="collection">
+              <a href="https://cwiki.apache.org/confluence/display/FINERACT/Fineract+Home" class="collection-item">
+                <strong>Project Wiki</strong>
+                <p class="grey-text">Project management and documentation</p>
+              </a>
+              <a href="https://fineract.apache.org/docs/legacy/index.html" class="collection-item">
+                <strong>API Documentation</strong>
+                <p class="grey-text">Legacy API reference</p>
+              </a>
+              <a href="https://cwiki.apache.org/confluence/x/nK9zB" class="collection-item">
+                <strong>Security Reports</strong>
+                <p class="grey-text">Fixed security issues and updates</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m6">
+          <div class="card-panel">
+            <h4><i class="material-icons left">code</i>Related Resources</h4>
+            <div class="collection">
+              <a href="https://github.com/apache/fineract-site" class="collection-item">
+                <strong>Website Repository</strong>
+                <p class="grey-text">Source code for this website</p>
+              </a>
+              <a href="https://www.apache.org/licenses/" class="collection-item">
+                <strong>Licensing</strong>
+                <p class="grey-text">Apache License information</p>
+              </a>
+              <a href="https://www.apache.org/security/" class="collection-item">
+                <strong>Security</strong>
+                <p class="grey-text">Apache security policies and procedures</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
   <footer class="page-footer">
     <div class="container">
       <section id="reference" class="section">
-        <h3>Reference</h3>
-        <p class="flow-text">
-          <a class="link-inverse" href="https://www.apache.org/" target="_blank">The Apache Software Foundation</a><br/>
-          <a class="link-inverse" href="https://www.apache.org/licenses/" target="_blank">License</a><br/>
-          <a class="link-inverse" href="https://www.apache.org/foundation/sponsorship.html" target="_blank">Sponsorship</a><br/>
-          <a class="link-inverse" href="https://www.apache.org/foundation/thanks.html" target="_blank">Thanks</a><br/>
-          <a class="link-inverse" href="https://www.apache.org/security/" target="_blank">Security</a><br/>
-          <a class="link-inverse" href="https://www.apache.org/events/current-event.html">
-            <img src="https://www.apache.org/events/current-event-234x60.png"/>
-          </a>
-        </p>
+        <h3 class="white-text center-align">Reference</h3>
+        <div class="reference-links">
+          <div class="ref-group">
+            <a class="ref-link waves-effect waves-light" href="https://www.apache.org/" target="_blank">
+              <i class="material-icons">language</i>
+              <span>The Apache Software Foundation</span>
+            </a>
+            <a class="ref-link waves-effect waves-light" href="https://www.apache.org/licenses/" target="_blank">
+              <i class="material-icons">gavel</i>
+              <span>License</span>
+            </a>
+            <a class="ref-link waves-effect waves-light" href="https://www.apache.org/foundation/sponsorship.html" target="_blank">
+              <i class="material-icons">volunteer_activism</i>
+              <span>Sponsorship</span>
+            </a>
+            <a class="ref-link waves-effect waves-light" href="https://www.apache.org/foundation/thanks.html" target="_blank">
+              <i class="material-icons">favorite</i>
+              <span>Thanks</span>
+            </a>
+            <a class="ref-link waves-effect waves-light" href="https://www.apache.org/security/" target="_blank">
+              <i class="material-icons">security</i>
+              <span>Security</span>
+            </a>
+          </div>
+          
+          <div class="event-banner">
+            <a href="https://www.apache.org/events/current-event.html" target="_blank">
+              <img src="https://www.apache.org/events/current-event-234x60.png" alt="Apache Current Event"/>
+            </a>
+          </div>
+        </div>
+
         <div class="divider divider-inverse"></div>
-        <p class="flow-text center-align">
-		&copy; 2009 - <span id="current-year">2020</span>&nbsp;<a class="link-inverse" href="https://apache.org/" target="_blank">The Apache Software Foundation</a>. Licensed under the <a class="link-inverse" href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License, Version 2.0</a>.<br/>
-          Apache Fineract, Fineract, Apache, the Apache feather, and the Apache Fineract project logo are either registered trademarks or trademarks of the Apache Software Foundation.<br/>
-        </p>
+
+        <div class="copyright center-align white-text">
+          <p>
+            &copy; 2009 - <span id="current-year">2020</span>&nbsp;
+            <a class="white-text" href="https://apache.org/" target="_blank">The Apache Software Foundation</a>. 
+            Licensed under the <a class="white-text" href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License, Version 2.0</a>.
+          </p>
+          <p>
+            Apache Fineract, Fineract, Apache, the Apache feather, and the Apache Fineract project logo are either registered trademarks or trademarks of the Apache Software Foundation.
+          </p>
+        </div>
       </section>
+
+      <style>
+        .reference-links {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 2rem;
+          padding: 2rem 0;
+        }
+
+        .ref-group {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1rem;
+          max-width: 800px;
+        }
+
+        .ref-link {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          padding: 0.85rem 1.5rem;
+          background: rgba(255, 255, 255, 0.08);
+          border-radius: 8px;
+          color: white;
+          position: relative;
+          overflow: hidden;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .ref-link::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .ref-link:hover {
+          background: rgba(255, 255, 255, 0.15);
+          transform: translateY(-3px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .ref-link:hover::before {
+          width: 300px;
+          height: 300px;
+        }
+
+        .ref-link i {
+          font-size: 1.4rem;
+          transition: transform 0.3s ease;
+        }
+
+        .ref-link:hover i {
+          transform: scale(1.2) rotate(5deg);
+          color: #26a69a;
+        }
+
+        .ref-link span {
+          position: relative;
+          font-weight: 500;
+          letter-spacing: 0.3px;
+          transition: transform 0.3s ease;
+        }
+
+        .ref-link:hover span {
+          transform: translateX(4px);
+        }
+
+        .event-banner {
+          padding: 1.25rem;
+          background: rgba(255, 255, 255, 0.08);
+          border-radius: 12px;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .event-banner::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent
+          );
+          transition: left 0.8s ease;
+        }
+
+        .event-banner:hover {
+          transform: translateY(-4px);
+          background: rgba(255, 255, 255, 0.12);
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .event-banner:hover::before {
+          left: 100%;
+        }
+
+        .event-banner img {
+          display: block;
+          max-width: 100%;
+          height: auto;
+          transition: transform 0.3s ease;
+        }
+
+        .event-banner:hover img {
+          transform: scale(1.02);
+        }
+
+        .copyright {
+          padding: 2rem 0 1rem;
+          font-size: 0.9rem;
+          opacity: 0.9;
+          line-height: 1.6;
+        }
+
+        .copyright a {
+          text-decoration: none;
+          background-image: linear-gradient(currentColor, currentColor);
+          background-position: 0% 100%;
+          background-repeat: no-repeat;
+          background-size: 0% 1px;
+          transition: background-size 0.3s ease;
+          padding-bottom: 2px;
+        }
+
+        .copyright a:hover {
+          opacity: 1;
+          background-size: 100% 1px;
+        }
+
+        .divider-inverse {
+          background: rgba(255, 255, 255, 0.1);
+          margin: 2rem 0;
+          height: 1px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .divider-inverse::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent
+          );
+          animation: dividerShine 3s infinite;
+        }
+
+        @keyframes dividerShine {
+          0% { left: -100%; }
+          100% { left: 100%; }
+        }
+
+        @media (max-width: 600px) {
+          .ref-group {
+            flex-direction: column;
+            width: 100%;
+            padding: 0 1rem;
+          }
+
+          .ref-link {
+            width: 100%;
+            justify-content: flex-start;
+          }
+
+          .copyright {
+            padding: 1.5rem 1rem;
+            text-align: left;
+          }
+
+          .ref-link:hover span {
+            transform: translateX(8px);
+          }
+        }
+      </style>
     </div>
   </footer>
   <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -323,5 +1235,272 @@
       $('.button-collapse').sideNav('hide');
     }
   </script>
+  <style>
+    /* Global Animation Effects */
+    .section {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Card Animations */
+    .card-panel {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.05),
+        transparent
+      );
+      transition: left 0.8s ease;
+    }
+
+    .card-panel:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-panel:hover::before {
+      left: 100%;
+    }
+
+    .card-panel h4 {
+      transition: color 0.3s ease;
+    }
+
+    .card-panel:hover h4 {
+      color: #26a69a;
+    }
+
+    .card-panel .material-icons {
+      transition: transform 0.3s ease;
+    }
+
+    .card-panel:hover .material-icons {
+      transform: scale(1.1) rotate(5deg);
+      color: #26a69a;
+    }
+
+    /* Collection Item Animations */
+    .collection .collection-item {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .collection .collection-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(38, 166, 154, 0.05), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+      z-index: -1;
+    }
+
+    .collection .collection-item:hover {
+      background-color: rgba(38, 166, 154, 0.05);
+      padding-left: 25px;
+    }
+
+    .collection .collection-item:hover::before {
+      transform: translateX(0);
+    }
+
+    .collection .collection-item strong {
+      transition: color 0.3s ease;
+    }
+
+    .collection .collection-item:hover strong {
+      color: #26a69a;
+    }
+
+    /* Button and Link Animations */
+    .btn, .btn-large {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after, .btn-large::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease, height 0.6s ease;
+    }
+
+    .btn:hover, .btn-large:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn:hover::after, .btn-large:hover::after {
+      width: 300px;
+      height: 300px;
+    }
+
+    /* Table Animations */
+    table.highlight > tbody > tr {
+      transition: all 0.3s ease;
+    }
+
+    table.highlight > tbody > tr:hover {
+      background-color: rgba(38, 166, 154, 0.05);
+      transform: scale(1.01);
+    }
+
+    /* Navigation Link Animations */
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #26a69a;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* List Item Animations */
+    .mission-points li, .benefits-list li {
+      transition: all 0.3s ease;
+      position: relative;
+      padding-left: 25px;
+    }
+
+    .mission-points li:hover, .benefits-list li:hover {
+      transform: translateX(10px);
+      color: #26a69a;
+    }
+
+    .mission-points li::before, .benefits-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #26a69a;
+      transition: transform 0.3s ease;
+    }
+
+    .mission-points li:hover::before, .benefits-list li:hover::before {
+      transform: scale(1.5);
+    }
+
+    /* Divider Animations */
+    .divider {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .divider::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(38, 166, 154, 0.2), transparent);
+      animation: dividerShine 3s infinite;
+    }
+
+    /* Image Animations */
+    img:not(.logo-img) {
+      transition: transform 0.3s ease;
+    }
+
+    img:not(.logo-img):hover {
+      transform: scale(1.05);
+    }
+
+    /* Scroll Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .scroll-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Add scroll animation functionality */
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const scrollElements = document.querySelectorAll('.scroll-fade');
+        
+        const elementInView = (el, percentageScroll = 100) => {
+          const elementTop = el.getBoundingClientRect().top;
+          return (
+            elementTop <= 
+            ((window.innerHeight || document.documentElement.clientHeight) * (percentageScroll/100))
+          );
+        };
+        
+        const displayScrollElement = (element) => {
+          element.classList.add('visible');
+        };
+        
+        const handleScrollAnimation = () => {
+          scrollElements.forEach((el) => {
+            if (elementInView(el, 90)) {
+              displayScrollElement(el);
+            }
+          });
+        };
+        
+        window.addEventListener('scroll', () => {
+          handleScrollAnimation();
+        });
+        
+        // Initial check
+        handleScrollAnimation();
+      });
+    </script>
+  </style>
 </body>
 </html>
