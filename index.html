@@ -193,22 +193,15 @@
         align-items: center;
         padding: 0 15px;
         height: 72px;
-        transition: background-color 0.3s ease;
         border-bottom: 3px solid transparent;
       }
 
-      .nav-link:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        border-bottom: 3px solid #26a69a;
+      .nav-link {
+        background-color: transparent;
       }
 
       .nav-link i {
         margin-right: 8px;
-        transition: transform 0.3s ease;
-      }
-
-      .nav-link:hover i {
-        transform: translateY(-2px);
       }
 
       .side-nav-header {
@@ -232,23 +225,11 @@
         align-items: center;
         padding: 15px !important;
         height: auto !important;
-        transition: background-color 0.3s ease;
       }
 
       .side-nav-link i {
         margin-right: 15px !important;
         color: #26a69a;
-      }
-
-      .side-nav-link:hover {
-        background-color: #f5f5f5 !important;
-      }
-
-      @media only screen and (max-width: 992px) {
-        .brand-logo {
-          left: 50%;
-          transform: translateX(-50%);
-        }
       }
     </style>
   </header>
@@ -1054,82 +1035,38 @@
           transition: width 0.6s ease, height 0.6s ease;
         }
 
-        .ref-link:hover {
-          background: rgba(255, 255, 255, 0.15);
-          transform: translateY(-3px);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .ref-link:hover::before {
-          width: 300px;
-          height: 300px;
+        .ref-link {
+          background-color: rgba(255, 255, 255, 0.08);
+          transform: none;
+          box-shadow: none;
         }
 
         .ref-link i {
           font-size: 1.4rem;
-          transition: transform 0.3s ease;
-        }
-
-        .ref-link:hover i {
-          transform: scale(1.2) rotate(5deg);
-          color: #26a69a;
+          transition: none;
         }
 
         .ref-link span {
           position: relative;
           font-weight: 500;
           letter-spacing: 0.3px;
-          transition: transform 0.3s ease;
-        }
-
-        .ref-link:hover span {
-          transform: translateX(4px);
+          transition: none;
         }
 
         .event-banner {
           padding: 1.25rem;
           background: rgba(255, 255, 255, 0.08);
           border-radius: 12px;
-          transition: all 0.3s ease;
+          transition: none;
           position: relative;
           overflow: hidden;
-        }
-
-        .event-banner::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.1),
-            transparent
-          );
-          transition: left 0.8s ease;
-        }
-
-        .event-banner:hover {
-          transform: translateY(-4px);
-          background: rgba(255, 255, 255, 0.12);
-          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        .event-banner:hover::before {
-          left: 100%;
         }
 
         .event-banner img {
           display: block;
           max-width: 100%;
           height: auto;
-          transition: transform 0.3s ease;
-        }
-
-        .event-banner:hover img {
-          transform: scale(1.02);
+          transition: none;
         }
 
         .copyright {
@@ -1141,17 +1078,8 @@
 
         .copyright a {
           text-decoration: none;
-          background-image: linear-gradient(currentColor, currentColor);
-          background-position: 0% 100%;
-          background-repeat: no-repeat;
-          background-size: 0% 1px;
-          transition: background-size 0.3s ease;
+          background-image: none;
           padding-bottom: 2px;
-        }
-
-        .copyright a:hover {
-          opacity: 1;
-          background-size: 100% 1px;
         }
 
         .divider-inverse {
@@ -1169,40 +1097,7 @@
           left: -100%;
           width: 100%;
           height: 100%;
-          background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.2),
-            transparent
-          );
-          animation: dividerShine 3s infinite;
-        }
-
-        @keyframes dividerShine {
-          0% { left: -100%; }
-          100% { left: 100%; }
-        }
-
-        @media (max-width: 600px) {
-          .ref-group {
-            flex-direction: column;
-            width: 100%;
-            padding: 0 1rem;
-          }
-
-          .ref-link {
-            width: 100%;
-            justify-content: flex-start;
-          }
-
-          .copyright {
-            padding: 1.5rem 1rem;
-            text-align: left;
-          }
-
-          .ref-link:hover span {
-            transform: translateX(8px);
-          }
+          background: none;
         }
       </style>
     </div>
@@ -1238,21 +1133,13 @@
   <style>
     /* Global Animation Effects */
     .section {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s ease forwards;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      opacity: 1;
+      transform: none;
     }
 
     /* Card Animations */
     .card-panel {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: none;
       border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       overflow: hidden;
@@ -1266,47 +1153,33 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.05),
-        transparent
-      );
-      transition: left 0.8s ease;
+      background: none;
+      transition: none;
     }
 
-    .card-panel:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    }
-
-    .card-panel:hover::before {
-      left: 100%;
+    .card-panel {
+      transform: none;
+      box-shadow: none;
     }
 
     .card-panel h4 {
-      transition: color 0.3s ease;
-    }
-
-    .card-panel:hover h4 {
-      color: #26a69a;
+      transition: none;
     }
 
     .card-panel .material-icons {
-      transition: transform 0.3s ease;
-    }
-
-    .card-panel:hover .material-icons {
-      transform: scale(1.1) rotate(5deg);
-      color: #26a69a;
+      transition: none;
     }
 
     /* Collection Item Animations */
     .collection .collection-item {
-      transition: all 0.3s ease;
+      transition: none;
       position: relative;
-      overflow: hidden;
-      z-index: 1;
+      padding-left: 25px;
+    }
+
+    .collection .collection-item {
+      background-color: none;
+      padding-left: 25px;
     }
 
     .collection .collection-item::before {
@@ -1316,32 +1189,18 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(45deg, transparent, rgba(38, 166, 154, 0.05), transparent);
-      transform: translateX(-100%);
-      transition: transform 0.6s ease;
+      background: none;
+      transform: none;
       z-index: -1;
     }
 
-    .collection .collection-item:hover {
-      background-color: rgba(38, 166, 154, 0.05);
-      padding-left: 25px;
-    }
-
-    .collection .collection-item:hover::before {
-      transform: translateX(0);
-    }
-
     .collection .collection-item strong {
-      transition: color 0.3s ease;
-    }
-
-    .collection .collection-item:hover strong {
-      color: #26a69a;
+      transition: none;
     }
 
     /* Button and Link Animations */
     .btn, .btn-large {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: none;
       position: relative;
       overflow: hidden;
     }
@@ -1353,36 +1212,36 @@
       left: 50%;
       width: 0;
       height: 0;
-      background: rgba(255, 255, 255, 0.2);
+      background: none;
       border-radius: 50%;
       transform: translate(-50%, -50%);
-      transition: width 0.6s ease, height 0.6s ease;
+      transition: none;
     }
 
-    .btn:hover, .btn-large:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    .btn {
+      transform: none;
+      box-shadow: none;
     }
 
-    .btn:hover::after, .btn-large:hover::after {
-      width: 300px;
-      height: 300px;
+    .btn::after {
+      width: 0;
+      height: 0;
     }
 
     /* Table Animations */
     table.highlight > tbody > tr {
-      transition: all 0.3s ease;
+      transition: none;
     }
 
-    table.highlight > tbody > tr:hover {
-      background-color: rgba(38, 166, 154, 0.05);
-      transform: scale(1.01);
+    table.highlight > tbody > tr {
+      background-color: none;
+      transform: none;
     }
 
     /* Navigation Link Animations */
     .nav-link {
       position: relative;
-      transition: color 0.3s ease;
+      transition: none;
     }
 
     .nav-link::after {
@@ -1392,25 +1251,29 @@
       left: 50%;
       width: 0;
       height: 2px;
-      background: #26a69a;
-      transition: all 0.3s ease;
+      background: none;
+      transition: none;
       transform: translateX(-50%);
     }
 
-    .nav-link:hover::after {
-      width: 100%;
+    .nav-link {
+      background-color: transparent;
+    }
+
+    .nav-link::after {
+      width: 0;
     }
 
     /* List Item Animations */
     .mission-points li, .benefits-list li {
-      transition: all 0.3s ease;
+      transition: none;
       position: relative;
       padding-left: 25px;
     }
 
-    .mission-points li:hover, .benefits-list li:hover {
-      transform: translateX(10px);
-      color: #26a69a;
+    .mission-points li, .benefits-list li {
+      transform: none;
+      color: none;
     }
 
     .mission-points li::before, .benefits-list li::before {
@@ -1418,11 +1281,11 @@
       position: absolute;
       left: 0;
       color: #26a69a;
-      transition: transform 0.3s ease;
+      transition: none;
     }
 
-    .mission-points li:hover::before, .benefits-list li:hover::before {
-      transform: scale(1.5);
+    .mission-points li::before, .benefits-list li::before {
+      transform: none;
     }
 
     /* Divider Animations */
@@ -1438,17 +1301,17 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(38, 166, 154, 0.2), transparent);
-      animation: dividerShine 3s infinite;
+      background: none;
+      animation: none;
     }
 
     /* Image Animations */
     img:not(.logo-img) {
-      transition: transform 0.3s ease;
+      transition: none;
     }
 
-    img:not(.logo-img):hover {
-      transform: scale(1.05);
+    img:not(.logo-img) {
+      transform: none;
     }
 
     /* Scroll Animations */
@@ -1458,14 +1321,13 @@
     }
 
     .scroll-fade {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease;
+      opacity: 1;
+      transform: none;
     }
 
     .scroll-fade.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
 </style>
     /* Add scroll animation functionality */

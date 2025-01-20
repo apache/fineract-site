@@ -37,7 +37,7 @@ html {
 }
 
 .side-nav li:hover {
-  background-color: #f8f8ff;
+  background-color: transparent;
 }
 
 .jet {
@@ -49,8 +49,7 @@ html {
 }
 
 .jet-hover:hover {
-  background-color: #343434;
-  color: #f8f8ff;
+  background-color: transparent;
 }
 
 .ghost-white {
@@ -62,8 +61,7 @@ html {
 }
 
 .ghost-white-hover:hover {
-  background-color: #f8f8ff;
-  color: #343434;
+  background-color: transparent;
 }
 
 .side-nav li {
@@ -91,7 +89,7 @@ html {
 }
 
 .link-inverse:hover {
-  color: #039BE5;
+  color: #f8f8ff;
 }
 
 .circle-list-style {
