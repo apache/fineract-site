@@ -2,7 +2,7 @@
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url(/font/material-icons.ttf) format('truetype');
+  src: url(../font/material-icons.ttf) format('truetype');
 }
 
 .material-icons {
