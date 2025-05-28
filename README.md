@@ -14,4 +14,7 @@ This is the Apache Fineract Website served on https://fineract.apache.org
 - [ ] fix text overlap with intermediate-sized media query
 - [ ] document how to test locally, before/while committing
 - [ ] additional review/critique of work done in https://github.com/apache/fineract-site/pull/37
+- [ ] fix [missing fonts and icons](https://github.com/apache/fineract-site/pull/38#issuecomment-2916819388)
+- [x] [Cache google assets](https://github.com/apache/fineract-site/pull/37)
 - [x] https://github.com/apache/fineract-site/pull/37
+- [x] [migrate this wish list from Fineract JIRA](https://issues.apache.org/jira/browse/FINERACT-2192)
