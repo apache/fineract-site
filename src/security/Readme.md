@@ -17,6 +17,7 @@ Sources for <https://fineract.apache.org/security.html>
 
 ## To add and update security reports
 
+1. Edit sources (e.g. `security.md`).
 1. Run `make`.
 1. Open `../../security.html` in a web browser.
 

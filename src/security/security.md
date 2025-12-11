@@ -313,8 +313,8 @@ We would like to thank Alex Ivanov and the Apache Security team for reporting th
 
 ## Editing this document
 
-The [source for this document](https://github.com/apache/fineract-site/blob/asf-site/src/security/security.md) is [plain text with minimal Pandoc-flavor Markdown](https://pandoc.org/MANUAL.html#pandocs-markdown).
-It is [rendered as HTML with Pandoc](https://github.com/apache/fineract-site/blob/asf-site/src/security/Readme.md).
+The source for this document is [plain text with minimal Pandoc-flavor Markdown](https://pandoc.org/MANUAL.html#pandocs-markdown).
+It is [rendered as HTML with Pandoc](https://github.com/apache/fineract-site/tree/asf-site/src/security).
 
 Keep this document simple and consistent.
 If you change the structure for one section, do so throughout the document.
