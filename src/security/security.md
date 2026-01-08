@@ -15,6 +15,12 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 -->
 
+<!--
+
+⚠️ DO NOT EDIT security.html DIRECTLY, EDIT src/security/security.md INSTEAD ⚠️
+
+-->
+
 This page lists all security vulnerabilities fixed in released versions of Apache Fineract. Each vulnerability is reported via [the ASF process](http://www.apache.org/security/) and given a security impact rating.
 
 If you have identified a security issue, let us know immediately via email to security AT fineract.apache.org. And be sure to [secure your Fineract server](https://fineract.apache.org/docs/current/#_securing_fineract)!
