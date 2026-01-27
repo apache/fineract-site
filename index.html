@@ -208,9 +208,32 @@
         margin-right: 8px;
       }
 
+      .side-nav {
+        height: 100vh;
+        top: 0;
+        padding-bottom: 0;
+        overflow-y: auto;
+      }
+
+
+      .side-nav li {
+        width: 100%;
+        margin-right: 15px;
+      }
+
+       .button-collapse {
+        position: absolute;
+        left: 15px;
+      }
+
+      .button-collapse i {
+        margin-left: -56px;
+      }
+
       .side-nav-header {
-        padding: 20px 15px;
-        background-color: #343434;
+        .side-nav-header {
+        padding: 16px;
+        }
       }
 
       .side-nav-header .logo-container {
@@ -855,8 +878,18 @@
           margin-top: 0;
           color: #26a69a;
         }
+        .chip{
+          height: fit-content;
+        }
         .collection-item .chip {
-          margin-bottom: 10px;
+          max-width: 100%;
+        }
+        .collection-item .chip i {
+          flex-shrink: 0;
+        }
+        .collection-item .chip {
+          word-break: break-all;       
+          overflow-wrap: anywhere;    
         }
       </style>
 
@@ -1096,6 +1129,18 @@
       </section>
 
       <style>
+
+        .downloads-table {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; 
+        }
+
+        .downloads-table table {
+            min-width: 700px;
+            border-collapse: collapse;
+        }
+
         .reference-links {
           display: flex;
           flex-direction: column;
@@ -1605,6 +1650,8 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .feature-card {
@@ -1614,6 +1661,8 @@
       padding: 1.5rem;
       text-align: center;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      max-width: 100%;
+      box-sizing: border-box;
     }
 
     .feature-card:hover {
@@ -1648,6 +1697,17 @@
         rgba(255, 255, 255, 0.02) 100%
       );
     }
+
+    @media (max-width: 600px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .feature-card {
+      margin: 0 auto;
+    }
+  }
   </style>
 
   <script>
