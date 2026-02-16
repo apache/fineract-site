@@ -2,6 +2,8 @@
 
 This is the Apache Fineract Website served on https://fineract.apache.org
 
+See [CONTRIBUTING.md](CONTRIBUTING.md) for local run/test instructions before opening a PR.
+
 ## wish list
 
 - [ ] clean up unused code/static assets (fonts, icons, images, etc)
