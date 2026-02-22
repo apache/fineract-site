@@ -1,195 +1,103 @@
-﻿# Contributing to Apache Fineract Site
+# Contributing To Apache Fineract Site
 
-First off, thank you for considering contributing to the
-[Apache Fineract Site](https://fineract.apache.org/).
+Thanks for contributing to https://fineract.apache.org.
 
-We welcome contributions of all sizes, from fixing issues to updating design
-layouts. This guide is intended to make your contribution experience as smooth
-as possible.
+## Prerequisites
 
-## Table of Contents
+1. Git
+2. Docker
 
-- [Contributing to Apache Fineract Site](#contributing-to-apache-fineract-site)
-  - [Table of Contents](#table-of-contents)
-  - [Prerequisites and Tools](#prerequisites-and-tools)
-  - [Getting Started](#getting-started)
-    - [1. Fork and Clone](#1-fork-and-clone)
-    - [2. Branching Strategy](#2-branching-strategy)
-  - [Development Workflow](#development-workflow)
-    - [Project Structure](#project-structure)
-    - [Coding Standards](#coding-standards)
-  - [Running Locally](#running-locally)
-  - [Testing and Verification](#testing-and-verification)
-    - [1. Visual Regression](#1-visual-regression)
-    - [2. Functional Testing](#2-functional-testing)
-    - [3. Git Sanity Check](#3-git-sanity-check)
-  - [Submission Guidelines](#submission-guidelines)
-    - [Commit Messages](#commit-messages)
-    - [Opening a Pull Request (PR)](#opening-a-pull-request-pr)
-  - [Community and Help](#community-and-help)
+## Source Model
 
-## Prerequisites and Tools
+1. Hugo sources are in `site-src/`.
+2. Generated output is `.build/site` and should not be edited directly.
+3. Static assets are mounted from repository root folders (`css/`, `js/`, `images/`, `font/`, `docs/`).
 
-This repository is a static site consisting of HTML, CSS, and JavaScript.
+## Local Development
 
-Recommended tools:
-
-1. Editor: [VS Code](https://code.visualstudio.com/) (recommended)
-2. Extension:
-   [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
-   for VS Code
-3. Browser: Chrome, Firefox, or Safari (use developer tools/console)
-4. Version control: Git CLI
-5. Ensure Git is installed and configured:
+1. Build tooling image:
 
 ```bash
-git --version
-git config --global user.name "Your Name"
-git config --global user.email "your-email@example.com"
-```
-If Git is not installed, download it from https://git-scm.com/downloads
-
-## Getting Started
-
-### 1. Fork and Clone
-
-Since this is an open source project, we recommend using the Fork and Pull
-model.
-
-1. Fork the repository to your own GitHub account.
-2. Clone your fork locally:
-
-```bash
-git clone https://github.com/<your-username>/fineract-site.git
-cd fineract-site
+docker build -t fineract-site .
 ```
 
-3. Add upstream remote to keep your fork synced:
+2. Build and validate:
 
 ```bash
-git remote add upstream https://github.com/apache/fineract-site.git
+docker run --rm \
+  --user "$(id -u):$(id -g)" \
+  -v "$PWD:/src" \
+  -w /src/site-src \
+  fineract-site build
 ```
 
-### 2. Branching Strategy
-
-Important: the default and active branch for this repository is `asf-site`.
-
-1. Always create a new branch for your changes.
-2. Use short, descriptive branch names (for example:
-   `fix-nav-typo`, `feat-dark-mode-update`).
+3. Serve locally:
 
 ```bash
-# Update your local source
-git checkout asf-site
-git pull upstream asf-site
-
-# Create your feature branch
-git checkout -b <type>-<description>
+docker run --rm -it \
+  --user "$(id -u):$(id -g)" \
+  -p 1313:1313 \
+  -v "$PWD:/src" \
+  -w /src/site-src \
+  fineract-site serve
 ```
 
-## Development Workflow
-
-### Project Structure
-
-1. `index.html`: main landing page
-2. `css/`: stylesheets
-3. `js/`: scripts for logic (theme toggle, navigation, and so on)
-4. `images/`: images and icons
-
-### Coding Standards
-
-1. HTML: ensure semantic usage of tags.
-2. CSS: avoid inline styles where possible; use defined CSS classes.
-3. JavaScript: keep code clean and remove debug `console.log` before pushing.
-4. Formatting: maintain consistent indentation and style used in existing files.
-
-## Running Locally
-
-Since this is a static site, use a local web server. Opening HTML files directly
-can cause broken links or missing assets in some environments.
-
-Option A: VS Code Live Server (recommended)
-
-1. Open the `fineract-site` folder in VS Code.
-2. Right-click `index.html` in the file explorer.
-3. Select `Open with Live Server`.
-4. The site will launch at `http://127.0.0.1:5500` (or similar).
-
-Option B: Python simple server (optional)
+4. Optional checks-only run:
 
 ```bash
-# Inside the root directory
-python -m http.server 8000
+docker run --rm \
+  --user "$(id -u):$(id -g)" \
+  -v "$PWD:/src" \
+  -w /src/site-src \
+  fineract-site check
 ```
 
-Then navigate to `http://localhost:8000`.
+Windows PowerShell equivalents:
 
-## Testing and Verification
+```powershell
+docker build -t fineract-site .
+docker run --rm -v "${PWD}:/src" -w /src/site-src fineract-site build
+docker run --rm -it -p 1313:1313 -v "${PWD}:/src" -w /src/site-src fineract-site serve
+```
 
-There is currently no automated CI workflow for this repository. Manual
-verification is required.
+4. Open `http://localhost:1313` and verify:
+   - Home page (`/`)
+   - Security page (`/security.html`)
+   - Error page (`/404.html`)
+   - Docs paths (`/docs/current/`, `/docs/legacy/`, `/docs/database/`)
 
-Please complete this checklist before committing.
+## Editing Rules
 
-### 1. Visual Regression
+1. Do not edit `.build/site`.
+2. Do not re-introduce root hand-maintained HTML sources (`index.html`, `security.html`, `404.html`).
+3. Add content/pages in Hugo (`site-src/content`, `site-src/layouts`, `site-src/data`).
+4. Keep public URL paths stable unless an intentional migration is documented.
 
-- [ ] Theme support: toggle light/dark mode and verify icon/text readability.
-- [ ] Responsiveness: test desktop, tablet, and mobile viewports.
-- [ ] Navigation: verify mobile menu opens/closes correctly.
+## Pull Requests
 
-### 2. Functional Testing
-
-- [ ] Console errors: no red JavaScript errors in browser dev tools.
-- [ ] Links: click through changed areas and verify no broken pages.
-- [ ] Routing: verify `/index.html`, `/security.html`, and `/404.html`.
-
-### 3. Git Sanity Check
-
-Check for unintended file changes or whitespace issues:
+1. Create a feature branch from your source branch.
+2. Commit only source changes, not generated output.
+3. Ensure local checks pass before opening a PR:
 
 ```bash
+docker build -t fineract-site .
+docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/src" -w /src/site-src fineract-site build
 git status
-git diff --check
 ```
 
-## Submission Guidelines
+4. In the PR description include:
+   - What changed
+   - Why it changed
+   - How you tested locally
+   - Screenshots for visual changes
 
-### Commit Messages
+## CI Workflows
 
-Use clear, descriptive commit messages.
+1. PR checks: `.github/workflows/site-pr-check.yml`
+2. Publish automation: `.github/workflows/site-publish.yml`
 
-Bad:
+## Branch Model
 
-```text
-fixed stuff
-```
-
-Good:
-
-```text
-fix(nav): correct alignment on mobile menu
-```
-
-### Opening a Pull Request (PR)
-
-1. Push your branch to your fork:
-
-```bash
-git push origin <your-branch-name>
-```
-
-2. Open a PR against the `asf-site` branch of the upstream repository.
-
-PR checklist (include in PR description):
-
-1. Summary: what changed and why
-2. Issue link: for example, `Fixes #123` (if applicable)
-3. Testing: how you validated changes locally
-4. Screenshots: required for UI changes (desktop and mobile)
-
-## Community and Help
-
-If you have questions, reach out via:
-
-1. Mailing list: `dev@fineract.apache.org`
-2. Issue tracker: [Apache Jira](https://issues.apache.org/jira/projects/FINERACT/summary)
+1. Source branch is `asf-site`.
+2. On push to `asf-site`, GitHub Actions builds the site and commits generated publish files to `asf-site`.
+3. Do not commit `.build/` output; it is local-only and ignored by git.

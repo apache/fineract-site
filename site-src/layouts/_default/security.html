@@ -1,0 +1,89 @@
+{{- $security := site.Data.security -}}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>{{ .Title }}</title>
+  <link rel="stylesheet" href="css/security.css" />
+  <link rel="icon" type="image/png" href="images/apache-fineract-icon.png" />
+</head>
+<body>
+  <nav id="TOC" role="doc-toc">
+    <ul>
+      <li>
+        <a href="#apache-fineract-security-reports">{{ $security.title }}</a>
+        <ul>
+          {{- range $security.releases }}
+          <li><a href="#{{ .id }}">Fixed in Apache Fineract® {{ .version }}</a></li>
+          {{- end }}
+          <li><a href="#{{ $security.policy_updates.id }}">{{ $security.policy_updates.title }}</a></li>
+          <li><a href="#{{ $security.editing.id }}">{{ $security.editing.title }}</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1 id="apache-fineract-security-reports">{{ $security.title }}</h1>
+
+    {{- range $security.intro }}
+    <p>{{ . | markdownify }}</p>
+    {{- end }}
+
+    {{- range $release := $security.releases }}
+    <h2 id="{{ $release.id }}">Fixed in Apache Fineract® {{ $release.version }}</h2>
+
+    {{- range $entry := $release.entries }}
+    <h3 id="{{ $entry.id }}"><a href="{{ $entry.url }}">{{ $entry.cve_id }}</a>: {{ $entry.title }}</h3>
+
+    <p>{{ $entry.description | markdownify }}</p>
+    {{- with $entry.references }}
+    {{- range . }}
+    <p>{{ . | markdownify }}</p>
+    {{- end }}
+    {{- end }}
+
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Report</td>
+          <td>{{ $entry.report }}</td>
+        </tr>
+        <tr>
+          <td>Fix</td>
+          <td>{{ $entry.fix }}</td>
+        </tr>
+        <tr>
+          <td>Affects</td>
+          <td>{{ $entry.affects }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    {{- range $entry.thanks }}
+    <p>{{ . | markdownify }}</p>
+    {{- end }}
+    {{- end }}
+    {{- end }}
+
+    <h2 id="{{ $security.policy_updates.id }}">{{ $security.policy_updates.title }}</h2>
+    <ul>
+      {{- range $security.policy_updates.items }}
+      <li>{{ . }}</li>
+      {{- end }}
+    </ul>
+
+    <h2 id="{{ $security.editing.id }}">{{ $security.editing.title }}</h2>
+    {{- range $security.editing.notes }}
+    <p>{{ . | markdownify }}</p>
+    {{- end }}
+  </main>
+</body>
+</html>

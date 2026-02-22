@@ -1,0 +1,331 @@
+{{- $home := site.Data.home -}}
+{{- $page := $home.homepage -}}
+{{- $mailing := $page.contribute.mailing_lists -}}
+<main class="container">
+  <h1 class="visually-hidden">{{ $page.page_heading }}</h1>
+
+  <section class="section">
+    <h2 class="center-align">{{ $page.platform.title }}</h2>
+
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel">
+          <h4><i class="material-icons left" aria-hidden="true">{{ $page.platform.intro.icon }}</i>{{
+            $page.platform.intro.title }}</h4>
+          <p class="flow-text justify-align">{{ $page.platform.intro.text | safeHTML }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card-panel">
+          <h4><i class="material-icons left" aria-hidden="true">{{ $page.platform.mission.icon }}</i>{{
+            $page.platform.mission.title }}</h4>
+          <div class="mission-points">
+            {{- range $page.platform.mission.items }}
+            <div class="mission-item">
+              <i class="material-icons" aria-hidden="true">{{ .icon }}</i>
+              <p>{{ .text }}</p>
+            </div>
+            {{- end }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m6">
+        <div class="card-panel">
+          <h4><i class="material-icons left" aria-hidden="true">{{ $page.platform.benefits.icon }}</i>{{
+            $page.platform.benefits.title }}</h4>
+          <div class="benefits-list">
+            {{- range $page.platform.benefits.items }}
+            <div class="benefit-item">
+              <i class="material-icons" aria-hidden="true">{{ .icon }}</i>
+              <div class="benefit-content">
+                <h5>{{ .title }}</h5>
+                <p>{{ .text }}</p>
+              </div>
+            </div>
+            {{- end }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12">
+        <div class="solution-providers">
+          <h3 class="center-align">{{ $page.platform.solution_providers.title }}</h3>
+          <p class="intro-text center-align">{{ $page.platform.solution_providers.intro | safeHTML }}</p>
+          <div class="features-grid">
+            {{- range $page.platform.solution_providers.cards }}
+            <div class="feature-card">
+              <i class="material-icons" aria-hidden="true">{{ .icon }}</i>
+              <h4>{{ .title }}</h4>
+              <p>{{ .text }}</p>
+            </div>
+            {{- end }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+  </section>
+
+  <section id="{{ $page.about.id }}" class="section">
+    <h3 class="center-align">About</h3>
+
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel">
+          <h4><i class="material-icons left" aria-hidden="true">{{ $page.about.intro.icon }}</i>{{
+            $page.about.intro.title }}</h4>
+          <p class="flow-text justify-align">{{ $page.about.intro.text | safeHTML }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      {{- range $page.about.columns }}
+      <div class="col s12 m6">
+        <div class="card-panel">
+          <h4><i class="material-icons left" aria-hidden="true">{{ .icon }}</i>{{ .title }}</h4>
+          <ul class="collection">
+            {{- range .items }}
+            <li class="collection-item">
+              <i class="material-icons left tiny" aria-hidden="true">{{ .icon }}</i>
+              <span><strong>{{ .title }}</strong><br>{{ .text }}</span>
+            </li>
+            {{- end }}
+          </ul>
+        </div>
+      </div>
+      {{- end }}
+    </div>
+
+    {{- range $page.about.notices }}
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel {{ .panel_class }}">
+          <h4><i class="material-icons left" aria-hidden="true">{{ .icon }}</i>{{ .title }}</h4>
+          {{- if .intro }}
+          <p class="flow-text">{{ .intro | safeHTML }}</p>
+          {{- end }}
+          {{- if .items }}
+          <ul class="browser-default">
+            {{- range .items }}
+            <li>{{ . | safeHTML }}</li>
+            {{- end }}
+          </ul>
+          {{- end }}
+          {{- if .text }}
+          <p class="flow-text">{{ .text | safeHTML }}</p>
+          {{- end }}
+        </div>
+      </div>
+    </div>
+    {{- end }}
+
+    <div class="divider"></div>
+  </section>
+
+  <section id="{{ $page.contribute.id }}" class="section">
+    <h3 class="center-align">{{ $page.contribute.title }}</h3>
+
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel">
+          <h4><i class="material-icons left" aria-hidden="true">{{ $page.contribute.intro_card.icon }}</i>{{
+            $page.contribute.intro_card.title }}</h4>
+          {{- with site.GetPage "/blocks/contribute-intro" }}
+          <div class="flow-text justify-align">{{ .Content }}</div>
+          {{- end }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card-panel">
+          <h4><i class="material-icons left" aria-hidden="true">{{ $page.contribute.ways.icon }}</i>{{
+            $page.contribute.ways.title }}</h4>
+          <ul class="collection">
+            {{- range $page.contribute.ways.items }}
+            <li class="collection-item">
+              <i class="material-icons left tiny" aria-hidden="true">{{ .icon }}</i>
+              <span>{{ .text }}</span>
+            </li>
+            {{- end }}
+          </ul>
+        </div>
+      </div>
+
+      <div class="col s12 m6">
+        <div class="card-panel">
+          <h4><i class="material-icons left" aria-hidden="true">{{ $mailing.icon }}</i>{{ $mailing.title }}</h4>
+          <div class="collection">
+            {{- range $mailing.entries }}
+            <div class="collection-item">
+              <h5 class="title">{{ .title }}</h5>
+              <p class="grey-text">{{ .description }}</p>
+              <div class="chip">
+                <i class="material-icons left" aria-hidden="true">email</i>
+                {{ .email }}
+              </div>
+              <div class="mailing-actions">
+                <a href="{{ .subscribe }}" class="btn-small waves-effect waves-light">
+                  <i class="material-icons left" aria-hidden="true">person_add</i>{{ $mailing.subscribe_label }}
+                </a>
+                <a href="{{ .archives }}" target="_blank" rel="noopener" class="btn-small waves-effect waves-light">
+                  <i class="material-icons left" aria-hidden="true">history</i>{{ $mailing.archives_label }}
+                </a>
+              </div>
+            </div>
+            {{- end }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel {{ $page.contribute.getting_started.panel_class }}">
+          <h4><i class="material-icons left" aria-hidden="true">{{ $page.contribute.getting_started.icon }}</i>{{
+            $page.contribute.getting_started.title }}</h4>
+          <p class="flow-text">{{ $page.contribute.getting_started.intro | safeHTML }}</p>
+          <div class="row">
+            {{- range $page.contribute.getting_started.columns }}
+            <div class="col s12 m6">
+              <ul class="browser-default">
+                {{- range . }}
+                <li>{{ . }}</li>
+                {{- end }}
+              </ul>
+            </div>
+            {{- end }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+  </section>
+
+  <section id="{{ $page.downloads.id }}" class="section">
+    <h3 class="center-align">{{ $page.downloads.title }}</h3>
+    <article>
+      <p class="flow-text justify-align">{{ $page.downloads.intro }}</p>
+
+      <div class="downloads-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Version</th>
+              <th>Status</th>
+              <th>Release Notes</th>
+              <th>Binary</th>
+              <th>Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{- range $page.downloads.releases }}
+            {{- $version := .version -}}
+            {{- $isCurrent := eq .status "current stable" -}}
+            {{- $releaseNotesHref := printf "https://cwiki.apache.org/confluence/display/FINERACT/%s+-+Apache+Fineract" $version -}}
+            {{- $releaseNotesLabel := printf "Apache Fineract® %s" $version -}}
+            {{- $binFile := printf "apache-fineract-bin-%s.tar.gz" $version -}}
+            {{- $srcFile := printf "apache-fineract-src-%s.tar.gz" $version -}}
+            {{- $binHref := printf "https://www.apache.org/dyn/closer.lua/fineract/%s/%s" $version $binFile -}}
+            {{- $srcHref := printf "https://www.apache.org/dyn/closer.lua/fineract/%s/%s" $version $srcFile -}}
+            {{- $binSigHref := printf "https://downloads.apache.org/fineract/%s/%s.asc" $version $binFile -}}
+            {{- $srcSigHref := printf "https://downloads.apache.org/fineract/%s/%s.asc" $version $srcFile -}}
+            {{- $binShaHref := printf "https://downloads.apache.org/fineract/%s/%s.sha512" $version $binFile -}}
+            {{- $srcShaHref := printf "https://downloads.apache.org/fineract/%s/%s.sha512" $version $srcFile -}}
+            <tr>
+              <td class="version-col">
+                {{- if $isCurrent }}
+                <span class="green-text">{{ $version }}</span>
+                {{- else }}
+                {{ $version }}
+                {{- end }}
+              </td>
+              <td><small>{{ .status }}</small></td>
+              <td><a href="{{ $releaseNotesHref }}">{{ $releaseNotesLabel }}</a></td>
+              <td>
+                {{- if not $isCurrent }}
+                unavailable
+                {{- else }}
+                <a href="{{ $binHref }}">{{ $binFile }}</a>
+                <span class="file-type">(
+                  <a href="{{ $binSigHref }}">signature</a>, <a href="{{ $binShaHref }}">sha512</a>)
+                </span>
+                {{- end }}
+              </td>
+              <td>
+                {{- if not $isCurrent }}
+                unavailable
+                {{- else }}
+                <a href="{{ $srcHref }}">{{ $srcFile }}</a>
+                <span class="file-type">(
+                  <a href="{{ $srcSigHref }}">signature</a>, <a href="{{ $srcShaHref }}">sha512</a>)
+                </span>
+                {{- end }}
+              </td>
+            </tr>
+            {{- end }}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="verification-section">
+        <h4><i class="material-icons" aria-hidden="true">{{ $page.downloads.verification.icon }}</i>{{
+          $page.downloads.verification.title }}</h4>
+        <p>{{ $page.downloads.verification.intro }}</p>
+        <div class="verification-methods">
+          {{- range $page.downloads.verification.methods }}
+          <div class="verification-method">
+            <div class="method-header">
+              <i class="material-icons" aria-hidden="true">{{ .icon }}</i>
+              <h5>{{ .title }}</h5>
+            </div>
+            <p>{{ .description | safeHTML }}</p>
+          </div>
+          {{- end }}
+        </div>
+        <div class="verification-guide">
+          <p>{{ $page.downloads.verification.guide.prefix }} <a href="{{ $page.downloads.verification.guide.href }}"
+              class="guide-link">{{ $page.downloads.verification.guide.label }}<i class="material-icons"
+                aria-hidden="true">{{ $page.downloads.verification.guide.icon }}</i></a></p>
+        </div>
+      </div>
+
+      <p class="flow-text justify-align">{{ $page.downloads.archive_note | safeHTML }}</p>
+      <div class="divider"></div>
+    </article>
+  </section>
+
+  <section id="{{ $page.resources.id }}" class="section">
+    <h3 class="center-align">{{ $page.resources.title }}</h3>
+
+    {{- range $page.resources.rows }}
+    <div class="row">
+      {{- range .cards }}
+      <div class="col s12 m6">
+        <div class="card-panel">
+          <h4><i class="material-icons left" aria-hidden="true">{{ .icon }}</i>{{ .title }}</h4>
+          <div class="collection">
+            {{- range .links }}
+            <a href="{{ .href }}" class="collection-item">
+              <strong>{{ .title }}</strong>
+              <p class="grey-text">{{ .text }}</p>
+            </a>
+            {{- end }}
+          </div>
+        </div>
+      </div>
+      {{- end }}
+    </div>
+    {{- end }}
+  </section>
+</main>

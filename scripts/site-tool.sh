@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<'EOF'
+Usage: site-tool <build|check|serve|shell> [args...]
+
+Commands:
+  build  Build site into /src/.build/site and run checks
+  check  Run internal link check + htmlhint + axe against /src/.build/site
+  serve  Run hugo server on port 1313
+  shell  Open an interactive shell
+EOF
+}
+
+resolve_paths() {
+  if [[ -f "config.toml" && -d "../scripts" ]]; then
+    SITE_SRC_DIR="$(pwd)"
+    REPO_ROOT="$(cd .. && pwd)"
+    return
+  fi
+  if [[ -f "site-src/config.toml" && -d "scripts" ]]; then
+    REPO_ROOT="$(pwd)"
+    SITE_SRC_DIR="${REPO_ROOT}/site-src"
+    return
+  fi
+  echo "Unable to locate repository root. Use -w /src or -w /src/site-src." >&2
+  exit 2
+}
+
+build_site() {
+  cd "${SITE_SRC_DIR}"
+  hugo --minify --cleanDestinationDir --destination "${REPO_ROOT}/.build/site" "$@"
+}
+
+run_checks() {
+  python3 "${REPO_ROOT}/scripts/check_internal_links.py" --site-root "${REPO_ROOT}/.build/site"
+
+  local htmlhint_status=0
+  local axe_status=0
+
+  htmlhint "${REPO_ROOT}/.build/site/**/*.html" --config "${REPO_ROOT}/.htmlhintrc" || htmlhint_status=$?
+  axe \
+    "file://${REPO_ROOT}/.build/site/index.html" \
+    "file://${REPO_ROOT}/.build/site/security.html" \
+    --chrome-path /usr/bin/google-chrome \
+    --chrome-options no-sandbox,disable-dev-shm-usage \
+    --exit || axe_status=$?
+
+  if [[ ${htmlhint_status} -ne 0 ]]; then
+    echo "HTMLHint found issues (non-blocking)." >&2
+  fi
+  if [[ ${axe_status} -ne 0 ]]; then
+    echo "axe found issues (non-blocking)." >&2
+  fi
+}
+
+serve_site() {
+  cd "${SITE_SRC_DIR}"
+  hugo server --bind 0.0.0.0 --baseURL "http://localhost:1313" --buildDrafts --disableFastRender "$@"
+}
+
+main() {
+  local cmd="${1:-}"
+  if [[ -z "${cmd}" ]]; then
+    usage
+    exit 2
+  fi
+  shift || true
+
+  resolve_paths
+
+  case "${cmd}" in
+    build)
+      build_site "$@"
+      run_checks
+      ;;
+    check)
+      run_checks
+      ;;
+    serve)
+      serve_site "$@"
+      ;;
+    shell)
+      exec bash
+      ;;
+    *)
+      usage
+      exit 2
+      ;;
+  esac
+}
+
+main "$@"

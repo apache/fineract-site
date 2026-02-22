@@ -1,0 +1,66 @@
+name: Site Publish
+
+on:
+  push:
+    branches:
+      - asf-site
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: site-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    # Prevent publish loops from bot commits and restrict to upstream repo.
+    if: github.repository == 'apache/fineract-site' && github.actor != 'github-actions[bot]' && (github.event_name != 'push' || !contains(github.event.head_commit.message, '[skip-publish]'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build site tooling image
+        run: docker build -t fineract-site .
+
+      - name: Build and validate site
+        run: |
+          docker run --rm \
+            --user "$(id -u):$(id -g)" \
+            -v "$PWD:/src" \
+            -w /src/site-src \
+            fineract-site build
+
+      - name: Sync generated output into repository root
+        run: |
+          rsync -a --delete \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude 'site-src/' \
+            --exclude 'scripts/' \
+            --exclude '.build/' \
+            --exclude '.asf.yaml' \
+            --exclude '.htmlhintrc' \
+            --exclude '.gitignore' \
+            --exclude '.dockerignore' \
+            --exclude 'Dockerfile' \
+            --exclude 'README.md' \
+            --exclude 'CONTRIBUTING.md' \
+            --exclude 'LICENSE.txt' \
+            .build/site/ ./
+
+      - name: Commit and push published output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No publish changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: publish generated site [skip-publish]"
+          git push origin HEAD:asf-site
