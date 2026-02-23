@@ -40,6 +40,14 @@ Recommended tools:
    for VS Code
 3. Browser: Chrome, Firefox, or Safari (use developer tools/console)
 4. Version control: Git CLI
+5. Ensure Git is installed and configured:
+
+```bash
+git --version
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+```
+If Git is not installed, download it from https://git-scm.com/downloads
 
 ## Getting Started
 
