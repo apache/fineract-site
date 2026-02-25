@@ -33,32 +33,19 @@ docker build -t fineract-site .
 2. Build site and run checks (internal links + htmlhint + axe):
 
 ```bash
-docker run --rm \
-  --user "$(id -u):$(id -g)" \
-  -v "$PWD:/src" \
-  -w /src/site-src \
-  fineract-site build
+docker run --rm -u "$(id -u):$(id -g)" -v "$PWD:/src" -w /src/site-src fineract-site build
 ```
 
 3. Serve locally with watch mode:
 
 ```bash
-docker run --rm -it \
-  --user "$(id -u):$(id -g)" \
-  -p 1313:1313 \
-  -v "$PWD:/src" \
-  -w /src/site-src \
-  fineract-site serve
+docker run --rm -it -u "$(id -u):$(id -g)" -v "$PWD:/src" -w /src/site-src -p 1313:1313 fineract-site serve
 ```
 
 4. Optional: run checks only (without rebuilding):
 
 ```bash
-docker run --rm \
-  --user "$(id -u):$(id -g)" \
-  -v "$PWD:/src" \
-  -w /src/site-src \
-  fineract-site check
+docker run --rm -u "$(id -u):$(id -g)" -v "$PWD:/src" -w /src/site-src fineract-site check
 ```
 
 Windows PowerShell equivalent (no UID/GID mapping):
@@ -67,12 +54,6 @@ Windows PowerShell equivalent (no UID/GID mapping):
 docker build -t fineract-site .
 docker run --rm -v "${PWD}:/src" -w /src/site-src fineract-site build
 docker run --rm -it -p 1313:1313 -v "${PWD}:/src" -w /src/site-src fineract-site serve
-```
-
-If Docker creates root-owned artifacts on Linux, fix ownership with:
-
-```bash
-sudo chown -R "$(id -u):$(id -g)" .build site-src
 ```
 
 ## CI/CD

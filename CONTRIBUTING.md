@@ -1,103 +1,75 @@
-# Contributing To Apache Fineract Site
+# Contributing
 
-Thanks for contributing to https://fineract.apache.org.
+Thanks for contributing to <https://fineract.apache.org>, our [project web site](https://infra.apache.org/project-site.html)!
+
+## Philosophy
+
+Our high-level priorities:
+
+### compliance
+
+* [ASF project web site checks](https://whimsy.apache.org/site/project/fineract) should pass (all appear green).
+* Markup and code should be well-formed, valid, free of errors and warnings.
+
+### maintainability
+
+* With every change, seek to improve and reduce code. Leave it better than you found it.
+* Communicate your intent clearly. Leave good notes for future devs, including yourself. Use commit log messages to capture intent.
+
+### speed
+
+* The site should continue to load quickly and cleanly for as many visitors as possible.
 
 ## Prerequisites
 
 1. Git
-2. Docker
+1. Docker
 
 ## Source Model
 
 1. Hugo sources are in `site-src/`.
-2. Generated output is `.build/site` and should not be edited directly.
-3. Static assets are mounted from repository root folders (`css/`, `js/`, `images/`, `font/`, `docs/`).
+1. Generated output is `.build/site` and should not be edited directly.
+1. Static assets are mounted from repository root folders (`css/`, `js/`, `images/`, `font/`, `docs/`).
 
 ## Local Development
 
-1. Build tooling image:
+Build site tool image and run containers following instructions in `README.md`.
 
-```bash
-docker build -t fineract-site .
-```
+Serve the website, open `http://localhost:1313`, and inspect:
 
-2. Build and validate:
-
-```bash
-docker run --rm \
-  --user "$(id -u):$(id -g)" \
-  -v "$PWD:/src" \
-  -w /src/site-src \
-  fineract-site build
-```
-
-3. Serve locally:
-
-```bash
-docker run --rm -it \
-  --user "$(id -u):$(id -g)" \
-  -p 1313:1313 \
-  -v "$PWD:/src" \
-  -w /src/site-src \
-  fineract-site serve
-```
-
-4. Optional checks-only run:
-
-```bash
-docker run --rm \
-  --user "$(id -u):$(id -g)" \
-  -v "$PWD:/src" \
-  -w /src/site-src \
-  fineract-site check
-```
-
-Windows PowerShell equivalents:
-
-```powershell
-docker build -t fineract-site .
-docker run --rm -v "${PWD}:/src" -w /src/site-src fineract-site build
-docker run --rm -it -p 1313:1313 -v "${PWD}:/src" -w /src/site-src fineract-site serve
-```
-
-4. Open `http://localhost:1313` and verify:
-   - Home page (`/`)
-   - Security page (`/security.html`)
-   - Error page (`/404.html`)
-   - Docs paths (`/docs/current/`, `/docs/legacy/`, `/docs/database/`)
+- [ ] Home page (`/`)
+- [ ] Security page (`/security.html`)
+- [ ] Error page (`/404.html`)
+- [ ] Docs paths (`/docs/current/`, `/docs/legacy/`, `/docs/database/`)
+- [ ] [ASF project web site checks](https://whimsy.apache.org/site/project/fineract)
 
 ## Editing Rules
 
 1. Do not edit `.build/site`.
-2. Do not re-introduce root hand-maintained HTML sources (`index.html`, `security.html`, `404.html`).
-3. Add content/pages in Hugo (`site-src/content`, `site-src/layouts`, `site-src/data`).
-4. Keep public URL paths stable unless an intentional migration is documented.
+1. Do not re-introduce root hand-maintained HTML sources (`index.html`, `security.html`, `404.html`).
+1. Add content/pages in Hugo (`site-src/content`, `site-src/layouts`, `site-src/data`).
+1. Keep public URL paths stable unless an intentional migration is documented.
 
 ## Pull Requests
 
-1. Create a feature branch from your source branch.
-2. Commit only source changes, not generated output.
-3. Ensure local checks pass before opening a PR:
+1. Clone/fork the repository.
+1. Create a branch off `asf-site`.
+1. Commit only source changes, not generated output.
+1. Ensure local checks pass.
+1. In the PR description include:
+   - What changed (briefly)
+   - Why it changed (your intent!)
+   - How you tested locally (automated runs, manual verification, etc.)
+   - Screenshots for visual changes (before & after)
 
-```bash
-docker build -t fineract-site .
-docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/src" -w /src/site-src fineract-site build
-git status
-```
+When updating PRs with new changes, leave commits as-is/un-squashed. Try to avoid force-pushing. Use your best judgment here. In general, only squash/rebase/force push to correct mistakes/noise not helpful for posterity. If you do force push, make sure collaborators are aware. It's helpful for posterity / intent forensics to see progress along the way, changes reversed, etc. Ideally with commit log detail about the "why" for the changes, summaries of our discussions leading to the changes, ideas/plans for future changes, etc.
 
-4. In the PR description include:
-   - What changed
-   - Why it changed
-   - How you tested locally
-   - Screenshots for visual changes
+Note this methodology for source control (keeping a series of PR commits un-squashed) is a different policy than we use for [the apache/fineract repo](https://github.com/apache/fineract).
 
 ## CI Workflows
 
-1. PR checks: `.github/workflows/site-pr-check.yml`
-2. Publish automation: `.github/workflows/site-publish.yml`
+On push to `asf-site`, GitHub Actions builds the site, edits a clone of the `asf-site` in-place, then commits and pushes generated files.
 
-## Branch Model
-
-1. Source branch is `asf-site`.
-2. On push to `asf-site`, GitHub Actions builds the site and commits generated publish files to `asf-site`.
-3. Do not commit `.build/` output; it is local-only and ignored by git.
+* PR checks: `.github/workflows/site-pr-check.yml`
+* Publish automation: `.github/workflows/site-publish.yml`
+* Ensure commits are signed: `.github/workflows/verify-commits.yml`
