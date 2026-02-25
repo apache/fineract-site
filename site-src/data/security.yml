@@ -1,7 +1,7 @@
 title: "Apache Fineract® Security Reports"
 intro:
   - "This page lists all security vulnerabilities fixed in released versions of Apache Fineract®. Each vulnerability is reported via [the ASF process](http://www.apache.org/security/) and given a security impact rating."
-  - "If you have identified a security issue, let us know immediately via email to security AT fineract.apache.org. And be sure to [secure your Fineract® server](https://fineract.apache.org/docs/current/#_securing_fineract)!"
+  - "If you have identified a security issue, let us know immediately via email to security AT fineract.apache.org. And be sure to [secure your server](https://fineract.apache.org/docs/current/#_securing_fineract)!"
 releases:
   - id: "fixed-in-apache-fineract-1.12.1"
     version: "1.12.1"
@@ -266,7 +266,7 @@ releases:
           - "We would like to thank Alex Ivanov and the Apache Security team for reporting this issue."
 policy_updates:
   id: "notable-fineract-security-policy-updates"
-  title: "Notable Fineract® security policy updates"
+  title: "Notable security policy updates"
   items:
     - "January 15, 2025: The project now determines on a case by case basis whether a CVE fix will be back-ported to any prior release. The default is that all prior releases are immediately determined as EOL (end of life) when a new release happens."
     - "November 29, 2022: In order to ensure that users are given warning of critical issues, the Apache Fineract® project may use its relationship with the independent Mifos Initiative to ensure that users of the Fineract® backend and Mifos front end UI are informed of such vulnerabilities and are able to assist in testing and validating patches."

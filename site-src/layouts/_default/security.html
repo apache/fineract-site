@@ -15,7 +15,7 @@
         <a href="#apache-fineract-security-reports">{{ $security.title }}</a>
         <ul>
           {{- range $security.releases }}
-          <li><a href="#{{ .id }}">Fixed in Apache Fineract® {{ .version }}</a></li>
+          <li><a href="#{{ .id }}">Fixed in {{ .version }}</a></li>
           {{- end }}
           <li><a href="#{{ $security.policy_updates.id }}">{{ $security.policy_updates.title }}</a></li>
           <li><a href="#{{ $security.editing.id }}">{{ $security.editing.title }}</a></li>
@@ -32,7 +32,7 @@
     {{- end }}
 
     {{- range $release := $security.releases }}
-    <h2 id="{{ $release.id }}">Fixed in Apache Fineract® {{ $release.version }}</h2>
+    <h2 id="{{ $release.id }}">Fixed in {{ $release.version }}</h2>
 
     {{- range $entry := $release.entries }}
     <h3 id="{{ $entry.id }}"><a href="{{ $entry.url }}">{{ $entry.cve_id }}</a>: {{ $entry.title }}</h3>
