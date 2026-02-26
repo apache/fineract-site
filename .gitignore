@@ -7,7 +7,7 @@
 site-src/public/
 site-src/resources/
 
-# Node.js (htmlhint, axe-core used in CI)
+# Node.js (optional local tooling)
 node_modules/
 
 # Hugo lock file
