@@ -44,7 +44,6 @@ jobs:
             --exclude 'scripts/' \
             --exclude '.build/' \
             --exclude '.asf.yaml' \
-            --exclude '.htmlhintrc' \
             --exclude '.gitignore' \
             --exclude '.dockerignore' \
             --exclude 'Dockerfile' \
