@@ -1,0 +1,39 @@
+{{- $home := site.Data.home -}}
+{{- $footer := $home.footer -}}
+<footer class="page-footer">
+  <div class="container">
+    <section id="reference" class="section">
+      <h3 class="white-text center-align">{{ $footer.reference_title }}</h3>
+      <div class="reference-links">
+        <div class="ref-group">
+          {{- range $footer.links }}
+          <a class="ref-link waves-effect waves-light" href="{{ .href }}" target="_blank" rel="noopener">
+            <i class="material-icons" aria-hidden="true">{{ .icon }}</i>
+            <span>{{ .label }}</span>
+          </a>
+          {{- end }}
+        </div>
+
+        <div class="event-banner">
+          <a href="{{ $footer.event_banner.href }}" target="_blank" rel="noopener">
+            <img src="{{ $footer.event_banner.src }}" alt="{{ $footer.event_banner.alt }}">
+          </a>
+        </div>
+
+        <a href="{{ $footer.dpg_badge.href }}" target="_blank" rel="noopener">
+          <img src="{{ $footer.dpg_badge.src }}" alt="{{ $footer.dpg_badge.alt }}" width="{{ $footer.dpg_badge.width }}">
+        </a>
+      </div>
+
+      <div class="divider divider-inverse"></div>
+
+      <div class="site-footer-legal center-align white-text">
+        <p>
+          <a class="white-text" href="{{ $footer.apache_url }}" target="_blank" rel="noopener">Copyright &copy; {{ $footer.copyright_start }}&ndash;{{ now.Year }} The Apache Software Foundation</a>.
+          Licensed under the <a class="white-text" href="{{ $footer.license_url }}" target="_blank" rel="noopener">Apache License, Version 2.0</a>.
+        </p>
+        <p>{{ $footer.trademark }}</p>
+      </div>
+    </section>
+  </div>
+</footer>

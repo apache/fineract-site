@@ -1,0 +1,24 @@
+{{- $home := site.Data.home -}}
+<!doctype html>
+<html lang="{{ $home.lang }}">
+<head>
+  <meta charset="{{ $home.meta.charset }}">
+  <meta name="viewport" content="{{ $home.meta.viewport }}">
+  <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ site.Title }}</title>
+  <link rel="icon" type="image/png" href="{{ $home.favicon }}">
+  {{- range $home.styles }}
+  <link href="{{ .href }}" type="{{ .type }}" rel="stylesheet">
+  {{- end }}
+</head>
+<body id="{{ $home.body.id }}" class="{{ $home.body.class }}">
+  {{ partial "header.html" . }}
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

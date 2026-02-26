@@ -1,0 +1,25 @@
+name: Site PR Check
+
+on:
+  pull_request:
+    branches:
+      - asf-site
+  workflow_dispatch:
+
+jobs:
+  build-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Build site tooling image
+        run: docker build -t fineract-site .
+
+      - name: Build and validate site
+        run: |
+          docker run --rm \
+            --user "$(id -u):$(id -g)" \
+            -v "$PWD:/src" \
+            -w /src/site-src \
+            fineract-site build

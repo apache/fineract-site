@@ -1,195 +1,75 @@
-﻿# Contributing to Apache Fineract Site
+# Contributing
 
-First off, thank you for considering contributing to the
-[Apache Fineract Site](https://fineract.apache.org/).
+Thanks for contributing to <https://fineract.apache.org>, our [project web site](https://infra.apache.org/project-site.html)!
 
-We welcome contributions of all sizes, from fixing issues to updating design
-layouts. This guide is intended to make your contribution experience as smooth
-as possible.
+## Philosophy
 
-## Table of Contents
+Our high-level priorities:
 
-- [Contributing to Apache Fineract Site](#contributing-to-apache-fineract-site)
-  - [Table of Contents](#table-of-contents)
-  - [Prerequisites and Tools](#prerequisites-and-tools)
-  - [Getting Started](#getting-started)
-    - [1. Fork and Clone](#1-fork-and-clone)
-    - [2. Branching Strategy](#2-branching-strategy)
-  - [Development Workflow](#development-workflow)
-    - [Project Structure](#project-structure)
-    - [Coding Standards](#coding-standards)
-  - [Running Locally](#running-locally)
-  - [Testing and Verification](#testing-and-verification)
-    - [1. Visual Regression](#1-visual-regression)
-    - [2. Functional Testing](#2-functional-testing)
-    - [3. Git Sanity Check](#3-git-sanity-check)
-  - [Submission Guidelines](#submission-guidelines)
-    - [Commit Messages](#commit-messages)
-    - [Opening a Pull Request (PR)](#opening-a-pull-request-pr)
-  - [Community and Help](#community-and-help)
+### compliance
 
-## Prerequisites and Tools
+* [ASF project web site checks](https://whimsy.apache.org/site/project/fineract) should pass (all appear green).
+* Markup and code should be well-formed, valid, free of errors and warnings.
 
-This repository is a static site consisting of HTML, CSS, and JavaScript.
+### maintainability
 
-Recommended tools:
+* With every change, seek to improve and reduce code. Leave it better than you found it.
+* Communicate your intent clearly. Leave good notes for future devs, including yourself. Use commit log messages to capture intent.
 
-1. Editor: [VS Code](https://code.visualstudio.com/) (recommended)
-2. Extension:
-   [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
-   for VS Code
-3. Browser: Chrome, Firefox, or Safari (use developer tools/console)
-4. Version control: Git CLI
-5. Ensure Git is installed and configured:
+### speed
 
-```bash
-git --version
-git config --global user.name "Your Name"
-git config --global user.email "your-email@example.com"
-```
-If Git is not installed, download it from https://git-scm.com/downloads
+* The site should continue to load quickly and cleanly for as many visitors as possible.
 
-## Getting Started
+## Prerequisites
 
-### 1. Fork and Clone
+1. Git
+1. Docker
 
-Since this is an open source project, we recommend using the Fork and Pull
-model.
+## Source Model
 
-1. Fork the repository to your own GitHub account.
-2. Clone your fork locally:
+1. Hugo sources are in `site-src/`.
+1. Generated output is `.build/site` and should not be edited directly.
+1. Static assets are mounted from repository root folders (`css/`, `js/`, `images/`, `font/`, `docs/`).
 
-```bash
-git clone https://github.com/<your-username>/fineract-site.git
-cd fineract-site
-```
+## Local Development
 
-3. Add upstream remote to keep your fork synced:
+Build site tool image and run containers following instructions in `README.md`.
 
-```bash
-git remote add upstream https://github.com/apache/fineract-site.git
-```
+Serve the website, open `http://localhost:1313`, and inspect:
 
-### 2. Branching Strategy
+- [ ] Home page (`/`)
+- [ ] Security page (`/security.html`)
+- [ ] Error page (`/404.html`)
+- [ ] Docs paths (`/docs/current/`, `/docs/legacy/`, `/docs/database/`)
+- [ ] [ASF project web site checks](https://whimsy.apache.org/site/project/fineract)
 
-Important: the default and active branch for this repository is `asf-site`.
+## Editing Rules
 
-1. Always create a new branch for your changes.
-2. Use short, descriptive branch names (for example:
-   `fix-nav-typo`, `feat-dark-mode-update`).
+1. Do not edit `.build/site`.
+1. Do not re-introduce root hand-maintained HTML sources (`index.html`, `security.html`, `404.html`).
+1. Add content/pages in Hugo (`site-src/content`, `site-src/layouts`, `site-src/data`).
+1. Keep public URL paths stable unless an intentional migration is documented.
 
-```bash
-# Update your local source
-git checkout asf-site
-git pull upstream asf-site
+## Pull Requests
 
-# Create your feature branch
-git checkout -b <type>-<description>
-```
+1. Clone/fork the repository.
+1. Create a branch off `asf-site`.
+1. Commit only source changes, not generated output.
+1. Ensure local checks pass.
+1. In the PR description include:
+   - What changed (briefly)
+   - Why it changed (your intent!)
+   - How you tested locally (automated runs, manual verification, etc.)
+   - Screenshots for visual changes (before & after)
 
-## Development Workflow
+When updating PRs with new changes, leave commits as-is/un-squashed. Try to avoid force-pushing. Use your best judgment here. In general, only squash/rebase/force push to correct mistakes/noise not helpful for posterity. If you do force push, make sure collaborators are aware. It's helpful for posterity / intent forensics to see progress along the way, changes reversed, etc. Ideally with commit log detail about the "why" for the changes, summaries of our discussions leading to the changes, ideas/plans for future changes, etc.
 
-### Project Structure
+Note this methodology for source control (keeping a series of PR commits un-squashed) is a different policy than we use for [the apache/fineract repo](https://github.com/apache/fineract).
 
-1. `index.html`: main landing page
-2. `css/`: stylesheets
-3. `js/`: scripts for logic (theme toggle, navigation, and so on)
-4. `images/`: images and icons
+## CI Workflows
 
-### Coding Standards
+On push to `asf-site`, GitHub Actions builds the site, edits a clone of the `asf-site` in-place, then commits and pushes generated files.
 
-1. HTML: ensure semantic usage of tags.
-2. CSS: avoid inline styles where possible; use defined CSS classes.
-3. JavaScript: keep code clean and remove debug `console.log` before pushing.
-4. Formatting: maintain consistent indentation and style used in existing files.
-
-## Running Locally
-
-Since this is a static site, use a local web server. Opening HTML files directly
-can cause broken links or missing assets in some environments.
-
-Option A: VS Code Live Server (recommended)
-
-1. Open the `fineract-site` folder in VS Code.
-2. Right-click `index.html` in the file explorer.
-3. Select `Open with Live Server`.
-4. The site will launch at `http://127.0.0.1:5500` (or similar).
-
-Option B: Python simple server (optional)
-
-```bash
-# Inside the root directory
-python -m http.server 8000
-```
-
-Then navigate to `http://localhost:8000`.
-
-## Testing and Verification
-
-There is currently no automated CI workflow for this repository. Manual
-verification is required.
-
-Please complete this checklist before committing.
-
-### 1. Visual Regression
-
-- [ ] Theme support: toggle light/dark mode and verify icon/text readability.
-- [ ] Responsiveness: test desktop, tablet, and mobile viewports.
-- [ ] Navigation: verify mobile menu opens/closes correctly.
-
-### 2. Functional Testing
-
-- [ ] Console errors: no red JavaScript errors in browser dev tools.
-- [ ] Links: click through changed areas and verify no broken pages.
-- [ ] Routing: verify `/index.html`, `/security.html`, and `/404.html`.
-
-### 3. Git Sanity Check
-
-Check for unintended file changes or whitespace issues:
-
-```bash
-git status
-git diff --check
-```
-
-## Submission Guidelines
-
-### Commit Messages
-
-Use clear, descriptive commit messages.
-
-Bad:
-
-```text
-fixed stuff
-```
-
-Good:
-
-```text
-fix(nav): correct alignment on mobile menu
-```
-
-### Opening a Pull Request (PR)
-
-1. Push your branch to your fork:
-
-```bash
-git push origin <your-branch-name>
-```
-
-2. Open a PR against the `asf-site` branch of the upstream repository.
-
-PR checklist (include in PR description):
-
-1. Summary: what changed and why
-2. Issue link: for example, `Fixes #123` (if applicable)
-3. Testing: how you validated changes locally
-4. Screenshots: required for UI changes (desktop and mobile)
-
-## Community and Help
-
-If you have questions, reach out via:
-
-1. Mailing list: `dev@fineract.apache.org`
-2. Issue tracker: [Apache Jira](https://issues.apache.org/jira/projects/FINERACT/summary)
+* PR checks: `.github/workflows/site-pr-check.yml`
+* Publish automation: `.github/workflows/site-publish.yml`
+* Ensure commits are signed: `.github/workflows/verify-commits.yml`

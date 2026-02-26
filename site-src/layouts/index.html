@@ -1,0 +1,22 @@
+{{- $home := site.Data.home -}}
+<!DOCTYPE html>
+<html lang="{{ $home.lang }}">
+<head>
+  <meta charset="{{ $home.meta.charset }}">
+  <meta name="viewport" content="{{ $home.meta.viewport }}">
+  <title>{{ $home.title | safeHTML }}</title>
+  <link rel="icon" type="image/png" href="{{ $home.favicon }}">
+  {{- range $home.styles }}
+  <link href="{{ .href }}" type="{{ .type }}" rel="stylesheet">
+  {{- end }}
+</head>
+<body id="{{ $home.body.id }}" class="{{ $home.body.class }}">
+  {{ partial "home-header.html" . }}
+  {{ partial "home-sections.html" . }}
+  {{ partial "home-footer.html" . }}
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

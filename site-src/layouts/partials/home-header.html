@@ -1,0 +1,77 @@
+{{- $home := site.Data.home -}}
+<header>
+  <div class="navbar-fixed">
+    <nav class="jet ghost-white-text" aria-label="Main navigation">
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="#top" class="brand-logo">
+            <div class="logo-wrapper">
+              <div class="logo-container">
+                <img class="logo-img" src="images/apache-fineract-logo.png" alt="Apache Fineract® Logo">
+                <div class="brand-text">
+                  <span class="brand-name">Apache Fineract®</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="#" data-activates="mobile-menu" class="button-collapse" aria-label="Open menu">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down nav-links" role="list">
+            {{- range $home.nav.links }}
+            <li>
+              <a class="nav-link" href="{{ .href }}">
+                <i class="material-icons left" aria-hidden="true">{{ .icon }}</i>{{ .label }}
+              </a>
+            </li>
+            {{- end }}
+            <li>
+              <a class="nav-link theme-toggle" href="#" onclick="toggleTheme()" aria-label="Toggle theme">
+                <i class="material-icons">dark_mode</i>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="side-nav ghost-white jet-text" id="mobile-menu" role="list">
+            <li class="side-nav-header">
+              <div class="logo-container">
+                <img class="logo" src="images/apache-fineract-logo.png" alt="Fineract® Logo">
+                <span class="brand">Apache Fineract®</span>
+              </div>
+            </li>
+            <li>
+              <div class="divider"></div>
+            </li>
+            {{- range $home.nav.links }}
+            <li>
+              <a class="side-nav-link" href="{{ .href }}" onclick="closeSideNav()">
+                <i class="material-icons left" aria-hidden="true">{{ .icon }}</i>{{ .label }}
+              </a>
+            </li>
+            {{- end }}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="cube-loader" role="status" aria-hidden="true">
+  <div class="cube">
+    <div class="face front"></div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+    <div class="inner-cube">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+  </div>
+</div>
+

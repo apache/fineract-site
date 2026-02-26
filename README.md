@@ -1,21 +1,72 @@
 # fineract-site
 
-This is the Apache Fineract Website served on https://fineract.apache.org
+Apache Fineract website source repository for https://fineract.apache.org.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for local run/test instructions before opening a PR.
+## Prerequisites
 
-## wish list
+- Git
+- Docker
 
-- [ ] clean up unused code/static assets (fonts, icons, images, etc)
-- [ ] use a static site generator, don't hand-code HTML
-    - [ ] validate links, markup, css, etc.
-- [ ] auto-deploy website with every PR using an ASF tool or GitHub actions (commits to the asf-site branch do currently trigger auto-deploys, but this isn't set up for PRs)
-- [ ] automate deployment of generated versioned asciidoc (don't commit it to apache/fineract-site repo – this creates a 2nd source of truth)
-- [ ] fix text overlap with intermediate-sized media query
-- [ ] document how to test locally, before/while committing
-- [ ] additional review/critique of work done in https://github.com/apache/fineract-site/pull/37
-- [x] improve [a11y](https://www.accessibilitychecker.org/audit/?website=https%3A%2F%2Ffineract.apache.org&flag=us) (accessibility) - current score of 57 out of 100, with 30 critical issues (as of 2026-02-11, only one issue remains)
-- [x] fix [missing fonts and icons](https://github.com/apache/fineract-site/pull/38#issuecomment-2916819388)
-- [x] [Cache google assets](https://github.com/apache/fineract-site/pull/37)
-- [x] https://github.com/apache/fineract-site/pull/37
-- [x] [migrate this wish list from Fineract JIRA](https://issues.apache.org/jira/browse/FINERACT-2192)
+## Source Of Truth
+
+- Hugo source is in `site-src/`.
+- Generated output is in `.build/site`.
+- Static passthrough is mounted from:
+  - `docs/` -> `/docs/`
+  - `css/` -> `/css/`
+  - `js/` -> `/js/`
+  - `images/` -> `/images/`
+  - `font/` -> `/font/`
+  - `.htaccess` -> `/.htaccess`
+  - `doap_Fineract.rdf` -> `/doap_Fineract.rdf`
+
+Do not edit generated output directly. Edit files under `site-src/` and mounted static sources instead.
+
+## Local Build and Checks (Docker)
+
+1. Build the site tool image:
+
+```bash
+docker build -t fineract-site .
+```
+
+2. Build site and run checks (internal links):
+
+```bash
+docker run --rm -u "$(id -u):$(id -g)" -v "$PWD:/src" -w /src/site-src fineract-site build
+```
+
+3. Serve locally with watch mode:
+
+```bash
+docker run --rm -it -u "$(id -u):$(id -g)" -v "$PWD:/src" -w /src/site-src -p 1313:1313 fineract-site serve
+```
+
+4. Optional: run checks only (without rebuilding):
+
+```bash
+docker run --rm -u "$(id -u):$(id -g)" -v "$PWD:/src" -w /src/site-src fineract-site check
+```
+
+Windows PowerShell equivalent (no UID/GID mapping):
+
+```powershell
+docker build -t fineract-site .
+docker run --rm -v "${PWD}:/src" -w /src/site-src fineract-site build
+docker run --rm -it -p 1313:1313 -v "${PWD}:/src" -w /src/site-src fineract-site serve
+```
+
+## CI/CD
+
+- PR validation workflow: `.github/workflows/site-pr-check.yml`
+  - Builds the same Docker image used locally
+  - Runs build + checks in container
+- Publish workflow: `.github/workflows/site-publish.yml`
+  - Builds on pushes to `asf-site`
+  - Commits generated publish files back to `asf-site` via GitHub Actions
+
+Note: `.build/` is ignored in `.gitignore` and is never pushed.
+
+## Contributor Guide
+
+See `CONTRIBUTING.md` for branch/PR workflow and validation checklist.
