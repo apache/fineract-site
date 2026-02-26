@@ -41,7 +41,6 @@ Serve the website, open `http://localhost:1313`, and inspect:
 - [ ] Security page (`/security.html`)
 - [ ] Error page (`/404.html`)
 - [ ] Docs paths (`/docs/current/`, `/docs/legacy/`, `/docs/database/`)
-- [ ] [ASF project web site checks](https://whimsy.apache.org/site/project/fineract)
 
 ## Editing Rules
 
