@@ -1,6 +1,5 @@
 .git
 .github
 .build
-node_modules
 site-src/public
 site-src/resources

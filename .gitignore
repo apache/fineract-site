@@ -7,8 +7,5 @@
 site-src/public/
 site-src/resources/
 
-# Node.js (optional local tooling)
-node_modules/
-
 # Hugo lock file
 site-src/.hugo_build.lock
