@@ -520,8 +520,21 @@ main.container .collection .collection-item:last-child,
   padding: 15px 12px;
 }
 
+#contribute ul.collection .collection-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
 #contribute .collection .collection-item i.left.tiny {
-  margin-right: 4px !important;
+  margin-right: 0 !important;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+#contribute .collection .collection-item span {
+  flex: 1;
+  margin-left: 0;
 }
 
 #contribute .collection .collection-item:last-child {
