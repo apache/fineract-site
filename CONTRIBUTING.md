@@ -10,6 +10,30 @@ Our high-level priorities:
 
 * [ASF project web site checks](https://whimsy.apache.org/site/project/fineract) should pass (all appear green).
 * Markup and code should be well-formed, valid, free of errors and warnings.
+* Aim for WCAG 2.1 Level AA conformance for accessibility.
+
+#### WCAG Testing
+
+Before submitting changes that affect the user interface, test accessibility using these tools:
+
+1. **Lighthouse** (built into Chrome DevTools)
+   - Open DevTools → Lighthouse tab
+   - Run audit with "Accessibility" checked
+   - Address any issues with scores below 90
+
+2. **WAVE** (WebAIM's Web Accessibility Evaluation Tool)
+   - Install the [WAVE browser extension](https://wave.webaim.org/extension/)
+   - Check for contrast errors, missing alt text, and structural issues
+   - Particularly check color contrast ratios meet WCAG AA (4.5:1 for normal text, 3:1 for large text)
+
+3. **axe DevTools** (browser extension)
+   - Install [axe DevTools](https://www.deque.com/axe/devtools/)
+   - Scan pages and fix any "Critical" or "Serious" issues
+   - Document any remaining issues with justification
+
+4. **Local automated checks** (optional but recommended)
+   - Consider tools like [Oobee](https://go.gov.sg/oobee) for CI integration
+   - Add accessibility tests to CI workflows where feasible
 
 ### maintainability
 
