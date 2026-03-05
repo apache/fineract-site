@@ -17,8 +17,6 @@ styles:
     type: "text/css"
   - href: "css/nav-styles.css"
     type: "text/css"
-  - href: "css/fineract.css"
-    type: "text/css"
 
 nav:
   links:

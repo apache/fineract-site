@@ -9,6 +9,8 @@
   {{- range $home.styles }}
   <link href="{{ .href }}" type="{{ .type }}" rel="stylesheet">
   {{- end }}
+  {{- $scss := resources.Get "css/fineract.scss" | toCSS | resources.Fingerprint }}
+  <link href="{{ $scss.RelPermalink }}" type="text/css" rel="stylesheet">
 </head>
 <body id="{{ $home.body.id }}" class="{{ $home.body.class }}">
   {{ partial "home-header.html" . }}

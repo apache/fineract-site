@@ -361,7 +361,7 @@ footer.page-footer a.white-text {
 
 footer.page-footer .ref-link,
 footer.page-footer .ref-link i {
-  color: #4DB6AC !important;
+  color: #ffffff;
 }
 
 [data-theme="dark"] footer.page-footer .ref-link,
@@ -908,7 +908,7 @@ table.highlight>tbody>tr:hover {
 
 .method-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 0.25rem;
 }
 
@@ -1659,6 +1659,24 @@ h4 {
   justify-content: center;
   gap: 1rem;
   max-width: 800px;
+}
+
+@media (max-width: 600px) {
+  .ref-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ref-link {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.65rem 0.5rem;
+    gap: 0.25rem;
+  }
 }
 
 .ref-link {
