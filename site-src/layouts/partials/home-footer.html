@@ -8,7 +8,9 @@
         <div class="ref-group">
           {{- range $footer.links }}
           <a class="ref-link waves-effect waves-light" href="{{ .href }}" target="_blank" rel="noopener">
-            <i class="material-icons" aria-hidden="true">{{ .icon }}</i>
+            <span class="icon-sr-only" aria-hidden="true">
+              <i class="material-icons" aria-hidden="true">{{ .icon }}</i>
+            </span>
             <span>{{ .label }}</span>
           </a>
           {{- end }}
@@ -29,8 +31,16 @@
 
       <div class="site-footer-legal center-align white-text">
         <p>
-          <a class="white-text" href="{{ $footer.apache_url }}" target="_blank" rel="noopener">Copyright &copy; {{ $footer.copyright_start }}&ndash;{{ now.Year }} The Apache Software Foundation</a>.
-          Licensed under the <a class="white-text" href="{{ $footer.license_url }}" target="_blank" rel="noopener">Apache License, Version 2.0</a>.
+          <a class="white-text" href="{{ $footer.apache_url }}" target="_blank" rel="noopener">
+            Copyright &copy; {{ $footer.copyright_start }}&ndash;{{ now.Year }} The Apache Software Foundation
+          </a>.
+          Licensed under the
+          <a class="white-text" href="{{ $footer.license_url }}" target="_blank" rel="noopener">
+            Apache License, Version 2.0
+          </a>.
+          <a class="white-text" href="{{ $footer.privacy_url }}" target="_blank" rel="noopener">
+            Privacy Policy
+          </a>.
         </p>
         <p>{{ $footer.trademark }}</p>
       </div>

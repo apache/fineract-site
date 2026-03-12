@@ -297,6 +297,7 @@ footer:
   copyright_start: "2009"
   apache_url: "https://www.apache.org/"
   license_url: "https://www.apache.org/licenses/"
+  privacy_url: "https://privacy.apache.org/policies/privacy-policy-public.html"
   trademark: >-
     Apache Fineract®, Fineract®, Apache, the Apache feather, and the Apache Fineract®
     project logo are either registered trademarks or trademarks of the Apache Software Foundation.
