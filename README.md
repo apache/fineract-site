@@ -61,16 +61,6 @@ docker run --rm -it -p 1313:1313 -v "${PWD}:/src" -w /src/site-src fineract-site
 Apache Whimsy validates that the public homepage includes specific ASF-required
 footer links and legal text. Before opening a PR, verify the footer locally.
 
-### Build and run checks
-```bash
-docker build -t fineract-site .
-docker run --rm -u "$(id -u):$(id -g)" -v "$PWD:/src" -w /src/site-src fineract-site build
-docker run --rm -u "$(id -u):$(id -g)" -v "$PWD:/src" -w /src/site-src fineract-site check
-
-Serve the site locally
-
-docker run --rm -it -u "$(id -u):$(id -g)" -v "$PWD:/src" -w /src/site-src -p 1313:1313 fineract-site serve
-
 ## CI/CD
 
 - PR validation workflow: `.github/workflows/site-pr-check.yml`
