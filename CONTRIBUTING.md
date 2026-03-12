@@ -55,6 +55,7 @@ Serve the website, open `http://localhost:1313`, and inspect:
 1. Clone/fork the repository.
 1. Create a branch off `asf-site`.
 1. Commit only source changes, not generated output.
+1. Sign commits with a PGP/GPG key.
 1. Ensure local checks pass.
 1. In the PR description include:
    - What changed (briefly)
@@ -65,6 +66,12 @@ Serve the website, open `http://localhost:1313`, and inspect:
 When updating PRs with new changes, leave commits as-is/un-squashed. Try to avoid force-pushing. Use your best judgment here. In general, only squash/rebase/force push to correct mistakes/noise not helpful for posterity. If you do force push, make sure collaborators are aware. It's helpful for posterity / intent forensics to see progress along the way, changes reversed, etc. Ideally with commit log detail about the "why" for the changes, summaries of our discussions leading to the changes, ideas/plans for future changes, etc.
 
 Note this methodology for source control (keeping a series of PR commits un-squashed) is a different policy than we use for [the apache/fineract repo](https://github.com/apache/fineract).
+
+Do not sign commits with SSH keys. More info:
+
+* https://stackoverflow.com/questions/51412164/gpg-vs-ssh-keys
+* https://stackoverflow.com/questions/73489997/whats-the-difference-between-signing-commits-with-ssh-versus-gpg
+* https://fineract.apache.org/docs/current/#_gpg_2
 
 ## CI Workflows
 
