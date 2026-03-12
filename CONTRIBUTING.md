@@ -30,6 +30,7 @@ Our high-level priorities:
 1. Hugo sources are in `site-src/`.
 1. Generated output is `.build/site` and should not be edited directly.
 1. Static assets are mounted from repository root folders (`css/`, `js/`, `images/`, `font/`, `docs/`).
+1. Dev and CI tooling is in `Dockerfile`, `scripts/`, and `.github/workflows/`.
 
 ## Local Development
 
