@@ -37,6 +37,15 @@ run_checks() {
   python3 "${REPO_ROOT}/scripts/check_internal_links.py" --site-root "${REPO_ROOT}/.build/site"
 }
 
+run_whimsy_checks() {
+  cd "${REPO_ROOT}/.build/site"
+  python3 -m http.server 8000 &
+  SERVER_PID=$!
+  sleep 1
+  python3 "${REPO_ROOT}/scripts/whimsy-check.py"
+  kill $SERVER_PID
+}
+
 serve_site() {
   cd "${SITE_SRC_DIR}"
   hugo server --bind 0.0.0.0 --baseURL "http://localhost:1313" --buildDrafts --disableFastRender "$@"
@@ -62,6 +71,9 @@ main() {
       ;;
     serve)
       serve_site "$@"
+      ;;
+    whimsy)
+      run_whimsy_checks
       ;;
     shell)
       exec bash
