@@ -33,17 +33,18 @@ build_site() {
   hugo --minify --cleanDestinationDir --destination "${REPO_ROOT}/.build/site" "$@"
 }
 
-run_checks() {
-  python3 "${REPO_ROOT}/scripts/check_internal_links.py" --site-root "${REPO_ROOT}/.build/site"
-}
-
 run_whimsy_checks() {
   cd "${REPO_ROOT}/.build/site"
   python3 -m http.server 8000 &
   SERVER_PID=$!
   sleep 1
-  python3 "${REPO_ROOT}/scripts/whimsy-check.py"
+  ruby "${REPO_ROOT}/scripts/run_whimsy_checks.rb" http://127.0.0.1:8000
   kill $SERVER_PID
+}
+
+run_checks() {
+  python3 "${REPO_ROOT}/scripts/check_internal_links.py" --site-root "${REPO_ROOT}/.build/site"
+  run_whimsy_checks
 }
 
 serve_site() {
@@ -71,9 +72,6 @@ main() {
       ;;
     serve)
       serve_site "$@"
-      ;;
-    whimsy)
-      run_whimsy_checks
       ;;
     shell)
       exec bash

@@ -23,11 +23,3 @@ jobs:
             -v "$PWD:/src" \
             -w /src/site-src \
             fineract-site build
-
-      - name: Run Whimsy checks
-        run: |
-          docker run --rm \
-            --user "$(id -u):$(id -g)" \
-            -v "$PWD:/src" \
-            -w /src/site-src \
-            fineract-site whimsy
