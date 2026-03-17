@@ -36,13 +36,6 @@
 <!--
 <category rdf:resource="https://projects.apache.org/category/financial" /> 
 -->
-    <release>
-      <Version>
-        <name>Fineract 1.10.1</name>
-        <created>2024-12-31</created>
-        <revision>1.10.1</revision>
-      </Version>
-    </release>
     <repository>
       <GitRepository>
         <location rdf:resource="https://github.com/apache/fineract"/>
