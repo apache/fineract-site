@@ -56,10 +56,11 @@ docker run --rm -v "${PWD}:/src" -w /src/site-src fineract-site build
 docker run --rm -it -p 1313:1313 -v "${PWD}:/src" -w /src/site-src fineract-site serve
 ```
 
-## Verifying ASF homepage footer checks locally
+## Verifying ASF project website compliance
 
-Apache Whimsy validates that the public homepage includes specific ASF-required
-footer links and legal text. Before opening a PR, verify the footer locally.
+Apache Whimsy periodically checks that the public homepage follows ASF conventions.
+Output of these checks is displayed [here](https://whimsy.apache.org/site/project/fineract).
+24 hours after code is changed and <https://fineract.apache.org> updates, ensure all checks remain green.
 
 ## CI/CD
 
