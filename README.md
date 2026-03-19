@@ -30,7 +30,7 @@ Do not edit generated output directly. Edit files under `site-src/` and mounted 
 docker build -t fineract-site .
 ```
 
-2. Build site and run checks (internal links):
+2. Build site and run checks:
 
 ```bash
 docker run --rm -u "$(id -u):$(id -g)" -v "$PWD:/src" -w /src/site-src fineract-site build
