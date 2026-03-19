@@ -62,6 +62,7 @@ Serve the website, open `http://localhost:1313`, and inspect:
    - Why it changed (your intent!)
    - How you tested locally (automated runs, manual verification, etc.)
    - Screenshots for visual changes (before & after)
+1. Use separate commits for whitespace/formatting changes (with no effect/output) and meaningful/impactful code changes.
 
 When updating PRs with new changes, leave commits as-is/un-squashed. Try to avoid force-pushing. Use your best judgment here. In general, only squash/rebase/force push to correct mistakes/noise not helpful for posterity. If you do force push, make sure collaborators are aware. It's helpful for posterity / intent forensics to see progress along the way, changes reversed, etc. Ideally with commit log detail about the "why" for the changes, summaries of our discussions leading to the changes, ideas/plans for future changes, etc.
 
@@ -80,3 +81,14 @@ On push to `asf-site`, GitHub Actions builds the site, edits a clone of the `asf
 * PR checks: `.github/workflows/site-pr-check.yml`
 * Publish automation: `.github/workflows/site-publish.yml`
 * Ensure commits are signed: `.github/workflows/verify-commits.yml`
+
+## Code formatting
+
+In general, follow the spacing and formatting conventions present in existing code/markup.
+
+Additionally, there are some things you can do to ease human code reviews:
+
+1. Do not add whitespace at ends of lines.
+1. Ensure all files end with a newline.
+
+We don't use linters/formatters, but we should consider that.
