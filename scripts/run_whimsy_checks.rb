@@ -124,9 +124,6 @@ def save_events(data, value)
   end
 end
 
-<<<<<<< HEAD
-exit(failed ? 1 : 0)
-=======
 #########################################################################
 # Exact copy of parse() from site-scan.rb
 # (minus ASF/LDAP/committee/podling parts)
@@ -236,4 +233,3 @@ if __FILE__ == $0
   failed = validate(data)
   exit(failed ? 1 : 0)
 end
->>>>>>> bd8df1f (FINERACT-2528: Add unit tests for whimsy checks and daily whimsy monitoring workflow)
