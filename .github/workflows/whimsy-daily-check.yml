@@ -1,0 +1,63 @@
+name: Daily Whimsy Check
+
+on:
+  schedule:
+    - cron: '0 8 * * *'  # runs every day at 8am UTC
+  workflow_dispatch:
+
+jobs:
+  whimsy-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check whimsy site-scan.json for fineract errors
+        run: |
+          echo "Fetching whimsy site-scan.json..."
+          DATA=$(curl -s https://whimsy.apache.org/public/site-scan.json | jq '.fineract')
+
+          echo "Whimsy scan results for fineract:"
+          echo "$DATA" | jq .
+
+          # Check all fields from sitestandards.rb COMMON_CHECKS
+          FAILED=0
+
+          check_field() {
+            FIELD=$1
+            VALUE=$(echo "$DATA" | jq -r ".$FIELD")
+            if [ "$VALUE" = "null" ] || [ -z "$VALUE" ]; then
+              echo "FAIL: $FIELD is null/missing"
+              FAILED=1
+            else
+              echo "PASS: $FIELD = $VALUE"
+            fi
+          }
+
+          check_field "uri"
+          check_field "foundation"
+          check_field "events"
+          check_field "license"
+          check_field "thanks"
+          check_field "security"
+          check_field "sponsorship"
+          check_field "trademarks"
+          check_field "copyright"
+          check_field "privacy"
+          check_field "resources"
+          check_field "image"
+          check_field "csp_check"
+
+          # Also check errors array is empty
+          ERRORS=$(echo "$DATA" | jq -r '.errors')
+          if [ "$ERRORS" != "[]" ] && [ "$ERRORS" != "null" ]; then
+            echo "FAIL: whimsy reported errors: $ERRORS"
+            FAILED=1
+          fi
+
+          if [ "$FAILED" = "1" ]; then
+            echo ""
+            echo "One or more whimsy checks failed!"
+            echo "See https://whimsy.apache.org/site/project/fineract for details"
+            exit 1
+          fi
+
+          echo ""
+          echo "All whimsy checks passed!"

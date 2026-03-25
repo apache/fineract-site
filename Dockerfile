@@ -15,6 +15,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN gem install nokogiri
 
+RUN git clone --depth 1 https://github.com/apache/whimsy.git /srv/whimsy
+
 RUN curl -fsSL \
     -o /tmp/hugo.tar.gz \
     "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz" \
