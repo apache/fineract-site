@@ -9,7 +9,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     git \
     python3 \
+    ruby \
+    ruby-dev \
     && rm -rf /var/lib/apt/lists/*
+
+RUN gem install nokogiri
+
+RUN git clone --depth 1 https://github.com/apache/whimsy.git /srv/whimsy
 
 RUN curl -fsSL \
     -o /tmp/hugo.tar.gz \

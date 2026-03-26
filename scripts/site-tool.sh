@@ -8,6 +8,7 @@ Usage: site-tool <build|check|serve|shell> [args...]
 Commands:
   build  Build site into /src/.build/site and run checks
   check  Run internal link check against /src/.build/site
+  test   Run unit tests for whimsy checks
   serve  Run hugo server on port 1313
   shell  Open an interactive shell
 EOF
@@ -33,8 +34,22 @@ build_site() {
   hugo --minify --cleanDestinationDir --destination "${REPO_ROOT}/.build/site" "$@"
 }
 
+run_whimsy_checks() {
+  cd "${REPO_ROOT}/.build/site"
+  python3 -m http.server 8000 &
+  SERVER_PID=$!
+  sleep 1
+  ruby "${REPO_ROOT}/scripts/run_whimsy_checks.rb" http://127.0.0.1:8000
+  kill $SERVER_PID
+}
+
 run_checks() {
   python3 "${REPO_ROOT}/scripts/check_internal_links.py" --site-root "${REPO_ROOT}/.build/site"
+  run_whimsy_checks
+}
+
+run_tests() {
+  ruby "${REPO_ROOT}/scripts/test_run_whimsy_checks.rb"
 }
 
 serve_site() {
@@ -59,6 +74,9 @@ main() {
       ;;
     check)
       run_checks
+      ;;
+    test)
+      run_tests
       ;;
     serve)
       serve_site "$@"

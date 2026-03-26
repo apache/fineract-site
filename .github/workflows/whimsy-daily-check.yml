@@ -1,0 +1,19 @@
+name: Daily Whimsy Check
+
+on:
+  schedule:
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+
+jobs:
+  whimsy-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Run whimsy checks
+        run: scripts/check-whimsy-json.sh

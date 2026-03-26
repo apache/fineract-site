@@ -23,3 +23,10 @@ jobs:
             -v "$PWD:/src" \
             -w /src/site-src \
             fineract-site build
+
+      - name: Run unit tests
+        run: |
+          docker run --rm \
+            -v "$PWD:/src" \
+            -w /src/site-src \
+            fineract-site test

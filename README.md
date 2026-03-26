@@ -56,6 +56,12 @@ docker run --rm -v "${PWD}:/src" -w /src/site-src fineract-site build
 docker run --rm -it -p 1313:1313 -v "${PWD}:/src" -w /src/site-src fineract-site serve
 ```
 
+## Verifying ASF project website compliance
+
+Apache Whimsy periodically checks that the public homepage follows ASF conventions.
+Output of these checks is displayed [here](https://whimsy.apache.org/site/project/fineract).
+24 hours after code is changed and <https://fineract.apache.org> updates, ensure all checks remain green.
+
 ## CI/CD
 
 - PR validation workflow: `.github/workflows/site-pr-check.yml`

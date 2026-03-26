@@ -8,7 +8,7 @@
         <div class="ref-group">
           {{- range $footer.links }}
           <a class="ref-link waves-effect waves-light" href="{{ .href }}" target="_blank" rel="noopener">
-            <i class="material-icons" aria-hidden="true">{{ .icon }}</i>
+            <span class="material-icons icon-sr-only" aria-hidden="true">{{ .icon }}</span>
             <span>{{ .label }}</span>
           </a>
           {{- end }}
