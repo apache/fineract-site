@@ -40,12 +40,16 @@ check_field "image"
 # csp_check is done differently - whimsy sets it to "OK" if csp matches
 # the expected DEFAULT_CSP pattern from sitestandards.rb
 # See: https://infra.apache.org/tools/csp.html
-CSP_CHECK=$(echo "$DATA" | jq -r '.csp_check')
-if [ "$CSP_CHECK" = "OK" ]; then
-  echo "PASS: csp_check = OK"
+EXPECTED_CSP="default-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://www.apachecon.com/ https://www.communityovercode.org/ https://*.apache.org/ https://apache.org/ https://*.scarf.sh/  ; script-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://www.apachecon.com/ https://www.communityovercode.org/ https://*.apache.org/ https://apache.org/ https://*.scarf.sh/  ; style-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://www.apachecon.com/ https://www.communityovercode.org/ https://*.apache.org/ https://apache.org/ https://*.scarf.sh/  ; frame-ancestors 'self'; frame-src 'self' data: blob: 'unsafe-inline' 'unsafe-eval' https://www.apachecon.com/ https://www.communityovercode.org/ https://*.apache.org/ https://apache.org/ https://*.scarf.sh/  ; worker-src 'self' data: blob:;"
+
+CSP=$(echo "$DATA" | jq -r '.csp')
+if [ "$CSP" = "$EXPECTED_CSP" ]; then
+  echo "PASS: csp matches expected DEFAULT_CSP"
 else
-  echo "WARN: csp_check = $CSP_CHECK (not OK but not blocking)"
-  echo "See https://infra.apache.org/tools/csp.html for details"
+  echo "FAIL: csp does not match expected DEFAULT_CSP"
+  echo "  actual:   $CSP"
+  echo "  expected: $EXPECTED_CSP"
+  FAILED=1
 fi
 
 # Check errors array is empty
