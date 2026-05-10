@@ -455,6 +455,8 @@ main.container .collection .collection-item:last-child,
   cursor: pointer;
   opacity: 1;
   transition: opacity 0.2s ease;
+  background: transparent;
+  border: 0;
 }
 
 .theme-toggle i {
