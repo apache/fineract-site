@@ -12,3 +12,4 @@ github:
     asf-site:
       required_linear_history: false
       required_conversation_resolution: true
+      required_signatures: true
