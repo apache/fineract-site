@@ -471,6 +471,10 @@ main.container .collection .collection-item:last-child,
   opacity: 0.9;
 }
 
+.theme-toggle:focus {
+  background: transparent;
+}
+
 /* Solution Providers section */
 .solution-providers {
   padding: 3rem 0;
