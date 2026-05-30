@@ -307,7 +307,7 @@ footer:
   dpg_badge:
     href: "https://www.digitalpublicgoods.net/r/apache-fineract"
     src: "images/verified-dpg-badge.svg"
-    alt: "Digital Public Goods Badge"
+    alt: "Digital Public Goods Badges"
     width: "200"
   links:
     - label: "The Apache Software Foundation"
