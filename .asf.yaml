@@ -8,13 +8,8 @@ github:
     merge: true
     squash: false
     rebase: false
-  rulesets:
-    - name: "Branch Protection"
-      type: branch
-      branches:
-        includes:
-          - "asf-site"
-      restrict_deletion: true
-      restrict_force_push: true
-      required_signatures: true
+  protected_branches:
+    asf-site:
       required_linear_history: false
+      required_conversation_resolution: true
+      required_signatures: true
