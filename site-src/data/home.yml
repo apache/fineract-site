@@ -187,6 +187,23 @@ homepage:
           email: "issues@fineract.apache.org"
           subscribe: "mailto:issues-subscribe@fineract.apache.org"
           archives: "https://lists.apache.org/list.html?issues@fineract.apache.org"
+    chat:
+      icon: "forum"
+      title: "Chat"
+      description: "Connect with the Apache Fineract community in real-time."
+      space_label: "Matrix Space"
+      space_description: "The primary community hub for announcements, general discussions, and collaboration across the Fineract ecosystem."
+      space_href: "https://matrix.to/#/#apache-fineract-home:matrix.org"
+      rooms_label: "Specialized Chat Rooms"
+      rooms:
+        - title: "Developer Chat"
+          description: "Core project development, technical design, and system architecture discussions."
+          href: "https://matrix.to/#/#apache-fineract-dev:matrix.org"
+          icon: "code"
+        - title: "GSoC Chat"
+          description: "Google Summer of Code mentoring, student onboarding, and project discussions."
+          href: "https://matrix.to/#/#apache-fineract-gsoc:matrix.org"
+          icon: "school"
     getting_started:
       panel_class: "yellow lighten-4"
       icon: "tips_and_updates"

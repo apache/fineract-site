@@ -389,6 +389,10 @@ main.container .collection .collection-item:last-child,
   margin-right: 10px;
 }
 
+#contribute .chat-space-btn {
+  color: #fff;
+}
+
 #contribute .chip {
   height: fit-content;
 }
