@@ -188,6 +188,45 @@
       </div>
     </div>
 
+
+    {{- with $page.contribute.chat }}
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel">
+          <h4><i class="material-icons left" aria-hidden="true">{{ .icon }}</i>{{ .title }}</h4>
+          <p class="flow-text">{{ .description }}</p>
+          <div class="row">
+            <!-- Matrix Space -->
+            <div class="col s12 m6">
+              <div class="collection">
+                <div class="collection-item">
+                  <h5 class="title">{{ .space_label }}</h5>
+                  <p class="grey-text">{{ .space_description | default "The primary entry point and central communication hub for the entire Apache Fineract community." }}</p>
+                  <a href="{{ .space_href }}" target="_blank" rel="noopener" class="btn-small waves-effect waves-light">
+                    <i class="material-icons left" aria-hidden="true">forum</i>Open Matrix Space
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col s12 m6">
+              <div class="collection">
+                {{- range .rooms }}
+                <div class="collection-item">
+                  <h5 class="title">{{ .title }}</h5>
+                  <p class="grey-text">{{ .description | default "Join this room for real-time community chat." }}</p>
+                  <a href="{{ .href }}" target="_blank" rel="noopener" class="btn-small waves-effect waves-light">
+                    <i class="material-icons left" aria-hidden="true">{{ .icon | default "chat" }}</i>Join Room
+                  </a>
+                </div>
+                {{- end }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{- end }}
+
     <div class="row">
       <div class="col s12">
         <div class="card-panel {{ $page.contribute.getting_started.panel_class }}">
