@@ -10,6 +10,6 @@ RewriteRule ^fonts/(fontawesome.+)$ docs/database/bower/font-awesome/fonts/$1 [L
 RewriteRule ^docs/current(.*)$ docs/1.14.0$1 [L]
 
 # candidate for next release
-RewriteRule ^docs/rc(.*)$ docs/current [L]
+RewriteRule ^docs/rc(.*)$ docs/1.15.0$1 [L]
 
 ErrorDocument 404 /404.html
