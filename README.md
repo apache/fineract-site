@@ -1,26 +1,24 @@
 # fineract-site
 
-Apache Fineract website source repository for https://fineract.apache.org.
+Apache Fineract website source repository for <https://fineract.apache.org>, a Hugo-generated static website.
 
 ## Prerequisites
 
 - Git
 - Docker
 
-## Source Of Truth
+## What's where
 
-- Hugo source is in `site-src/`.
-- Generated output is in `.build/site`.
-- Static passthrough is mounted from:
-  - `docs/` -> `/docs/`
-  - `css/` -> `/css/`
-  - `js/` -> `/js/`
-  - `images/` -> `/images/`
-  - `font/` -> `/font/`
-  - `.htaccess` -> `/.htaccess`
-  - `doap_Fineract.rdf` -> `/doap_Fineract.rdf`
-
-Do not edit generated output directly. Edit files under `site-src/` and mounted static sources instead.
+- Sources are in `site-src/` (OK to edit)
+- Static assets (published as-is, OK to edit)
+  - `docs/` → `/docs/`
+  - `css/` → `/css/`
+  - `js/` → `/js/`
+  - `images/` → `/images/`
+  - `font/` → `/font/`
+  - `.htaccess` → `/.htaccess`
+  - `doap_Fineract.rdf` → `/doap_Fineract.rdf`
+- Generated output is in `.build/site` (do not edit)
 
 ## Local Build and Checks (Docker)
 
