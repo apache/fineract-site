@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.18">
 <title>Fineract Platform Documentation</title>
-<link rel="stylesheet" href="../../css/stylesheet.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
 /* Uncomment the following line when using as a custom stylesheet */
@@ -435,7 +435,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
-<link rel="stylesheet" href="../../css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 pre.rouge table td { padding: 5px; }
 pre.rouge table pre { margin: 0; }
@@ -656,7 +656,7 @@ pre.rouge {
 <div id="header">
 <h1>Fineract Platform Documentation</h1>
 <div class="details">
-<span id="revnumber">version 1.15.0-SNAPSHOT</span>
+<span id="revnumber">version 1.16.0-SNAPSHOT</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -781,7 +781,7 @@ pre.rouge {
 <li><a href="#_fineract_development_environment">Fineract Development Environment</a>
 <ul class="sectlevel2">
 <li><a href="#_git">Git</a></li>
-<li><a href="#_gpg">GPG</a></li>
+<li><a href="#_gnupg">GnuPG</a></li>
 <li><a href="#_docker">Docker</a></li>
 <li><a href="#_gradle">Gradle</a></li>
 <li><a href="#_ide">IDE</a></li>
@@ -899,10 +899,26 @@ Website: <a href="https://fineract.apache.org" class="bare">fineract.apache.org<
 Email: <a href="mailto:dev@fineract.apache.org">dev@fineract.apache.org</a></p>
 </div>
 <div class="paragraph">
-<p><strong>Version</strong>: 1.15.0-SNAPSHOT</p>
+<p><strong>Version</strong>: 1.16.0-SNAPSHOT</p>
 </div>
 <div class="paragraph">
-<p><strong>Built on</strong>: Mon Jul 13 09:50:30 PDT 2026</p>
+<p><strong>Built on</strong>: Tue Jul 14 10:39:07 PDT 2026</p>
+</div>
+<div class="paragraph">
+<p>Note the version in the URL path:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Latest stable: <a href="https://fineract.apache.org/docs/stable/" class="bare">fineract.apache.org/docs/stable/</a></p>
+</li>
+<li>
+<p>Bleeding edge: <a href="https://fineract.apache.org/docs/develop/" class="bare">fineract.apache.org/docs/develop/</a></p>
+</li>
+<li>
+<p>Specific version: <a href="https://fineract.apache.org/docs/1.14.0/" class="bare">fineract.apache.org/docs/1.14.0/</a></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>For document authors and changelog, view code history for the <code>fineract-doc</code> directory in <a href="https://github.com/apache/fineract/" class="bare">github.com/apache/fineract/</a>.</p>
@@ -953,7 +969,7 @@ Email: <a href="mailto:dev@fineract.apache.org">dev@fineract.apache.org</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">java <span class="nt">-jar</span> fineract-provider-1.15.0-SNAPSHOT.jar</code></pre>
+<pre class="rouge highlight"><code data-lang="bash">java <span class="nt">-jar</span> fineract-provider-1.16.0-SNAPSHOT.jar</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -967,7 +983,7 @@ Email: <a href="mailto:dev@fineract.apache.org">dev@fineract.apache.org</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">java <span class="nt">-Dloader</span>.path<span class="o">=</span>libs/ <span class="nt">-jar</span> fineract-provider-1.15.0-SNAPSHOT.jar</code></pre>
+<pre class="rouge highlight"><code data-lang="bash">java <span class="nt">-Dloader</span>.path<span class="o">=</span>libs/ <span class="nt">-jar</span> fineract-provider-1.16.0-SNAPSHOT.jar</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5024,10 +5040,10 @@ All the default serializers are having <code>Ordered.LOWEST_PRECEDENCE</code>.
 <div class="content">
 <pre class="rouge highlight"><code data-lang="bash"><span class="c"># 1. Generate the baseline from develop</span>
 git stash
-git checkout develop
+git switch develop
 ./gradlew :fineract-provider:resolve <span class="nt">--no-daemon</span>
 <span class="nb">cp </span>fineract-provider/build/resources/main/static/fineract.json /tmp/baseline.json
-git checkout -
+git switch -
 git stash pop
 
 <span class="c"># 2. Generate your current spec and compare</span>
@@ -24105,24 +24121,46 @@ The period type determines the calendar interval at the end of which accrued int
 <div class="sect1">
 <h2 id="_fineract_development_environment"><a class="link" href="#_fineract_development_environment">Fineract Development Environment</a></h2>
 <div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>16GB RAM and 8 core CPU (minimum hardware for running Fineract&#8201;&#8212;&#8201;development and testing may require more)</p>
+</li>
+<li>
+<p>PostgreSQL &gt;= 18.0 (<a href="https://cwiki.apache.org/confluence/display/FINERACT/FSIP-9%3A+Standardize+on+PostgreSQL">support for other backend databases is deprecated</a>)</p>
+</li>
+<li>
+<p>Java &gt;= 21 (<a href="https://www.azul.com/downloads/?package=jdk#zulu">Azul Zulu JVM</a> is tested by our CI on GitHub Actions)</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
-<p>TBD</p>
+<p>Tomcat (min. v10) is only needed if you wish to deploy the Fineract WAR to a separate external servlet container. You do not need to install Tomcat to run Fineract. We recommend the use of the self-contained JAR, which transparently embeds a servlet container using Spring Boot.</p>
 </div>
 <div class="sect2">
 <h3 id="_git"><a class="link" href="#_git">Git</a></h3>
 <div class="paragraph">
-<p>TBD</p>
+<p>Version 2.23 or later (supporting <code>git switch</code> and <code>git restore</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_gpg"><a class="link" href="#_gpg">GPG</a></h3>
+<h3 id="_gnupg"><a class="link" href="#_gnupg">GnuPG</a></h3>
 <div class="paragraph">
-<p>TBD</p>
+<p>GNU Privacy Guard is used for signing commits and releases and for verifying those signatures. Any <a href="https://gnupg.org/download/#end-of-life">non-EOL v2 release of GnuPG</a> should work.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="#_signing_releases">Signing releases</a> for help generating keys.</p>
 </div>
 <div class="sect3">
 <h4 id="_committers"><a class="link" href="#_committers">Committers</a></h4>
 <div class="paragraph">
-<p>Please make sure to provide your GPG fingerprint in your Apache committer profile at <a href="https://id.apache.org" class="bare">id.apache.org</a>.</p>
+<p>Provide your public key fingerprint in your Apache committer profile at <a href="https://id.apache.org" class="bare">id.apache.org</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pmc_members"><a class="link" href="#_pmc_members">PMC members</a></h4>
+<div class="paragraph">
+<p>Include your public key in <a href="https://downloads.apache.org/fineract/KEYS">our KEYS file</a>.</p>
 </div>
 </div>
 </div>
@@ -24153,7 +24191,7 @@ The period type determines the calendar interval at the end of which accrued int
 <div class="sect2">
 <h3 id="_gradle"><a class="link" href="#_gradle">Gradle</a></h3>
 <div class="paragraph">
-<p>TBD</p>
+<p>The <a href="https://docs.gradle.org/current/userguide/gradle_wrapper.html">Gradle Wrapper</a> included with Fineract will automatically run the correct version of Gradle.</p>
 </div>
 </div>
 <div class="sect2">
@@ -24218,7 +24256,7 @@ The period type determines the calendar interval at the end of which accrued int
 <div class="sect3">
 <h4 id="_sdkman"><a class="link" href="#_sdkman">SDKMAN</a></h4>
 <div class="paragraph">
-<p>We recommend using SKDMAN to manage the following developer tools:</p>
+<p>We recommend using SDKMAN to manage the following developer tools:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -29515,7 +29553,7 @@ If you need access or have any questions related to those secrets then please re
 </div>
 </div>
 <div class="sect3">
-<h4 id="_gpg_2"><a class="link" href="#_gpg_2">GPG</a></h4>
+<h4 id="_signing_releases"><a class="link" href="#_signing_releases">Signing releases</a></h4>
 <div class="paragraph">
 <p>Generate GPG key pairs if you don&#8217;t already have them and publish them. Please use your Apache email address when creating your GPG keypair. If you already have configured GPG and associated your keypair with a non-Apache email address then please consider creating a separate one just for all things related to Fineract (or Apache in general).</p>
 </div>
@@ -29815,6 +29853,19 @@ gXXeWjafxBmHT1cM8hoBZBYzgTu9nK5UnllWunfaHXiCBG4oQQ==
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>See also:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://infra.apache.org/release-signing.html">Signing Releases</a></p>
+</li>
+<li>
+<p><a href="https://infra.apache.org/openpgp.html">Cryptography with OpenPGP</a></p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_email"><a class="link" href="#_email">Email</a></h4>
@@ -30052,7 +30103,7 @@ Fineract release plugin Gradle tasks are experimental and incomplete.
 <p>The RM should, if one doesn&#8217;t already exist, first create a new release umbrella issue in JIRA. This issue is dedicated to tracking (a summary of) any discussion related to the planned new release. An example of such an issue is <a href="https://issues.apache.org/jira/browse/FINERACT-873">FINERACT-873</a>.</p>
 </div>
 <div class="paragraph">
-<p>Next, the RM logs in to <a href="https://release-test.apache.org">the ATR (ASF Trusted Releases)</a> tool and clicks "+ Start a new release", naming the release <code>1.15.0-SNAPSHOT</code>.</p>
+<p>Next, the RM logs in to <a href="https://release-test.apache.org">the ATR (ASF Trusted Releases)</a> tool and clicks "+ Start a new release", naming the release <code>1.16.0-SNAPSHOT</code>.</p>
 </div>
 <div class="paragraph">
 <p>The RM then creates a list of resolved issues &amp; features through an initial check in JIRA for already resolved issues for the release, and then setup a timeline for release branch point. The time for the day the issue list is created to the release branch point must be at least two weeks in order to give the community a chance to prioritize and commit any last minute features and issues they would like to see in the upcoming release.</p>
@@ -30092,7 +30143,7 @@ ${project['fineract.config.name']}
 <div class="listingblock">
 <div class="title">Command</div>
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">./gradlew fineractReleaseStep1 <span class="nt">-Pfineract</span>.release.issue<span class="o">=</span>1234 <span class="nt">-Pfineract</span>.releaseBranch.date<span class="o">=</span><span class="s2">"Monday, April 25, 2022"</span> <span class="nt">-Pfineract</span>.release.version<span class="o">=</span>1.15.0-SNAPSHOT</code></pre>
+<pre class="rouge highlight"><code data-lang="bash">./gradlew fineractReleaseStep1 <span class="nt">-Pfineract</span>.release.issue<span class="o">=</span>1234 <span class="nt">-Pfineract</span>.releaseBranch.date<span class="o">=</span><span class="s2">"Monday, April 25, 2022"</span> <span class="nt">-Pfineract</span>.release.version<span class="o">=</span>1.16.0-SNAPSHOT</code></pre>
 </div>
 </div>
 </div>
@@ -30114,7 +30165,7 @@ ${project['fineract.config.name']}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="text">project = FINERACT and fixVersion = 1.15.0-SNAPSHOT and status not in ( Resolved, Done, Accepted, Closed )</code></pre>
+<pre class="rouge highlight"><code data-lang="text">project = FINERACT and fixVersion = 1.16.0-SNAPSHOT and status not in ( Resolved, Done, Accepted, Closed )</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -30122,7 +30173,7 @@ ${project['fineract.config.name']}
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="text">project = FINERACT and fixVersion = 1.15.0-SNAPSHOT</code></pre>
+<pre class="rouge highlight"><code data-lang="text">project = FINERACT and fixVersion = 1.16.0-SNAPSHOT</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -30134,7 +30185,7 @@ ${project['fineract.config.name']}
 <div class="listingblock">
 <div class="title">Command</div>
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">./gradlew fineractReleaseStep2 <span class="nt">-Pfineract</span>.release.version<span class="o">=</span>1.15.0-SNAPSHOT</code></pre>
+<pre class="rouge highlight"><code data-lang="bash">./gradlew fineractReleaseStep2 <span class="nt">-Pfineract</span>.release.version<span class="o">=</span>1.16.0-SNAPSHOT</code></pre>
 </div>
 </div>
 <div class="admonitionblock caution">
@@ -30192,7 +30243,7 @@ This task is not yet automated!
 <p>Create a new release branch using the version number</p>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">git checkout <span class="nt">-b</span> release/1.15.0-SNAPSHOT</code></pre>
+<pre class="rouge highlight"><code data-lang="bash">git switch <span class="nt">-c</span> release/1.16.0-SNAPSHOT</code></pre>
 </div>
 </div>
 </li>
@@ -30200,7 +30251,7 @@ This task is not yet automated!
 <p>Push new branch to Apache Fineract repository</p>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">git push origin release/1.15.0-SNAPSHOT</code></pre>
+<pre class="rouge highlight"><code data-lang="bash">git push origin release/1.16.0-SNAPSHOT</code></pre>
 </div>
 </div>
 </li>
@@ -30239,7 +30290,7 @@ ${project['fineract.config.name']}</code></pre>
 <div class="listingblock">
 <div class="title">Command</div>
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">./gradlew fineractReleaseStep3 <span class="nt">-Pfineract</span>.release.date<span class="o">=</span><span class="s2">"Monday, May 10, 2022"</span> <span class="nt">-Pfineract</span>.release.version<span class="o">=</span>1.15.0-SNAPSHOT</code></pre>
+<pre class="rouge highlight"><code data-lang="bash">./gradlew fineractReleaseStep3 <span class="nt">-Pfineract</span>.release.date<span class="o">=</span><span class="s2">"Monday, May 10, 2022"</span> <span class="nt">-Pfineract</span>.release.version<span class="o">=</span>1.16.0-SNAPSHOT</code></pre>
 </div>
 </div>
 </div>
@@ -30249,7 +30300,28 @@ ${project['fineract.config.name']}</code></pre>
 <div class="sect4">
 <h5 id="_description_4"><a class="link" href="#_description_4">Description</a></h5>
 <div class="paragraph">
-<p>You first need to close the release in JIRA so that the about to be released version cannot be used as "fixVersion" for new bugs anymore. Go to JIRA "Administer project" page and follow "Versions" in left menu. Table with list of all releases should appear, click on additional menu on the right of your release and choose "Release" option. Submit release date and you&#8217;re done.</p>
+<p>You first need to close the release in JIRA so that the about to be released version cannot be used as "fixVersion" for new bugs anymore.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://issues.apache.org/jira/plugins/servlet/project-config/FINERACT/administer-versions?status=released-unreleased">Click this link</a> or go to JIRA "Administer project" page and follow "Versions" in left menu.</p>
+</div>
+<div class="paragraph">
+<p>A form to add new releases and a table with list of all releases should appear. First, create the <em>next</em> release. Enter that version number in the form and click "Add".</p>
+</div>
+<div class="paragraph">
+<p>Next, in the "Actions" column in the table, click on ⋯  (three horizontal dots menu) to the right of release 1.16.0-SNAPSHOT. Choose "Release". Enter the current date (doesn&#8217;t need to be the date the release is acutally announced).</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+For the "Unresolved Issues" radio button: If unresolved issues block the release, ignore them and proceed. If they&#8217;ll be part of another release, move them to that version.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect4">
@@ -30283,9 +30355,9 @@ This task is not yet automated!
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">git checkout <span class="nt">-b</span> release/1.15.0-SNAPSHOT <i class="conum" data-value="1"></i><b>(1)</b>
-git tag <span class="nt">-a</span> 1.15.0-SNAPSHOT <span class="nt">-m</span> <span class="s2">"Fineract 1.15.0-SNAPSHOT release"</span> <span class="nt">-s</span> <i class="conum" data-value="2"></i><b>(2)</b>
-git push origin tag 1.15.0-SNAPSHOT</code></pre>
+<pre class="rouge highlight"><code data-lang="bash">git switch <span class="nt">-c</span> release/1.16.0-SNAPSHOT <i class="conum" data-value="1"></i><b>(1)</b>
+git tag <span class="nt">-a</span> 1.16.0-SNAPSHOT <span class="nt">-m</span> <span class="s2">"Fineract 1.16.0-SNAPSHOT release"</span> <span class="nt">-s</span>
+git push origin tag 1.16.0-SNAPSHOT <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -30296,7 +30368,7 @@ git push origin tag 1.15.0-SNAPSHOT</code></pre>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td><code>-s</code> is optional but recommended: GPG signatures on tags are useful for trust and integrity.</td>
+<td>You may opt to wait to push the tag until just before <a href="#_step_10_start_vote">Step 10: Start Vote</a>. By that time you&#8217;ll be done with <a href="#_step_9_verify_distribution_staging">Step 9: Verify Distribution Staging</a>, so it&#8217;s less likely you&#8217;d need to try to move the tag. Git tags are meant to be immutable and they tend to spread like viruses. Moving them can be painful or tricky.</td>
 </tr>
 </table>
 </div>
@@ -30318,7 +30390,7 @@ It is important to create so called annotated tags (vs. lightweight) for release
 <div class="listingblock">
 <div class="title">Command</div>
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">./gradlew fineractReleaseStep5 <span class="nt">-Pfineract</span>.release.version<span class="o">=</span>1.15.0-SNAPSHOT</code></pre>
+<pre class="rouge highlight"><code data-lang="bash">./gradlew fineractReleaseStep5 <span class="nt">-Pfineract</span>.release.version<span class="o">=</span>1.16.0-SNAPSHOT</code></pre>
 </div>
 </div>
 </div>
@@ -30338,7 +30410,7 @@ It is important to create so called annotated tags (vs. lightweight) for release
 </div>
 </div>
 <div class="paragraph">
-<p>Check that <code>fineract-provider/build/generated-resources/git/git.properties</code> exists. If so, continue. If not, you&#8217;re likely encountering <a href="https://github.com/n0mer/gradle-git-properties/issues/233">this bug</a>, and you need to <strong>re-run the command above</strong> to create proper source and binary tarballs. That <code>git.properties</code> file is supposed to end up at <code>BOOT-INF/classes/git.properties</code> in <code>fineract-provider-1.15.0-SNAPSHOT.jar</code> in the binary release tarball. Its contents are displayed at the <code>/fineract-provider/actuator/info</code> endpoint. It may be possible to fix this heisenbug entirely by <a href="https://github.com/gradle/gradle/issues/34177#issuecomment-3051970053">modifying our git properties gradle plugin config</a> in <code>fineract-provider/build.gradle</code>, perhaps by changing where <code>git.properties</code> is written.</p>
+<p>Check that <code>fineract-provider/build/generated-resources/git/git.properties</code> exists. If so, continue. If not, you&#8217;re likely encountering <a href="https://github.com/n0mer/gradle-git-properties/issues/233">this bug</a>, and you need to <strong>re-run the command above</strong> to create proper source and binary tarballs. That <code>git.properties</code> file is supposed to end up at <code>BOOT-INF/classes/git.properties</code> in <code>fineract-provider-1.16.0-SNAPSHOT.jar</code> in the binary release tarball. Its contents are displayed at the <code>/fineract-provider/actuator/info</code> endpoint. It may be possible to fix this heisenbug entirely by <a href="https://github.com/gradle/gradle/issues/34177#issuecomment-3051970053">modifying our git properties gradle plugin config</a> in <code>fineract-provider/build.gradle</code>, perhaps by changing where <code>git.properties</code> is written.</p>
 </div>
 <div class="paragraph">
 <p>Look in <code>fineract-war/build/distributions/</code> for the tarballs.</p>
@@ -30349,16 +30421,51 @@ It is important to create so called annotated tags (vs. lightweight) for release
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="bash"><span class="nb">cd</span> /fineract-release-preparations
-<span class="nb">tar</span> <span class="nt">-xvzf</span> path/to/apache-fineract-src-1.15.0-SNAPSHOT.tar.gz
+<span class="nb">tar</span> <span class="nt">-xvzf</span> path/to/apache-fineract-src-1.16.0-SNAPSHOT.tar.gz
 git clone git@github.com:apache/fineract.git
 <span class="nb">cd </span>fineract/
-git checkout tags/1.15.0-SNAPSHOT
+git switch <span class="nt">--detach</span> tags/1.16.0-SNAPSHOT
 <span class="nb">cd</span> ..
-diff <span class="nt">-r</span> fineract apache-fineract-src-1.15.0-SNAPSHOT</code></pre>
+diff <span class="nt">-r</span> fineract apache-fineract-src-1.16.0-SNAPSHOT</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Make sure the code compiles and tests pass on the uncompressed source. You should at the very least do exactly what you will ask the community to do in <a href="#_step_9_verify_distribution_staging">Step 9: Verify Distribution Staging</a>.</p>
+<p>The diff won&#8217;t be perfectly clean&#8230;&#8203; some things are excluded from the source tarball on purpose. If you see something like this, it&#8217;s OK to proceed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="text">Only in fineract: .atr-rat-excludes-bin.txt
+Only in fineract: .atr-rat-excludes-src.txt
+Only in fineract: .dockerignore
+Only in fineract/fineract-branch/src/test/java: .gitkeep
+Only in fineract/fineract-branch/src/test/resources: .gitkeep
+Only in fineract/fineract-client/src/main/resources: .gitkeep
+Only in fineract/fineract-core/src/main/java/org/apache/fineract/infrastructure/businessdate/validation: .gitkeep
+Only in fineract/fineract-core/src/test/java: .gitkeep
+Only in fineract/fineract-core/src/test/resources: .gitkeep
+Only in fineract/fineract-doc/src/resources/fonts: .gitkeep
+Only in fineract/fineract-doc/src/resources/themes/fineract: .gitkeep
+Only in fineract/fineract-investor/src/test/java: .gitkeep
+Only in fineract/fineract-investor/src/test/resources: .gitkeep
+Only in fineract/fineract-loan/src/test/java: .gitkeep
+Only in fineract/fineract-loan/src/test/resources: .gitkeep
+Only in fineract: .git
+Only in fineract: .github
+Only in fineract: .gitignore
+Only in apache-fineract-src-1.15.0/integration-tests/src: integrationTest
+Only in apache-fineract-src-1.15.0: LICENSE
+Only in fineract: LICENSE_RELEASE
+Only in fineract: LICENSE_SOURCE
+Only in apache-fineract-src-1.15.0: NOTICE
+Only in fineract: NOTICE_RELEASE
+Only in fineract: NOTICE_SOURCE
+Only in apache-fineract-src-1.15.0: .rat-excludes
+Only in apache-fineract-src-1.15.0: test-results
+Only in fineract: .theia</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Make sure the code compiles and tests pass on the uncompressed source. You should at the very least do exactly what you will ask the community to do in <a href="#_build_from_source">Build from source</a>.</p>
 </div>
 <div class="paragraph">
 <p>Ideally you&#8217;d build code and docs and run every possible test and check, but <a href="https://github.com/apache/fineract/actions">running everything has complex dependencies, caches, and takes many hours</a>. It is rarely done in practice offline / local / on developer machines. But please, go ahead and run the test and doc tasks, and more! Grab a cup of coffee and run everything you can. See the various builds in <code>.github/workflows/</code> and try the same things on your own. We should all hammer on a release candidate as much as we can to see if it breaks and fix it if so. All that of course improves our final release.</p>
@@ -30408,16 +30515,16 @@ This task doesn&#8217;t work. Build release artifacts manually as indicated abov
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="bash"><span class="c"># sign</span>
-gpg <span class="nt">--armor</span> <span class="nt">--output</span> apache-fineract-src-1.15.0-SNAPSHOT.tar.gz.asc <span class="se">\</span>
-  <span class="nt">--detach-sig</span> apache-fineract-src-1.15.0-SNAPSHOT.tar.gz
-gpg <span class="nt">--armor</span> <span class="nt">--output</span> apache-fineract-bin-1.15.0-SNAPSHOT.tar.gz.asc <span class="se">\</span>
-  <span class="nt">--detach-sig</span> apache-fineract-bin-1.15.0-SNAPSHOT.tar.gz
+gpg <span class="nt">--armor</span> <span class="nt">--output</span> apache-fineract-src-1.16.0-SNAPSHOT.tar.gz.asc <span class="se">\</span>
+  <span class="nt">--detach-sig</span> apache-fineract-src-1.16.0-SNAPSHOT.tar.gz
+gpg <span class="nt">--armor</span> <span class="nt">--output</span> apache-fineract-bin-1.16.0-SNAPSHOT.tar.gz.asc <span class="se">\</span>
+  <span class="nt">--detach-sig</span> apache-fineract-bin-1.16.0-SNAPSHOT.tar.gz
 
 <span class="c"># hash</span>
-gpg <span class="nt">--print-md</span> SHA512 apache-fineract-src-1.15.0-SNAPSHOT.tar.gz <span class="se">\</span>
-  <span class="o">&gt;</span> apache-fineract-src-1.15.0-SNAPSHOT.tar.gz.sha512
-gpg <span class="nt">--print-md</span> SHA512 apache-fineract-bin-1.15.0-SNAPSHOT.tar.gz <span class="se">\</span>
-  <span class="o">&gt;</span> apache-fineract-bin-1.15.0-SNAPSHOT.tar.gz.sha512</code></pre>
+gpg <span class="nt">--print-md</span> SHA512 apache-fineract-src-1.16.0-SNAPSHOT.tar.gz <span class="se">\</span>
+  <span class="o">&gt;</span> apache-fineract-src-1.16.0-SNAPSHOT.tar.gz.sha512
+gpg <span class="nt">--print-md</span> SHA512 apache-fineract-bin-1.16.0-SNAPSHOT.tar.gz <span class="se">\</span>
+  <span class="o">&gt;</span> apache-fineract-bin-1.16.0-SNAPSHOT.tar.gz.sha512</code></pre>
 </div>
 </div>
 </div>
@@ -30441,22 +30548,22 @@ gpg <span class="nt">--print-md</span> SHA512 apache-fineract-bin-1.15.0-SNAPSHO
 <div class="ulist">
 <ul>
 <li>
-<p>apache-fineract-bin-1.15.0-SNAPSHOT.tar.gz</p>
+<p>apache-fineract-bin-1.16.0-SNAPSHOT.tar.gz</p>
 </li>
 <li>
-<p>apache-fineract-bin-1.15.0-SNAPSHOT.tar.gz.sha512</p>
+<p>apache-fineract-bin-1.16.0-SNAPSHOT.tar.gz.sha512</p>
 </li>
 <li>
-<p>apache-fineract-bin-1.15.0-SNAPSHOT.tar.gz.asc</p>
+<p>apache-fineract-bin-1.16.0-SNAPSHOT.tar.gz.asc</p>
 </li>
 <li>
-<p>apache-fineract-src-1.15.0-SNAPSHOT.tar.gz</p>
+<p>apache-fineract-src-1.16.0-SNAPSHOT.tar.gz</p>
 </li>
 <li>
-<p>apache-fineract-src-1.15.0-SNAPSHOT.tar.gz.sha512</p>
+<p>apache-fineract-src-1.16.0-SNAPSHOT.tar.gz.sha512</p>
 </li>
 <li>
-<p>apache-fineract-src-1.15.0-SNAPSHOT.tar.gz.asc</p>
+<p>apache-fineract-src-1.16.0-SNAPSHOT.tar.gz.asc</p>
 </li>
 </ul>
 </div>
@@ -30464,7 +30571,7 @@ gpg <span class="nt">--print-md</span> SHA512 apache-fineract-bin-1.15.0-SNAPSHO
 <p>These files (or "artifacts") comprise the release candidate.</p>
 </div>
 <div class="paragraph">
-<p>First, upload these files to <a href="https://release-test.apache.org/compose/fineract/1.15.0-SNAPSHOT" class="bare">release-test.apache.org/compose/fineract/1.15.0-SNAPSHOT</a>. This tool will initiate automated checks on the files. We&#8217;ll come back to those in next step and ensure they pass.</p>
+<p>First, upload these files to <a href="https://release-test.apache.org/compose/fineract/1.16.0-SNAPSHOT" class="bare">release-test.apache.org/compose/fineract/1.16.0-SNAPSHOT</a>. The <code>rsync</code> method seems to work best. After the upload completes, automated checks will run. We&#8217;ll come back to those in next step and ensure they pass.</p>
 </div>
 <div class="paragraph">
 <p>Next, upload these files to <a href="https://www.apache.org/legal/release-policy.html#stage">ASF&#8217;s distribution dev/staging area</a> like so:</p>
@@ -30472,18 +30579,18 @@ gpg <span class="nt">--print-md</span> SHA512 apache-fineract-bin-1.15.0-SNAPSHO
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="bash"><span class="c"># this is a remote operation</span>
-svn <span class="nb">mkdir</span> <span class="nt">-m</span> <span class="s2">"Create Fineract 1.15.0-SNAPSHOT staging area 🏗️"</span> <span class="se">\</span>
-  https://dist.apache.org/repos/dist/dev/fineract/1.15.0-SNAPSHOT
+svn <span class="nb">mkdir</span> <span class="nt">-m</span> <span class="s2">"Create Fineract 1.16.0-SNAPSHOT staging area 🏗️"</span> <span class="se">\</span>
+  https://dist.apache.org/repos/dist/dev/fineract/1.16.0-SNAPSHOT
 
-<span class="c"># create local svn-tracked folder "1.15.0-SNAPSHOT"</span>
-svn checkout https://dist.apache.org/repos/dist/dev/fineract/1.15.0-SNAPSHOT
+<span class="c"># create local svn-tracked folder "1.16.0-SNAPSHOT"</span>
+svn checkout https://dist.apache.org/repos/dist/dev/fineract/1.16.0-SNAPSHOT
 
 <span class="c"># prepare to upload</span>
-<span class="nb">cp </span>path/to/new/folder/<span class="k">*</span> 1.15.0-SNAPSHOT/
-<span class="nb">cd </span>1.15.0-SNAPSHOT/
+<span class="nb">cp </span>path/to/new/folder/<span class="k">*</span> 1.16.0-SNAPSHOT/
+<span class="nb">cd </span>1.16.0-SNAPSHOT/
 
 <span class="c"># actual upload occurs here</span>
-svn add <span class="k">*</span> <span class="o">&amp;&amp;</span> svn commit <span class="nt">-m</span> <span class="s2">"Stage Fineract 1.15.0-SNAPSHOT 🎭"</span></code></pre>
+svn add <span class="k">*</span> <span class="o">&amp;&amp;</span> svn commit <span class="nt">-m</span> <span class="s2">"Stage Fineract 1.16.0-SNAPSHOT 🎭"</span></code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -30504,7 +30611,7 @@ You will need your ASF Committer credentials to be able to access the Subversion
 <div class="listingblock">
 <div class="title">Command</div>
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">./gradlew fineractReleaseStep8 <span class="nt">-Pfineract</span>.release.version<span class="o">=</span>1.15.0-SNAPSHOT</code></pre>
+<pre class="rouge highlight"><code data-lang="bash">./gradlew fineractReleaseStep8 <span class="nt">-Pfineract</span>.release.version<span class="o">=</span>1.16.0-SNAPSHOT</code></pre>
 </div>
 </div>
 <div class="admonitionblock caution">
@@ -30529,7 +30636,7 @@ Gradle task 8 is inefficient. We recommend <code>svn mkdir</code> and other manu
 <p>Following are the typical things we need to verify before voting on a release candidate. And the release manager should verify them too before calling out a vote. Some of these checks are duplicated by <a href="https://release-test.apache.org">the ATR (ASF Trusted Releases) tool</a>, and will need to continue to be duplicated until we get more comfortable with that tool.</p>
 </div>
 <div class="paragraph">
-<p>Make sure release artifacts are hosted at both <a href="https://release-test.apache.org/compose/fineract/1.15.0-SNAPSHOT" class="bare">release-test.apache.org/compose/fineract/1.15.0-SNAPSHOT</a> AND <a href="https://dist.apache.org/repos/dist/dev/fineract" class="bare">dist.apache.org/repos/dist/dev/fineract</a></p>
+<p>Make sure release artifacts are hosted at both <a href="https://release-test.apache.org/compose/fineract/1.16.0-SNAPSHOT" class="bare">release-test.apache.org/compose/fineract/1.16.0-SNAPSHOT</a> AND <a href="https://dist.apache.org/repos/dist/dev/fineract" class="bare">dist.apache.org/repos/dist/dev/fineract</a></p>
 </div>
 <div class="ulist">
 <ul>
@@ -30568,7 +30675,7 @@ Gradle task 8 is inefficient. We recommend <code>svn mkdir</code> and other manu
 <div class="content">
 <pre class="rouge highlight"><code data-lang="bash"><span class="c"># source tarball signature and checksum verification steps</span>
 <span class="c"># we'll check the source tarball first</span>
-<span class="nv">src</span><span class="o">=</span>apache-fineract-src-1.15.0-SNAPSHOT.tar.gz
+<span class="nv">src</span><span class="o">=</span>apache-fineract-src-1.16.0-SNAPSHOT.tar.gz
 
 <span class="c"># upon success: prints "Good signature" and returns successful exit code</span>
 <span class="c"># upon failure: prints "BAD signature" and returns error exit code</span>
@@ -30579,7 +30686,7 @@ gpg <span class="nt">--verify</span> <span class="nv">$src</span>.asc
 gpg <span class="nt">--print-md</span> SHA512 <span class="nv">$src</span> | diff - <span class="nv">$src</span>.sha512
 
 <span class="c"># binary tarball signature and checksum verification steps and outputs are similar</span>
-<span class="nv">bin</span><span class="o">=</span>apache-fineract-bin-1.15.0-SNAPSHOT.tar.gz
+<span class="nv">bin</span><span class="o">=</span>apache-fineract-bin-1.16.0-SNAPSHOT.tar.gz
 gpg <span class="nt">--verify</span> <span class="nv">$bin</span>.asc
 gpg <span class="nt">--print-md</span> SHA512 <span class="nv">$bin</span> | diff - <span class="nv">$bin</span>.sha512</code></pre>
 </div>
@@ -30590,7 +30697,7 @@ gpg <span class="nt">--print-md</span> SHA512 <span class="nv">$bin</span> | dif
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="text">$ gpg --verify $bin.asc
-gpg: assuming signed data in 'apache-fineract-bin-1.15.0-SNAPSHOT.tar.gz'
+gpg: assuming signed data in 'apache-fineract-bin-1.16.0-SNAPSHOT.tar.gz'
 gpg: Signature made Sat 11 Oct 2025 05:46:42 PM PDT
 gpg:                using EDDSA key 250775BDB5FE7D53E4AF95C00E895A1A7A090CFC
 gpg: Good signature from "Adam Monsen &lt;haircut@gmail.com&gt;" [unknown]</code></pre>
@@ -30620,7 +30727,7 @@ gpg:          There is no indication that the signature belongs to the owner.</c
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="bash"><span class="nb">tar</span> <span class="nt">-xzf</span> <span class="nv">$src</span>
-<span class="nb">cd </span>apache-fineract-src-1.15.0-SNAPSHOT
+<span class="nb">cd </span>apache-fineract-src-1.16.0-SNAPSHOT
 ./gradlew build <span class="nt">-x</span> <span class="nb">test</span> <span class="nt">-x</span> doc
 <span class="nb">cd</span> ..</code></pre>
 </div>
@@ -30649,14 +30756,14 @@ The PostgreSQL driver is included. To use MySQL or MariaDB, download the appropr
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash"><span class="nb">tar</span> <span class="nt">-xvzf</span> apache-fineract-bin-1.15.0-SNAPSHOT.tar.gz
-<span class="nb">cd </span>apache-fineract-bin-1.15.0-SNAPSHOT
+<pre class="rouge highlight"><code data-lang="bash"><span class="nb">tar</span> <span class="nt">-xvzf</span> apache-fineract-bin-1.16.0-SNAPSHOT.tar.gz
+<span class="nb">cd </span>apache-fineract-bin-1.16.0-SNAPSHOT
 <span class="nb">export </span><span class="nv">FINERACT_SERVER_SSL_ENABLED</span><span class="o">=</span><span class="nb">false
 export </span><span class="nv">FINERACT_SERVER_PORT</span><span class="o">=</span>8080
 <span class="nb">export </span><span class="nv">BACKEND_PROTOCOL</span><span class="o">=</span>http
 <span class="nb">export </span><span class="nv">BACKEND_PORT</span><span class="o">=</span><span class="nv">$FINERACT_SERVER_PORT</span>
 <span class="c"># assumes reachable, healthy postgresql with default username, password, and port</span>
-java <span class="nt">-jar</span> fineract-provider-1.15.0-SNAPSHOT.jar</code></pre>
+java <span class="nt">-jar</span> fineract-provider-1.16.0-SNAPSHOT.jar</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -30698,7 +30805,7 @@ docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class=
 <div class="listingblock">
 <div class="title">Command</div>
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">./gradlew fineractReleaseStep9 <span class="nt">-Pfineract</span>.release.version<span class="o">=</span>1.15.0-SNAPSHOT</code></pre>
+<pre class="rouge highlight"><code data-lang="bash">./gradlew fineractReleaseStep9 <span class="nt">-Pfineract</span>.release.version<span class="o">=</span>1.16.0-SNAPSHOT</code></pre>
 </div>
 </div>
 <div class="admonitionblock caution">
@@ -30721,6 +30828,9 @@ This task is not yet automated!
 <h5 id="_description_10"><a class="link" href="#_description_10">Description</a></h5>
 <div class="paragraph">
 <p>Initiate voting with <a href="https://release-test.apache.org">the ATR (ASF Trusted Releases) tool</a>.</p>
+</div>
+<div class="paragraph">
+<p>Disable "Automatically publish to SVN when this vote resolves".</p>
 </div>
 </div>
 <div class="sect4">
@@ -30785,8 +30895,8 @@ Use the ATR for this task.
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="bash"><span class="c"># this is a remote operation</span>
-svn <span class="nb">mv</span> <span class="nt">-m</span> <span class="s2">"Release Fineract 1.15.0-SNAPSHOT 🚢"</span> <span class="se">\</span>
-  https://dist.apache.org/repos/dist/dev/fineract/1.15.0-SNAPSHOT <span class="se">\</span>
+svn <span class="nb">mv</span> <span class="nt">-m</span> <span class="s2">"Release Fineract 1.16.0-SNAPSHOT 🚢"</span> <span class="se">\</span>
+  https://dist.apache.org/repos/dist/dev/fineract/1.16.0-SNAPSHOT <span class="se">\</span>
   https://dist.apache.org/repos/dist/release/fineract/</code></pre>
 </div>
 </div>
@@ -30811,7 +30921,7 @@ svn <span class="nb">mv</span> <span class="nt">-m</span> <span class="s2">"Rele
 <div class="listingblock">
 <div class="title">Command</div>
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">./gradlew fineractReleaseStep12 <span class="nt">-Pfineract</span>.release.version<span class="o">=</span>1.15.0-SNAPSHOT</code></pre>
+<pre class="rouge highlight"><code data-lang="bash">./gradlew fineractReleaseStep12 <span class="nt">-Pfineract</span>.release.version<span class="o">=</span>1.16.0-SNAPSHOT</code></pre>
 </div>
 </div>
 <div class="admonitionblock caution">
@@ -30837,11 +30947,11 @@ This task is not yet automated!
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">git checkout develop
-git merge release/1.15.0-SNAPSHOT <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="rouge highlight"><code data-lang="bash">git switch develop
+git merge release/1.16.0-SNAPSHOT <i class="conum" data-value="1"></i><b>(1)</b>
 git push origin develop
-git branch <span class="nt">-D</span> release/1.15.0-SNAPSHOT
-git push origin :release/1.15.0-SNAPSHOT
+git branch <span class="nt">-D</span> release/1.16.0-SNAPSHOT
+git push origin :release/1.16.0-SNAPSHOT
 git describe <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
@@ -30863,7 +30973,7 @@ git describe <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 <div class="listingblock">
 <div class="title">Command</div>
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">./gradlew fineractReleaseStep13 <span class="nt">-Pfineract</span>.release.version<span class="o">=</span>1.15.0-SNAPSHOT</code></pre>
+<pre class="rouge highlight"><code data-lang="bash">./gradlew fineractReleaseStep13 <span class="nt">-Pfineract</span>.release.version<span class="o">=</span>1.16.0-SNAPSHOT</code></pre>
 </div>
 </div>
 <div class="admonitionblock caution">
@@ -32172,8 +32282,8 @@ Find more information at <a href="https://infra.apache.org/publishing-maven-arti
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.15.0-SNAPSHOT<br>
-Last updated Mon Jul 13 09:50:30 PDT 2026 10:19:36 -0700
+Version 1.16.0-SNAPSHOT<br>
+Last updated Tue Jul 14 10:39:07 PDT 2026 10:19:36 -0700
 </div>
 </div>
 </body>

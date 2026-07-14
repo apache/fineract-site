@@ -7,13 +7,18 @@ RewriteRule ^/?(.*)$ https://fineract.apache.org/$1 [L,R=301]
 # so rendered asciidoc can find fonts
 RewriteRule ^fonts/(fontawesome.+)$ docs/database/bower/font-awesome/fonts/$1 [L]
 
+# deprecated "current" release version alias
 RewriteRule ^docs/current(.*)$ docs/stable$1 [R=301,L]
-RewriteRule ^docs/stable(.*)$ docs/1.14.0$1 [L]
+
+# latest stable release version alias
+RewriteRule ^docs/stable(.*)$ docs/1.15.0$1 [L]
 
 # recent / bleeding-edge, built from develop branch of apache/fineract repo
-RewriteRule ^docs/develop(.*)$ docs/1.15.0-SNAPSHOT$1 [L]
+RewriteRule ^docs/develop(.*)$ docs/1.16.0-SNAPSHOT$1 [L]
 
-# candidate for next release
-RewriteRule ^docs/rc(.*)$ docs/1.15.0$1 [L]
+# stub for /docs/rc (enable outside release process)
+RewriteRule ^docs/rc(.*)$ docs/stable$1 [L]
+# candidate for next release (enable during release process)
+#RewriteRule ^docs/rc(.*)$ docs/1.16.0$1 [L]
 
 ErrorDocument 404 /404.html
