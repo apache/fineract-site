@@ -54,6 +54,39 @@ docker run --rm -v "${PWD}:/src" -w /src/site-src fineract-site build
 docker run --rm -it -p 1313:1313 -v "${PWD}:/src" -w /src/site-src fineract-site serve
 ```
 
+## Updating `/docs/VERSION` from a Fineract backend clone
+
+`docs/VERSION` (e.g. `docs/1.16.0-SNAPSHOT`) holds the rendered Fineract API
+documentation built from the [apache/fineract](https://github.com/apache/fineract)
+backend. To refresh it:
+
+1. In your clone of `apache/fineract`, generate the docs:
+
+   ```bash
+   ./gradlew asciidoctor
+   ```
+
+   Make sure the clone's working tree is clean (`git status`) — the commit hash
+   is recorded so the copied doc can be traced back to the exact source commit.
+
+2. Run the `docs` command in the site tool image, mounting both repos:
+
+   ```bash
+   docker run --rm -u "$(id -u):$(id -g)" \
+     -v "$PWD:/src" \
+     -v /path/to/fineract:/fineract:ro \
+     -w /src \
+     fineract-site docs --version 1.16.0-SNAPSHOT
+   ```
+
+   The version can also be set via `FINERACT_DOC_VERSION`, and the backend
+   mount path via `FINERACT_REPO_DIR` (default `/fineract`).
+
+This copies `fineract-doc/build/docs/html/en/index.html` from the backend clone
+into `docs/VERSION/index.html`, then rewrites the Google Fonts and Font Awesome
+CDN links to point at the site's local `css/` stylesheets. Versions ending in
+`-SNAPSHOT` are overwritten; released versions are not.
+
 ## Verifying ASF project website compliance
 
 Apache Whimsy periodically checks that the public homepage follows ASF conventions.

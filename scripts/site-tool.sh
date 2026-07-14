@@ -3,11 +3,12 @@ set -euo pipefail
 
 usage() {
   cat <<'EOF'
-Usage: site-tool <build|check|serve|shell> [args...]
+Usage: site-tool <build|check|docs|serve|shell> [args...]
 
 Commands:
   build  Build site into /src/.build/site and run checks
   check  Run internal link check against /src/.build/site
+  docs   Copy generated Fineract API docs into /src/docs/VERSION
   test   Run unit tests for whimsy checks
   serve  Run hugo server on port 1313
   shell  Open an interactive shell
@@ -52,6 +53,10 @@ run_tests() {
   ruby "${REPO_ROOT}/scripts/test_run_whimsy_checks.rb"
 }
 
+generate_docs() {
+  python3 "${REPO_ROOT}/scripts/generate_docs.py" "$@"
+}
+
 serve_site() {
   cd "${SITE_SRC_DIR}"
   hugo server --bind 0.0.0.0 --baseURL "http://localhost:1313" --buildDrafts --disableFastRender "$@"
@@ -74,6 +79,9 @@ main() {
       ;;
     check)
       run_checks
+      ;;
+    docs)
+      generate_docs "$@"
       ;;
     test)
       run_tests
