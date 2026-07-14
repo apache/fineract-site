@@ -224,11 +224,11 @@ homepage:
     title: "Downloads"
     intro: "Below you'll find official Apache Fineract® releases. We recommend using the latest stable version. Each release includes binary and source distributions with corresponding verification files."
     releases:
-      - version: "1.14.0"
+      - version: "1.15.0"
         status: "current stable"
-      - version: "1.13.0"
+      - version: "1.14.0"
         status: "EOL"
-      - version: "1.12.1"
+      - version: "1.13.0"
         status: "EOL"
     verification:
       icon: "verified_user"
