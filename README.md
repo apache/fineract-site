@@ -66,7 +66,7 @@ backend. To refresh it:
    ./gradlew asciidoctor
    ```
 
-   Make sure the clone's working tree is clean (`git status`) — the commit hash
+   Make sure the clone's working tree is clean (`git status`) -- the commit hash
    is recorded so the copied doc can be traced back to the exact source commit.
 
 2. Run the `docs` command in the site tool image, mounting both repos:
@@ -84,11 +84,12 @@ backend. To refresh it:
 
 This copies `fineract-doc/build/docs/html/en/index.html` from the backend clone
 into `docs/VERSION/index.html`, then rewrites the Google Fonts and Font Awesome
-CDN links to point at the site's local `css/` stylesheets. Versions ending in
-`-SNAPSHOT` are overwritten; released versions are not.
+CDN links to point at the site's local `css/` stylesheets (per Apache project
+website requirements). Versions ending in `-SNAPSHOT` are overwritten; released
+versions are not.
 
-It also writes and `git add`s a `DOCS-LOG-MESSAGE` file (git-ignored) with a suggested commit message referencing the source commit.
-Use it to commit the update:
+It also prepares a suggested commit message referencing the source commit.
+Use it like so:
 
 ```bash
 git commit -F DOCS-LOG-MESSAGE
