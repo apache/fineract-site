@@ -88,8 +88,7 @@ CDN links to point at the site's local `css/` stylesheets (per Apache project
 website requirements). Versions ending in `-SNAPSHOT` are overwritten; released
 versions are not.
 
-It also prepares a suggested commit message referencing the source commit.
-Use it like so:
+It also suggests a commit message. Use it like so:
 
 ```bash
 git commit -F DOCS-LOG-MESSAGE

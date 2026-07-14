@@ -104,7 +104,7 @@ def write_commit_message(version, commit_hash):
         "docs built with `./gradlew asciidoctor` from "
         f"https://github.com/apache/fineract/commit/{commit_hash}\n"
         "\n"
-        "added here using the `fineract-site docs`"
+        "added here using the `fineract-site docs` tool"
     )
     COMMIT_MESSAGE_PATH.write_text(message, encoding="utf-8")
 
