@@ -1,4 +1,4 @@
-name: Site Publish
+name: Generate Static Site
 
 on:
   push:
@@ -10,13 +10,13 @@ permissions:
   contents: write
 
 concurrency:
-  group: site-publish
+  group: generate-static-site
   cancel-in-progress: false
 
 jobs:
-  publish:
-    # Prevent publish loops from bot commits and restrict to upstream repo.
-    if: github.repository == 'apache/fineract-site' && github.actor != 'github-actions[bot]' && (github.event_name != 'push' || !contains(github.event.head_commit.message, '[skip-publish]'))
+  generate:
+    # Prevent loops from bot commits and restrict to upstream repo.
+    if: github.repository == 'apache/fineract-site' && github.actor != 'github-actions[bot]' && (github.event_name != 'push' || !contains(github.event.head_commit.message, '[skip-generate]'))
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -52,14 +52,14 @@ jobs:
             --exclude 'LICENSE.txt' \
             .build/site/ ./
 
-      - name: Commit and push published output
+      - name: Commit and push generated output
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           if git diff --cached --quiet; then
-            echo "No publish changes to commit."
+            echo "No changes to commit."
             exit 0
           fi
-          git commit -m "chore: publish generated site [skip-publish]"
+          git commit -m "bot chore: generate site [skip-generate]"
           git push origin HEAD:asf-site

@@ -58,19 +58,7 @@ docker run --rm -it -p 1313:1313 -v "${PWD}:/src" -w /src/site-src fineract-site
 
 Apache Whimsy periodically checks that the public homepage follows ASF conventions.
 Output of these checks is displayed [here](https://whimsy.apache.org/site/project/fineract).
-24 hours after code is changed and <https://fineract.apache.org> updates, ensure all checks remain green.
-
-## CI/CD
-
-- PR validation workflow: `.github/workflows/site-pr-check.yml`
-  - Builds the same Docker image used locally
-  - Runs build + checks in container
-- Publish workflow: `.github/workflows/site-publish.yml`
-  - Builds on pushes to `asf-site`
-  - Commits generated publish files back to `asf-site` via GitHub Actions
-
-Note: `.build/` is ignored in `.gitignore` and is never pushed.
 
 ## Contributor Guide
 
-See `CONTRIBUTING.md` for branch/PR workflow and validation checklist.
+See `CONTRIBUTING.md` for CI/CD details and branch/PR workflow.

@@ -76,11 +76,19 @@ Do not sign commits with SSH keys. More info:
 
 ## CI Workflows
 
-On push to `asf-site`, GitHub Actions builds the site, edits a clone of the `asf-site` in-place, then commits and pushes generated files.
-
-* PR checks: `.github/workflows/site-pr-check.yml`
-* Publish automation: `.github/workflows/site-publish.yml`
+* Code quality pass: `.github/workflows/site-pr-check.yml`
+  * builds site w/Hugo
+  * checks internal links
+  * ensures Whimsy compliance (local/offline)
+  * runs unit tests against Whimsy compliance code
+* Static site generation: `.github/workflows/generate-static-site.yml`
+  * builds site w/Hugo
+  * checks internal links
+  * ensures Whimsy compliance (local/offline)
+  * commits and pushes changes to generated files, if any exist
 * Ensure commits are signed: `.github/workflows/verify-commits.yml`
+* Maintain actual Whimsy compliance: `.github/workflows/whimsy-daily-check.yml`
+  * checks live Whimsy website daily for compliance
 
 ## Code formatting
 
