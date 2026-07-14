@@ -313,4 +313,4 @@ editing:
     - "The source data for this page is `site-src/data/security.yml`. The page is rendered as `security.html` by Hugo."
     - "Keep entries simple and consistent."
     - "If you change the structure for one CVE entry, do so throughout the document."
-    - "Major headings are releases in descending order (most recent first). Minor headings are CVE IDs, also in descending order. Always use `www.cve.org` for canonical CVE links. Date format for report/fix fields is `YYYY-MM-DD`."
+    - "Major headings are releases in descending order (most recent first). Minor headings are CVE IDs, also in descending order. Always use `www.cve.org` for canonical CVE links. Date format for report/fix fields is YYYY-MM-DD."
