@@ -87,6 +87,13 @@ into `docs/VERSION/index.html`, then rewrites the Google Fonts and Font Awesome
 CDN links to point at the site's local `css/` stylesheets. Versions ending in
 `-SNAPSHOT` are overwritten; released versions are not.
 
+It also writes and `git add`s a `DOCS-LOG-MESSAGE` file (git-ignored) with a suggested commit message referencing the source commit.
+Use it to commit the update:
+
+```bash
+git commit -F DOCS-LOG-MESSAGE
+```
+
 ## Verifying ASF project website compliance
 
 Apache Whimsy periodically checks that the public homepage follows ASF conventions.

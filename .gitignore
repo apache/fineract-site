@@ -9,3 +9,6 @@ site-src/resources/
 
 # Hugo lock file
 site-src/.hugo_build.lock
+
+# Generated commit message for docs/VERSION updates (scripts/generate_docs.py)
+/DOCS-LOG-MESSAGE

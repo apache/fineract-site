@@ -34,6 +34,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_BACKEND_DIR = "/fineract"
 DOC_HTML_RELATIVE_PATH = Path("fineract-doc/build/docs/html/en/index.html")
+COMMIT_MESSAGE_PATH = REPO_ROOT / "DOCS-LOG-MESSAGE"
 
 # Same substitution made by hand in commits like e70425660b42fc705760006141078e870df0a566.
 GOOGLE_FONTS_LINK = (
@@ -92,6 +93,22 @@ def get_commit_hash(backend_dir):
     return run_git(backend_dir, "rev-parse", "HEAD").stdout.strip()
 
 
+def add_to_git(repo_dir, file):
+    return run_git(repo_dir, "add", file).stdout.strip()
+
+
+def write_commit_message(version, commit_hash):
+    message = (
+        f"update /docs/{version}\n"
+        "\n"
+        "docs built with `./gradlew asciidoctor` from "
+        f"https://github.com/apache/fineract/commit/{commit_hash}\n"
+        "\n"
+        "added here using the `fineract-site docs`"
+    )
+    COMMIT_MESSAGE_PATH.write_text(message, encoding="utf-8")
+
+
 def localize_stylesheets(html_path):
     text = html_path.read_text(encoding="utf-8")
     text = text.replace(GOOGLE_FONTS_LINK, LOCAL_STYLESHEET_LINK)
@@ -119,11 +136,6 @@ def main():
     commit_hash = get_commit_hash(backend_dir)
     print(f"Backend commit: {commit_hash}")
 
-    github_output = os.environ.get("GITHUB_OUTPUT")
-    if github_output:
-        with open(github_output, "a", encoding="utf-8") as f:
-            f.write(f"fineract_commit={commit_hash}\n")
-
     dest_dir = REPO_ROOT / "docs" / args.version
     dest_html = dest_dir / "index.html"
     is_snapshot = args.version.endswith("-SNAPSHOT")
@@ -139,6 +151,12 @@ def main():
     localize_stylesheets(dest_html)
 
     print(f"Wrote {dest_html}")
+    add_to_git(dest_dir, dest_html)
+    print(f"Added {dest_html} to Git index")
+
+    write_commit_message(args.version, commit_hash)
+    print(f"Wrote {COMMIT_MESSAGE_PATH}")
+    print(f"Run: git commit -F {COMMIT_MESSAGE_PATH.name}")
 
 
 if __name__ == "__main__":
