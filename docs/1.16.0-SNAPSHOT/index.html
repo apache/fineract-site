@@ -902,7 +902,7 @@ Email: <a href="mailto:dev@fineract.apache.org">dev@fineract.apache.org</a></p>
 <p><strong>Version</strong>: 1.16.0-SNAPSHOT</p>
 </div>
 <div class="paragraph">
-<p><strong>Built on</strong>: Tue Jul 14 10:39:07 PDT 2026</p>
+<p><strong>Built on</strong>: Fri Jul 17 12:44:16 PDT 2026</p>
 </div>
 <div class="paragraph">
 <p>Note the version in the URL path:</p>
@@ -25706,7 +25706,8 @@ This service has a typo and should be called <code>SchedulerWritePlatformService
 <div class="listingblock">
 <div class="title">Retry-able service function <code>postInterest</code></div>
 <div class="content">
-<pre class="rouge highlight"><code data-lang="java">        <span class="k">return</span> <span class="k">new</span> <span class="nc">CommandProcessingResultBuilder</span><span class="o">()</span> <span class="c1">//</span>
+<pre class="rouge highlight"><code data-lang="java">        <span class="n">businessEventNotifierService</span><span class="o">.</span><span class="na">notifyPostBusinessEvent</span><span class="o">(</span><span class="k">new</span> <span class="nc">SavingsPostInterestBusinessEvent</span><span class="o">(</span><span class="n">account</span><span class="o">));</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">CommandProcessingResultBuilder</span><span class="o">()</span> <span class="c1">//</span>
                 <span class="o">.</span><span class="na">withEntityId</span><span class="o">(</span><span class="n">savingsId</span><span class="o">)</span> <span class="c1">//</span>
                 <span class="o">.</span><span class="na">withOfficeId</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">officeId</span><span class="o">())</span> <span class="c1">//</span>
                 <span class="o">.</span><span class="na">withClientId</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">clientId</span><span class="o">())</span> <span class="c1">//</span>
@@ -25746,14 +25747,16 @@ This service has a typo and should be called <code>SchedulerWritePlatformService
             <span class="k">if</span> <span class="o">(</span><span class="n">postInterestAs</span><span class="o">)</span> <span class="o">{</span>
                 <span class="n">postInterestOnDate</span> <span class="o">=</span> <span class="n">transactionDate</span><span class="o">;</span>
             <span class="o">}</span>
-            <span class="kt">boolean</span> <span class="n">postReversals</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-            <span class="n">savingsAccountPostInterestService</span><span class="o">.</span><span class="na">postInterest</span><span class="o">(</span><span class="n">account</span><span class="o">,</span> <span class="n">mc</span><span class="o">,</span> <span class="n">today</span><span class="o">,</span> <span class="n">isInterestTransfer</span><span class="o">,</span></code></pre>
+            <span class="kt">boolean</span> <span class="n">postReversals</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span></code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Fallback function <code>fallbackPostInterest</code></div>
 <div class="content">
-<pre class="rouge highlight"><code data-lang="java">    <span class="nd">@Transactional</span>
+<pre class="rouge highlight"><code data-lang="java">                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Transactional</span>
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="nc">CommandProcessingResult</span> <span class="nf">deleteSavingsAccountCharge</span><span class="o">(</span><span class="kd">final</span> <span class="nc">Long</span> <span class="n">savingsAccountId</span><span class="o">,</span> <span class="kd">final</span> <span class="nc">Long</span> <span class="n">savingsAccountChargeId</span><span class="o">,</span>
             <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">"unused"</span><span class="o">)</span> <span class="kd">final</span> <span class="nc">JsonCommand</span> <span class="n">command</span><span class="o">)</span> <span class="o">{</span>
@@ -25762,10 +25765,7 @@ This service has a typo and should be called <code>SchedulerWritePlatformService
         <span class="kd">final</span> <span class="nc">SavingsAccount</span> <span class="n">savingsAccount</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">savingAccountAssembler</span><span class="o">.</span><span class="na">assembleFrom</span><span class="o">(</span><span class="n">savingsAccountId</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
         <span class="n">checkClientOrGroupActive</span><span class="o">(</span><span class="n">savingsAccount</span><span class="o">);</span>
         <span class="kd">final</span> <span class="nc">SavingsAccountCharge</span> <span class="n">savingsAccountCharge</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">savingsAccountChargeRepository</span>
-                <span class="o">.</span><span class="na">findOneWithNotFoundDetection</span><span class="o">(</span><span class="n">savingsAccountChargeId</span><span class="o">,</span> <span class="n">savingsAccountId</span><span class="o">);</span>
-
-        <span class="n">savingsAccount</span><span class="o">.</span><span class="na">removeCharge</span><span class="o">(</span><span class="n">savingsAccountCharge</span><span class="o">);</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">savingAccountRepositoryWrapper</span><span class="o">.</span><span class="na">saveAndFlush</span><span class="o">(</span><span class="n">savingsAccount</span><span class="o">);</span></code></pre>
+                <span class="o">.</span><span class="na">findOneWithNotFoundDetection</span><span class="o">(</span><span class="n">savingsAccountChargeId</span><span class="o">,</span> <span class="n">savingsAccountId</span><span class="o">);</span></code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -30653,7 +30653,7 @@ Gradle task 8 is inefficient. We recommend <code>svn mkdir</code> and other manu
 <p>Can compile docs and code successfully from source</p>
 </li>
 <li>
-<p>Verify DISCLAIMER, NOTICE and LICENSE (year etc)</p>
+<p>Verify NOTICE and LICENSE (year etc)</p>
 </li>
 <li>
 <p>All files have correct headers (Rat check should be clean - <code>./gradlew rat</code>)</p>
@@ -32283,7 +32283,7 @@ Find more information at <a href="https://infra.apache.org/publishing-maven-arti
 <div id="footer">
 <div id="footer-text">
 Version 1.16.0-SNAPSHOT<br>
-Last updated Tue Jul 14 10:39:07 PDT 2026 10:19:36 -0700
+Last updated Fri Jul 17 12:44:16 PDT 2026 10:19:36 -0700
 </div>
 </div>
 </body>
