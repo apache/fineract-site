@@ -22,7 +22,8 @@ Apache Fineract website source repository for <https://fineract.apache.org>, a H
 
 ## Issue tracker
 
-Issues are on [GitHub](https://github.com/apache/fineract-site/issues) (as of July 20, 2026 -- older ones are in [JIRA](https://issues.apache.org/jira/browse/FINERACT-2664?jql=project%20%3D%20FINERACT%20AND%20component%20%3D%20website))
+Issues are on [GitHub](https://github.com/apache/fineract-site/issues) as of July 20, 2026.
+Older ones are in [JIRA](https://issues.apache.org/jira/browse/FINERACT-2664?jql=project%20%3D%20FINERACT%20AND%20component%20%3D%20website)).
 
 ## Local Build and Checks (Docker)
 
