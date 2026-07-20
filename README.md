@@ -7,7 +7,7 @@ Apache Fineract website source repository for <https://fineract.apache.org>, a H
 - Git
 - Docker
 
-## What's where
+## Guide to this repository
 
 - Sources are in `site-src/` (OK to edit)
 - Static assets (published as-is, OK to edit)
@@ -19,6 +19,10 @@ Apache Fineract website source repository for <https://fineract.apache.org>, a H
   - `.htaccess` → `/.htaccess`
   - `doap_Fineract.rdf` → `/doap_Fineract.rdf`
 - Generated output is in `.build/site` (do not edit)
+
+## Issue tracker
+
+Issues are on [GitHub](https://github.com/apache/fineract-site/issues) (as of July 20, 2026 -- older ones are in [JIRA](https://issues.apache.org/jira/browse/FINERACT-2664?jql=project%20%3D%20FINERACT%20AND%20component%20%3D%20website))
 
 ## Local Build and Checks (Docker)
 

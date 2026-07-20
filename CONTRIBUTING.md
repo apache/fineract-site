@@ -50,6 +50,10 @@ Serve the website, open `http://localhost:1313`, and inspect:
 1. Add content/pages in Hugo (`site-src/content`, `site-src/layouts`, `site-src/data`).
 1. Keep public URL paths stable unless an intentional migration is documented.
 
+## Issue tracker
+
+Use GitHub Issues.
+
 ## Pull Requests
 
 1. Clone/fork the repository.
