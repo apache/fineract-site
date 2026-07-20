@@ -1,9 +1,17 @@
+project:
+  metadata:
+    key: fineract-site
+    committee: fineract
+    name: Apache Fineract project website
 publish:
   whoami: asf-site
 notifications:
   commits: commits@fineract.apache.org
   pullrequests: issues@fineract.apache.org
 github:
+  description: 🌐 Apache Fineract project website
+  features:
+    issues: true
   enabled_merge_buttons:
     merge: true
     squash: false
