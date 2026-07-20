@@ -298,7 +298,7 @@ class WhimsyChecksTest < Minitest::Test
   def test_trademarks_passes
     html = <<~HTML
       <html><body>
-        <p>Apache Fineract, Apache, the Apache feather are trademarks of The Apache Software Foundation.</p>
+        <p>Apache Fineract, Apache, the Apache logo are trademarks of The Apache Software Foundation.</p>
       </body></html>
     HTML
     data = parse_html(html)
