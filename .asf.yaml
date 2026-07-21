@@ -8,6 +8,7 @@ publish:
 notifications:
   commits: commits@fineract.apache.org
   pullrequests: issues@fineract.apache.org
+  issues: issues@fineract.apache.org
 github:
   description: 🌐 Apache Fineract project website
   features:
