@@ -150,13 +150,13 @@ def main():
     shutil.copy2(source_html, dest_html)
     localize_stylesheets(dest_html)
 
-    print(f"Wrote {dest_html}")
+    print(f"Localized stylesheets and updated {dest_html}")
     add_to_git(dest_dir, dest_html)
     print(f"Added {dest_html} to Git index")
 
     write_commit_message(args.version, commit_hash)
-    print(f"Wrote {COMMIT_MESSAGE_PATH}")
-    print(f"Run: git commit -F {COMMIT_MESSAGE_PATH.name}")
+    print(f"Created {COMMIT_MESSAGE_PATH}")
+    print(f"Now YOU can run 👉 git commit -F {COMMIT_MESSAGE_PATH.name}")
 
 
 if __name__ == "__main__":
