@@ -31,6 +31,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from check_doc_diagrams import broken_diagrams
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_BACKEND_DIR = "/fineract"
 DOC_HTML_RELATIVE_PATH = Path("fineract-doc/build/docs/html/en/index.html")
@@ -63,6 +65,12 @@ def parse_args():
         default=os.environ.get("FINERACT_REPO_DIR", DEFAULT_BACKEND_DIR),
         help="Path to the apache/fineract clone "
         f"(default: $FINERACT_REPO_DIR or {DEFAULT_BACKEND_DIR})",
+    )
+    parser.add_argument(
+        "--replace-release",
+        action="store_true",
+        help="Overwrite docs for a released version, e.g. to republish a broken "
+        "build from the same release tag",
     )
     args = parser.parse_args()
     if not args.version:
@@ -132,6 +140,14 @@ def main():
             "'./gradlew asciidoctor' in the backend clone."
         )
 
+    broken = broken_diagrams(source_html.read_text(encoding="utf-8", errors="ignore"))
+    if broken:
+        sys.exit(
+            f"{source_html} has {len(broken)} diagram(s) rendered as a PlantUML error "
+            f"('{broken[0]}'). Install Graphviz (`dot`), then rebuild with "
+            "'./gradlew asciidoctor' after deleting fineract-doc/build."
+        )
+
     require_clean_git_status(backend_dir)
     commit_hash = get_commit_hash(backend_dir)
     print(f"Backend commit: {commit_hash}")
@@ -140,10 +156,11 @@ def main():
     dest_html = dest_dir / "index.html"
     is_snapshot = args.version.endswith("-SNAPSHOT")
 
-    if dest_html.exists() and not is_snapshot:
+    if dest_html.exists() and not is_snapshot and not args.replace_release:
         sys.exit(
             f"{dest_html} already exists and {args.version} is not a -SNAPSHOT "
-            "version. Refusing to overwrite a released doc."
+            "version. Refusing to overwrite a released doc (pass --replace-release "
+            "to republish it from the same release tag)."
         )
 
     dest_dir.mkdir(parents=True, exist_ok=True)

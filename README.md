@@ -74,6 +74,14 @@ backend. To refresh it:
    Make sure the clone's working tree is clean (`git status`) -- the commit hash
    is recorded so the copied doc can be traced back to the exact source commit.
 
+   Install Graphviz (`dot`), plus `vl2vg` and `vg2svg` (`npm install -g vega-cli
+   vega-lite`), first. Without them the build still succeeds but leaves
+   diagrams out: PlantUML draws a "Cannot find Graphviz" error image in place of
+   each of its diagrams. `fineract-site docs` refuses such a page, and
+   `fineract-site build` fails on any already in `docs/`
+   (`scripts/check_doc_diagrams.py`). After installing Graphviz, delete
+   `fineract-doc/build` before rebuilding, as generated diagrams are cached.
+
 2. Run the `docs` command in the site tool image, mounting both repos:
 
    ```bash
@@ -91,7 +99,8 @@ This copies `fineract-doc/build/docs/html/en/index.html` from the backend clone
 into `docs/VERSION/index.html`, then rewrites the Google Fonts and Font Awesome
 CDN links to point at the site's local `css/` stylesheets (per Apache project
 website requirements). Versions ending in `-SNAPSHOT` are overwritten; released
-versions are not.
+versions are not, unless you pass `--replace-release` to republish one from the
+same release tag (e.g. to fix a broken build).
 
 It also suggests a commit message. Use it like so:
 

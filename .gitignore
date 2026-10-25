@@ -12,3 +12,6 @@ site-src/.hugo_build.lock
 
 # Generated commit message for docs/VERSION updates (scripts/generate_docs.py)
 /DOCS-LOG-MESSAGE
+
+# Python bytecode from running the scripts/ unit tests
+__pycache__/
