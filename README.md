@@ -108,6 +108,57 @@ It also suggests a commit message. Use it like so:
 git commit -F DOCS-LOG-MESSAGE
 ```
 
+Then point the matching `/docs/` alias at it, which also stages the change and
+adds a note to `DOCS-LOG-MESSAGE`:
+
+```bash
+python3 .github/scripts/docs_aliases.py --version 1.17.0 --alias stable
+python3 .github/scripts/docs_aliases.py --version 1.18.0-SNAPSHOT --alias develop
+```
+
+`stable` points `/docs/stable` (and so `/docs/current`) at a release. `develop`
+points `/docs/develop` at a `-SNAPSHOT` and the commented `/docs/rc` candidate
+at the release after it, and when the snapshot version has rolled, removes the
+previous snapshot folder so Git records a rename instead of keeping both. With
+no new release it changes nothing.
+
+### Automated docs sync
+
+`.github/workflows/docs-sync.yml` does all of the above every Monday and opens
+a PR against `asf-site`:
+
+- `develop` → refreshes `docs/X.Y.Z-SNAPSHOT` (`/docs/develop`), skipped when
+  `develop` has not moved or only the build timestamp changed.
+- The newest `X.Y.Z` release tag with no `docs/X.Y.Z/` yet → adds it and
+  points `/docs/stable` at it.
+
+Run it by hand from the Actions tab (`ref`, `dry_run` and `force` inputs).
+
+The workflow only calls `.github/scripts/docs-sync.sh` and
+`.github/scripts/docs-sync-pr.sh`, so it can be verified locally with the same
+commands. Needs Java 25, Graphviz, Node.js, `jq` and Docker:
+
+```bash
+npm ci --prefix .github/docs-sync --ignore-scripts
+export PATH="$PWD/.github/docs-sync/node_modules/.bin:$PATH"
+
+.github/scripts/docs-sync.sh plan                  # what a scheduled run would build
+.github/scripts/docs-sync.sh build develop develop # or: build 1.16.0 stable
+ALIAS=develop VERSION=1.17.0-SNAPSHOT .github/scripts/docs-sync-pr.sh
+```
+
+`build` clones apache/fineract into `.build/fineract` (override with
+`BACKEND_DIR`) and leaves the result staged, as the workflow would commit it.
+
+Unit tests and workflow lint:
+
+```bash
+docker run --rm -v "$PWD:/src" -w /src/site-src fineract-site test
+docker run --rm -v "$PWD:/repo:ro" -w /repo ghcr.io/zizmorcore/zizmor --persona=pedantic .github/workflows/docs-sync.yml
+docker run --rm -v "$PWD:/repo:ro" -w /repo rhysd/actionlint .github/workflows/docs-sync.yml
+docker run --rm -v "$PWD:/mnt:ro" -w /mnt koalaman/shellcheck .github/scripts/docs-sync.sh .github/scripts/docs-sync-pr.sh
+```
+
 ## Verifying ASF project website compliance
 
 Apache Whimsy periodically checks that the public homepage follows ASF conventions.

@@ -53,6 +53,7 @@ run_checks() {
 run_tests() {
   ruby "${REPO_ROOT}/scripts/test_run_whimsy_checks.rb"
   python3 -m unittest discover -s "${REPO_ROOT}/scripts" -p 'test_*.py'
+  python3 -m unittest discover -s "${REPO_ROOT}/.github/scripts" -p 'test_*.py'
 }
 
 generate_docs() {

@@ -1,0 +1,185 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements. See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership. The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License. You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied. See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+# Rebuilds /docs/ from apache/fineract and opens a PR, so nobody has to run
+# `./gradlew asciidoctor` and `fineract-site docs` by hand (see README.md):
+#
+# - develop: refreshes the -SNAPSHOT docs that /docs/develop serves. When the
+#   backend's version rolls after a release, the previous snapshot folder is
+#   renamed and the /docs/develop and commented /docs/rc lines move with it.
+# - release: when the newest X.Y.Z tag has no docs/X.Y.Z/ yet, adds it and
+#   points /docs/stable (and so /docs/current) at it.
+name: Fineract Docs Sync
+
+on:
+  schedule:
+    # Mondays, off the hour to avoid the top-of-hour scheduler crowd.
+    - cron: '23 5 * * 1'
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'apache/fineract ref to build. Empty: develop, plus the newest release tag if its docs are missing. An X.Y.Z tag publishes release docs; anything else builds -SNAPSHOT docs.'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Do everything except open the PR; upload the result instead.'
+        type: boolean
+        required: false
+        default: false
+      force:
+        description: 'Rebuild develop even if its head is the commit the current snapshot docs came from.'
+        type: boolean
+        required: false
+        default: false
+
+# Nothing at workflow level; each job takes only what it needs.
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}
+  # Never abandon a run that may have already pushed a sync branch.
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    name: Decide which docs to rebuild
+    # Scheduled runs in forks would only fail to open PRs.
+    if: github.repository == 'apache/fineract-site'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    outputs:
+      targets: ${{ steps.plan.outputs.targets }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # The commit messages written by `fineract-site docs` are the record
+          # of which backend commit each docs folder came from.
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Plan
+        id: plan
+        env:
+          REF: ${{ inputs.ref }}
+          FORCE: ${{ inputs.force }}
+        run: .github/scripts/docs-sync.sh plan "$REF"
+
+  docs:
+    name: Build docs for ${{ matrix.target.ref }}
+    needs: plan
+    if: needs.plan.outputs.targets != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write # push the sync branch
+      pull-requests: write # open or update the PR
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ${{ fromJSON(needs.plan.outputs.targets) }}
+    env:
+      REF: ${{ matrix.target.ref }}
+      ALIAS: ${{ matrix.target.alias }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # create-pull-request pushes with its own token input, not the
+          # credential helper, so nothing here needs persisted credentials.
+          persist-credentials: false
+
+      - name: Set up Java
+        uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+          # No `cache: gradle`: this job has contents: write, and a cache in a
+          # write-capable workflow is what zizmor's cache-poisoning audit is about.
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 'lts/*'
+
+      # PlantUML needs Graphviz for most diagrams; without it they are published
+      # as "Cannot find Graphviz" images (#66). Not on the runner image.
+      - name: Install Graphviz
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends graphviz
+          dot -V
+
+      # asciidoctor-diagram shells out to these for the Vega-Lite diagrams.
+      # Without them the build still succeeds but leaves the diagrams out.
+      # Locked in .github/docs-sync; --ignore-scripts skips vega-cli's optional
+      # native canvas build, which vg2svg does not need.
+      - name: Install Vega CLI tools
+        run: |
+          npm ci --prefix .github/docs-sync --ignore-scripts --no-audit --no-fund
+          echo "$PWD/.github/docs-sync/node_modules/.bin" >> "$GITHUB_PATH"
+
+      # Everything from cloning the backend to validating the site; see the
+      # script for the details and for running it locally.
+      - name: Build the docs
+        id: build
+        env:
+          BACKEND_DIR: ${{ runner.temp }}/fineract
+        run: .github/scripts/docs-sync.sh build "$REF" "$ALIAS"
+
+      - name: Compose the commit message and PR body
+        id: message
+        if: steps.build.outputs.changed == 'true'
+        env:
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          VERSION: ${{ steps.build.outputs.version }}
+        run: .github/scripts/docs-sync-pr.sh
+
+      - name: Upload the result
+        if: always() && steps.build.outputs.changed == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: docs-sync-${{ steps.build.outputs.version }}
+          path: |
+            .build/asciidoctor.log
+            ${{ runner.temp }}/commit-message.txt
+            ${{ runner.temp }}/pr-body.md
+            docs/${{ steps.build.outputs.version }}/index.html
+          if-no-files-found: warn
+          retention-days: 7
+
+      # Not `gh pr create`: sign-commits makes GitHub sign the commit, and
+      # verify-commits.yml rejects unsigned ones.
+      - name: Create or update the pull request # zizmor: ignore[superfluous-actions]
+        if: steps.build.outputs.changed == 'true' && inputs.dry_run != true
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          # PRs opened with this token do not trigger other workflows, which is
+          # why the build step already runs site-pr-check.yml's build and checks.
+          token: ${{ github.token }}
+          base: asf-site
+          # Fixed per target: a re-run updates the same PR instead of opening another.
+          branch: ${{ steps.message.outputs.branch }}
+          delete-branch: false
+          # verify-commits.yml rejects unsigned commits.
+          sign-commits: true
+          add-paths: |
+            docs
+            .htaccess
+          commit-message: ${{ steps.message.outputs.message }}
+          title: ${{ steps.message.outputs.title }}
+          body-path: ${{ steps.message.outputs.body-path }}

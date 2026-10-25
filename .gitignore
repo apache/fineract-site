@@ -13,5 +13,8 @@ site-src/.hugo_build.lock
 # Generated commit message for docs/VERSION updates (scripts/generate_docs.py)
 /DOCS-LOG-MESSAGE
 
+# Vega CLI tools for .github/scripts/docs-sync.sh
+/.github/docs-sync/node_modules/
+
 # Python bytecode from running the scripts/ unit tests
 __pycache__/

@@ -1,0 +1,10 @@
+{
+  "name": "fineract-site-docs-sync",
+  "private": true,
+  "description": "Diagram tools asciidoctor-diagram needs to render the Vega-Lite diagrams in the Fineract docs (used by .github/workflows/docs-sync.yml).",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "vega-cli": "6.4.0",
+    "vega-lite": "6.5.0"
+  }
+}
