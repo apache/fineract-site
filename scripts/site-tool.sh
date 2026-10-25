@@ -9,7 +9,7 @@ Commands:
   build  Build site into /src/.build/site and run checks
   check  Run internal link check against /src/.build/site
   docs   Copy generated Fineract API docs into /src/docs/VERSION
-  test   Run unit tests for whimsy checks
+  test   Run unit tests for whimsy checks and docs tooling
   serve  Run hugo server on port 1313
   shell  Open an interactive shell
 EOF
@@ -46,11 +46,13 @@ run_whimsy_checks() {
 
 run_checks() {
   python3 "${REPO_ROOT}/scripts/check_internal_links.py" --site-root "${REPO_ROOT}/.build/site"
+  python3 "${REPO_ROOT}/scripts/check_doc_diagrams.py" --docs-root "${REPO_ROOT}/docs"
   run_whimsy_checks
 }
 
 run_tests() {
   ruby "${REPO_ROOT}/scripts/test_run_whimsy_checks.rb"
+  python3 -m unittest discover -s "${REPO_ROOT}/scripts" -p 'test_*.py'
 }
 
 generate_docs() {
