@@ -108,6 +108,8 @@ It also suggests a commit message. Use it like so:
 git commit -F DOCS-LOG-MESSAGE
 ```
 
+After updating docs, update `.htaccess`.
+
 ## Verifying ASF project website compliance
 
 Apache Whimsy periodically checks that the public homepage follows ASF conventions.
