@@ -3,6 +3,31 @@ intro:
   - "This page lists all security vulnerabilities fixed in released versions of Apache Fineract®. Each vulnerability is reported via [the ASF process](http://www.apache.org/security/) and given a security impact rating."
   - "If you have identified a security issue, let us know immediately via email to security AT fineract.apache.org. And be sure to [secure your server](https://fineract.apache.org/docs/current/#_securing_fineract)!"
 releases:
+  - id: "fixed-in-apache-fineract-1.16.1"
+    version: "1.16.1"
+    entries:
+      - id: "cve-2026-64618"
+        cve_id: "CVE-2026-64618"
+        url: "https://www.cve.org/CVERecord?id=CVE-2026-64618"
+        title: "sql injection in search api"
+        description: "SQL Injection vulnerability in Apache Fineract's advanced Search API (/api/v1/search/advance) via the outStandingAmountPercentageCondition parameter."
+        report: "2026-04-10"
+        fix: "2026-07-23"
+        affects: "1.15.0 and earlier releases"
+        thanks:
+          - "Thank you thiscodecc of MoyunSec Vlab and Bing for identifying and reporting the issue."
+          - "Thank you Ádám Sághy for fixing it."
+      - id: "cve-2026-65874"
+        cve_id: "CVE-2026-65874"
+        url: "https://www.cve.org/CVERecord?id=CVE-2026-65874"
+        title: "sql injection via order by parameters in the center and datatables endpoints"
+        description: "Time-based blind SQL Injection vulnerability in Apache Fineract's Center and datatable entry read endpoints, where the orderBy, sortOrder and order parameters are concatenated into the ORDER BY clause and the regex-based validation can be bypassed."
+        report: "2026-07-01"
+        fix: "2026-08-18"
+        affects: "1.15.0 and earlier releases"
+        thanks:
+          - "Thank you Abdullah Kareem and Louis Van der Walt (Lateran Technologies) for identifying and reporting the issue."
+          - "Thank you Terence Monteiro and Victor Romero for fixing it."
   - id: "fixed-in-apache-fineract-1.15.0"
     version: "1.15.0"
     entries:
